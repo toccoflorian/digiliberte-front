@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './vehicules-list.component.scss'
 })
 export class VehiculesListComponent {
-
+  /* Récupération de l'objet task envoyé par le composant parent soit TasksList */
+  @Input() task: VehiculeInterface | undefined;
 }
