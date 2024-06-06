@@ -1,6 +1,6 @@
 import ILocalization from './ILocalisation';
 
-export default interface IVehicule {
+export default interface IGetOneVehicleVehicleWithRent {
   VehiculeId: string;
   BrandName: string;
   ModelName: string;
