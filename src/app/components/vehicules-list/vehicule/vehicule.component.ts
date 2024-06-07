@@ -1,4 +1,4 @@
-import { Component, Input,SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import IGetOneVehicule from '../../../../interfaces/IGetOneVehicule';
@@ -14,9 +14,7 @@ export class VehiculeComponent {
   /* Récupération de l'objet task envoyé par le composant parent soit TasksList */
   @Input() vehicules!: IGetOneVehicule;
 
-  constructor(private http: HttpClient) {
-    // console.log(this.vehicule);
-  }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
 }

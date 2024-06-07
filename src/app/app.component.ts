@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { VehiculesListComponent } from './components/vehicules-list/vehicules-list.component';
-import { VehiculeRentComponent } from './components/vehicules-list/vehicule-rent/vehicule-rent.component';
+import { ReservationsListComponent } from './components/reservations-list/reservations-list.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ import { VehiculeRentComponent } from './components/vehicules-list/vehicule-rent
     RouterLink,
     RouterLinkActive,
     VehiculesListComponent,
-    VehiculeRentComponent,
+    ReservationsListComponent,
   ],
 })
 export class AppComponent {

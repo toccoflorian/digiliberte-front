@@ -1,6 +1,5 @@
 import { VehiculeComponent } from './vehicule/vehicule.component';
-import { VehiculeRentComponent } from './vehicule-rent/vehicule-rent.component';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import IGetOneVehicule from '../../../interfaces/IGetOneVehicule';
 import { VehiculesService } from '../../../services/vehicules/vehicules.service';
@@ -8,13 +7,12 @@ import { VehiculesService } from '../../../services/vehicules/vehicules.service'
 @Component({
   selector: 'app-vehicules-list',
   standalone: true,
-  imports: [CommonModule, VehiculeComponent, VehiculeRentComponent],
+  imports: [CommonModule, VehiculeComponent],
   templateUrl: './vehicules-list.component.html',
   styleUrl: './vehicules-list.component.scss',
 })
 export class VehiculesListComponent {
   public vehicules: IGetOneVehicule[] = [];
-  public vehiculesRent: IGetOneVehicule[] = [];
 
   constructor(private VehiculesService: VehiculesService) {}
 
@@ -24,7 +22,7 @@ export class VehiculesListComponent {
     this.VehiculesService.loadVehicules().subscribe({
       next: (vehicules: IGetOneVehicule[]) => {
         this.vehicules = vehicules;
-        console.log('vehicules', vehicules);
+        // console.log('vehicules : ', vehicules);
         return vehicules;
       },
       error: (error) => {
