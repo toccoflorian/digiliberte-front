@@ -1,1 +1,19 @@
-<p>vehicule works!</p>
+<div *ngIf="vehicules !== undefined" class="vehiculeCard d-flex justify-content-between my-3 align-items-center">
+  <h2 class="vehiculeTitle">
+
+  </h2>
+  <div class="vehiculeDesc">
+    <ul>
+      <li class="listTitle m-0 ">  {{ vehicules.brandName }} {{vehicules.modelName}}</li>
+      <li class="m-0"> Immatriculation : {{ vehicules.immatriculation }}</li>
+      <li class="m-0"> Marque : {{ vehicules.modelName }}</li>
+      <li class="m-0"> Catégorie : {{ vehicules.categoryName }}</li>
+      <li class="m-0"> Motorization : {{ vehicules.motorizationName }}</li>
+      <li class="m-0"> CO2/Km : {{ vehicules.cO2 }}</li>
+      <li class="m-0"> Nombre de place :{{ vehicules.seatsNumber }}</li>
+    </ul>
+    <div>
+      <img src="{{vehicules.pictureUrl}}" alt="vehicule_picture">
+    </div>
+  </div>
+  <div>
