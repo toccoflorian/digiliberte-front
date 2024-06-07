@@ -1,4 +1,5 @@
 import { VehiculeComponent } from './vehicule/vehicule.component';
+import { VehiculeRentComponent } from './vehicule-rent/vehicule-rent.component';
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import IGetOneVehicule from '../../../interfaces/IGetOneVehicule';
@@ -7,12 +8,13 @@ import { VehiculesService } from '../../../services/vehicules/vehicules.service'
 @Component({
   selector: 'app-vehicules-list',
   standalone: true,
-  imports: [CommonModule, VehiculeComponent],
+  imports: [CommonModule, VehiculeComponent, VehiculeRentComponent],
   templateUrl: './vehicules-list.component.html',
   styleUrl: './vehicules-list.component.scss',
 })
 export class VehiculesListComponent {
   public vehicules: IGetOneVehicule[] = [];
+  public vehiculesRent: IGetOneVehicule[] = [];
 
   constructor(private VehiculesService: VehiculesService) {}
 

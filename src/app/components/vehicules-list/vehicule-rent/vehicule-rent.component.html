@@ -1,0 +1,17 @@
+<div *ngIf="vehiculesRent !== undefined" class="vehiculeCard d-flex justify-content-between my-3 align-items-center">
+  <h2 class="vehiculeTitle">
+
+  </h2>
+  <div class="vehiculeDesc">
+    <ul>
+      <li>Vehicule Rent</li>
+      <li class="listTitle m-0 "> {{ vehiculesRent.brandName }} {{vehiculesRent.modelName}}</li>
+      <li class="m-0"> Motorization : {{ vehiculesRent.motorizationName }}</li>
+      <li class="m-0"> Catégories : {{ vehiculesRent.categoryName }}</li>
+      <li class="m-0"> Nombre de place :{{ vehiculesRent.seatsNumber }}</li>
+    </ul>
+    <div>
+      <img src="{{vehiculesRent.pictureUrl}}" alt="vehicule_picture">
+    </div>
+  </div>
+  <div>
