@@ -40,9 +40,6 @@ export class HeaderComponent {
   }
 
   userIsLoged(): boolean{
-    if(JSON.parse(localStorage.getItem('authToken')!)){
-      return true;
-    }
-    return false;
+    return this._authenticationService.getIsLogedUserBooleanValue();
   }
 }
