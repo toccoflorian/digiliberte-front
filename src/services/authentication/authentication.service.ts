@@ -11,31 +11,31 @@ import Token from '../../models/token';
 })
 export class AuthenticationService {
   private _tokenSubject: BehaviorSubject<Token>;
-  public token$!: Observable<ILoginResponseDTO>;
+  private _isLogedUser: BehaviorSubject<boolean>;
+  public isLogedUser$: Observable<boolean>;
 
   constructor(private _httpClient: HttpClient, private _router: Router) {
     this._tokenSubject = new BehaviorSubject<Token>(JSON.parse(localStorage.getItem('authToken')!));
-    this.token$ = this._tokenSubject.asObservable();
+    this._isLogedUser = new BehaviorSubject<boolean>(JSON.parse(localStorage.getItem('authToken')!) ? true : false);
+    this.isLogedUser$ = this._isLogedUser.asObservable();
   }
 
-  public login(loginRequestDTO: ILoginRequest): Observable<ILoginResponseDTO>{
-    return this._httpClient.post<ILoginResponseDTO>("https://localhost:7193/login", loginRequestDTO)
+  public login(loginRequestDTO: ILoginRequest): void{
+    this._httpClient.post<ILoginResponseDTO>("http://localhost:5212/login", loginRequestDTO)
       .pipe(map( token => {
         if(token.accessToken){
           localStorage.setItem('authToken', JSON.stringify(token));
           this._tokenSubject.next(token);
+          this._isLogedUser.next(true);
         }
-        return token;
       })
-    )
+    ).subscribe(()=>{
+      this._router.navigate(['/'])
+    })
   }
 
-  public get tokenValue(): any{
-    return this._tokenSubject.value;
-  }
-  
-  public get isLogedUser(): boolean{
-    return this.tokenValue ? true : false;
-  }
+getIsLogedUserBooleanValue(): boolean{
+  return JSON.parse(localStorage.getItem('authToken')!) ? true : false;
+}
 }
  

@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication/authentication.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -13,13 +14,11 @@ export class HeaderComponent {
   public mobilMenuIsVisible: boolean = false;
   public visibleSubMenu: Record<string, boolean> = {carpool: false, rent: false, infos: false};
   public visibilitySubMenuTimeout: any;
-  public userIsLoged!: boolean;
 
   constructor(private _authenticationService: AuthenticationService){
   }
   
   ngOnInit(): void{
-    this.userIsLoged = this._authenticationService.isLogedUser;
   }
 
   displaySubMenu(name: string): void{
@@ -38,5 +37,12 @@ export class HeaderComponent {
         this.visibleSubMenu[key] = false;
       }
     }, 500);
+  }
+
+  userIsLoged(): boolean{
+    if(JSON.parse(localStorage.getItem('authToken')!)){
+      return true;
+    }
+    return false;
   }
 }
