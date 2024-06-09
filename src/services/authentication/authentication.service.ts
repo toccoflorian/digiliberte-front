@@ -35,7 +35,7 @@ export class AuthenticationService {
   }
 
 getIsLogedUserBooleanValue(): boolean{
-  return JSON.parse(localStorage.getItem('authToken')!) ? true : false;
+  return localStorage.getItem('authToken') ? true : false;
 }
 }
  
