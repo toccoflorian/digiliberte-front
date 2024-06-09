@@ -1,1 +1,17 @@
-<p>reservation works!</p>
+<div *ngIf="vehiculesResevation !== undefined"
+  class="vehiculeCard d-flex justify-content-between my-3 align-items-center">
+  <h2 class="vehiculeTitle">
+
+  </h2>
+  <div class="vehiculeDesc">
+    <ul>
+      <li class="listTitle m-0 ">{{ vehiculesResevation.brandName }} {{vehiculesResevation.modelName}}</li>
+      <li class="m-0"> Motorization : {{ vehiculesResevation.motorizationName }}</li>
+      <li class="m-0"> Catégories : {{ vehiculesResevation.categoryName }}</li>
+      <li class="m-0"> Nombre de place :{{ vehiculesResevation.seatsNumber }}</li>
+    </ul>
+    <div>
+      <img src="{{vehiculesResevation.pictureUrl}}" alt="vehicule_picture">
+    </div>
+  </div>
+  <div>
