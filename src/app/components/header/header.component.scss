@@ -68,7 +68,6 @@ header{
                             cursor: pointer;
                             a{
                                 text-decoration: none;
-                                font-family: Roboto sans-serif;
                             }
                         }
                     } 
@@ -84,6 +83,7 @@ header{
             display: none;
         }
         width: 400px;
+        
         ul{
             margin: 0 20px 0 0;
             padding: 0;
@@ -93,7 +93,13 @@ header{
             height: 100%;
 
             li{
-                cursor: default;
+                cursor: default; 
+                height: 100%;
+                width: 100%;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
     }
@@ -116,6 +122,7 @@ header{
                 padding-left: 15px;
                 li{
                     margin-bottom: 20px;
+
                     a{
                         
                     }
@@ -123,11 +130,11 @@ header{
             }
         }
     }
-    .carpoolSubMenu{
+    .rentSubMenu{
         left: calc(100% - 410px);
     }
-    .rentSubMenu{
-        right: 25px;
+    .carpoolSubMenu{
+        right: 55px;
     }
     .infosSubMenu{
         right: 0;

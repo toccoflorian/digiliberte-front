@@ -17,9 +17,7 @@ export class LoginComponent implements OnInit{
   public loginForm!: FormGroup;
   private loginFormValue!: any;
 
-  constructor(
-    private _authenticationService: AuthenticationService, 
-    private _router: Router){}
+  constructor(private _authenticationService: AuthenticationService){}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -31,12 +29,6 @@ export class LoginComponent implements OnInit{
   onLoginSubmit(event: Event): void{
     event.preventDefault();
     this.loginFormValue = this.loginForm.value;
-    this._authenticationService.login(new LoginRequest(this.loginFormValue.email, this.loginFormValue.password)).subscribe({
-      next: ()=>{
-        this._router.navigate(['/'])
-      },
-      error: (error)=>{console.log('error', error.Message);}
-    })
+    this._authenticationService.login(new LoginRequest(this.loginFormValue.email, this.loginFormValue.password));
   }
-
 }
