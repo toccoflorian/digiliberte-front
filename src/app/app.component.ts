@@ -23,6 +23,6 @@ import { TitleboxComponent } from './components/titlebox/titlebox.component';
     ReservationsListComponent,
   ],
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'CarShare-front';
 }
