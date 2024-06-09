@@ -1,1 +1,12 @@
-<p>reservations-list works!</p>
+<div>
+  @if (vehiculesReservation.length){
+  <div class="m-0 p-0">
+    <p *ngFor="let vehiculeReserve of vehiculesReservation" class="list-unstyled">
+      <!-- Envoi de la donnée vehicule qui sera récupérée via @Input vehicule -->
+      <app-reservation [vehiculesResevation]="vehiculeReserve"></app-reservation>
+    </p>
+  </div>
+  } @else {
+  <p>Pas de véhicules à exécuter !!!</p>
+  }
+</div>
