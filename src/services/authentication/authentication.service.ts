@@ -34,5 +34,8 @@ export class AuthenticationService {
     return this._tokenSubject.value;
   }
   
+  public get isLogedUser(): boolean{
+    return this.tokenValue ? true : false;
+  }
 }
  
