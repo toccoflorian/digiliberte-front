@@ -1,3 +1,6 @@
+@use "../../../assets/scss/media-queries.scss" as MQ;
+
+
 header{
     background-color: #E6E6E6;
     height: 45px;
@@ -12,9 +15,9 @@ header{
     }
 
     .mobilMenuIcon{
-        @media screen and (min-width: 700px) {
+        @include MQ.large-screen{
             display: none;
-        }
+        };
         cursor: pointer;
         margin-right: 10px;
         position: relative;
@@ -22,7 +25,7 @@ header{
     }
 
     .mobilMenuContainer{
-        @media screen and (min-width: 700px) {
+        @include MQ.large-screen {
             display: none;
         }
         position: absolute;
@@ -79,7 +82,7 @@ header{
 
 
     .menu{
-        @media screen and (max-width: 700px) {
+        @include MQ.small-screen{
             display: none;
         }
         width: 400px;

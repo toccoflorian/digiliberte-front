@@ -3,17 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../../services/authentication/authentication.service';
 import { LoginRequest } from '../../../interfaces/authentication/loginRequest';
-import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './login.page.html',
+  styleUrl: './login.page.scss'
 })
-export class LoginComponent implements OnInit{
+export class LoginPageComponent implements OnInit{
   public loginForm!: FormGroup;
   private loginFormValue!: any;
 

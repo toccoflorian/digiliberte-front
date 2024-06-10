@@ -1,27 +1,63 @@
-footer{
-    background-color: #3A3A3A;
-    box-shadow: 1px 4px 8px 1px black;
-    height: 130px;
-    display: flex;
-    font-size: 0.7rem;
+@use "../../../assets/scss/media-queries.scss" as MQ;
 
-    *{
-        margin: 0;
-        padding: 0;
+
+
+footer{
+    @include MQ.small-screen{
+        .footerContent, .footerCarShareLogoBig{display: none; }
+
+        .footerMobilcontainer{
+            box-shadow: 2px -1px 4px 2px lightgray;
+            background-color: #E6E6E6;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 5px;
+            cursor: default;
+            
+            a{
+                cursor: pointer;
+                max-width: 50px;   
+                min-width: 50px;   
+                display: flex;
+                justify-content: center;
+                overflow: hidden;
+                img{
+                    cursor: inherit;
+                }
+            }
+        }
     }
 
-    .footerContent{
+    @include MQ.large-screen{
+        .footerMobilcontainer{display: none;}
+
+        background-color: #3A3A3A;
+        box-shadow: 1px 4px 8px 1px black;
+        height: 130px;
         display: flex;
-        justify-content: space-evenly;
-        width: 100%;
+        font-size: 0.7rem;
 
-        .containers{
-            padding-top: 15px;
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        .footerContent{
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
 
-            h3{
-                margin-bottom: 10px;
-            }
-            .elementWithLogo{
+            .containers{
+                padding-top: 15px;
+
+                h3{
+                    margin-bottom: 10px;
+                }
+                .elementWithLogo{
                     li{
                         display: flex;
                         img{
@@ -31,12 +67,14 @@ footer{
                             padding-top: 2px;
                         }
                     }
-            }
-            ul{
-                li{
-                    margin-bottom: 5px;
+                }
+                ul{
+                    li{
+                        margin-bottom: 5px;
+                    }
                 }
             }
         }
     }
 }
+
