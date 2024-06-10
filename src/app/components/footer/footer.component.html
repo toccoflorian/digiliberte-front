@@ -1,5 +1,34 @@
 <footer>
-    <img src="assets/images/carShareLogoBig.png" alt="" height="110px">
+
+    <div class="footerMobilcontainer">
+        <a routerLink="/rent">
+            @if(isActive('/rent')){
+
+                <img src="../../../assets/icons/serviceVehicleIcon.svg" alt="" height="35px">
+            }@else {
+
+                <img src="../../../assets/icons/serviceVehicleIconGray.svg" alt="" height="35px">
+            }
+        </a>
+
+        <a routerLink="/carpool">
+            @if(isActive('/carpool')){
+                <img src="../../../assets/icons/infosIcon.svg" alt="" height="35px"/>
+            }@else {
+                <img src="../../../assets/icons/carpoolIconGray.svg" alt="" height="35px">
+            }
+        </a>
+
+        <a routerLink="/infos">
+            @if(isActive('/infos')){
+                <img src="../../../assets/icons/infosIcon.svg" alt="" height="35px"/>
+            }@else {
+                <img src="../../../assets/icons/infosIconGray.svg" alt="" height="35px"/>
+            }
+        </a>
+    </div>
+
+    <img src="assets/images/carShareLogoBig.png" alt="" class="footerCarShareLogoBig" height="110px">
     <div class="footerContent">
         <div class="containers">
             <h3>Nous suivre</h3>
