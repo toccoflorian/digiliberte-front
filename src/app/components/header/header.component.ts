@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../../../services/security/authentication.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -15,10 +15,14 @@ export class HeaderComponent {
   public visibleSubMenu: Record<string, boolean> = {carpool: false, rent: false, infos: false};
   public visibilitySubMenuTimeout: any;
 
-  constructor(private _authenticationService: AuthenticationService){
+  constructor(private _authenticationService: AuthenticationService, private _router: Router){
   }
   
   ngOnInit(): void{
+  }
+
+  public handleClickLogout(): void{
+    this._authenticationService.logout();
   }
 
   displaySubMenu(name: string): void{
