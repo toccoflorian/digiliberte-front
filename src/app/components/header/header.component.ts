@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../../../services/authentication/authentication.service';
+import { AuthenticationService } from '../../../services/security/authentication.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -40,6 +40,6 @@ export class HeaderComponent {
   }
 
   userIsLoged(): boolean{
-    return this._authenticationService.getIsLogedUserBooleanValue();
+    return this._authenticationService.isLogedUser();
   }
 }

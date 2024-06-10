@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthenticationService } from '../../../services/authentication/authentication.service';
+import { AuthenticationService } from '../../../services/security/authentication.service';
 import { LoginRequest } from '../../../interfaces/authentication/loginRequest';
 
 
@@ -22,12 +22,12 @@ export class LoginPageComponent implements OnInit{
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
-    })
+    });
   }
  
   onLoginSubmit(event: Event): void{
     event.preventDefault();
     this.loginFormValue = this.loginForm.value;
-    this._authenticationService.login(new LoginRequest(this.loginFormValue.email, this.loginFormValue.password));
+    this._authenticationService.login(new LoginRequest(this.loginFormValue.email, this.loginFormValue.password), );
   }
 }
