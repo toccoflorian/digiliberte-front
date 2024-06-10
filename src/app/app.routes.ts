@@ -14,7 +14,7 @@ export const routes: Routes = [
             {path: 'login', component: LoginPageComponent },
             // Nouvelle page (ex: rent.page.ts) ici = {path: 'rent', component: RentPageComponent, canActivate: [AuthGuardService] }
             // Une page est un composant mais on remplace .component.ts par .page.ts et le nom de la class on met namePageComponent
-            // ensuite pour naviguer vers elle on fait (depuis le html d'un composant): <a routerLink="/rent" />
+            // ensuite pour naviguer vers elle on fait (depuis le html d'un composant): <a routerLink="/rent" /> (ne pas oublier de l'importer)
             // Attention, c'est '/rent' dans le <a/> mais 'rent' ici dans path:
         ],
         // canActivate: [AuthGuardService]
