@@ -25,14 +25,19 @@ export class AuthenticationService {
     })
   }
 
-isLogedUser(): boolean{
-  return localStorage.getItem('authToken') ? true : false;
-}
+  public logout(): void{
+    localStorage.removeItem('authToken');
+    this._router.navigate(['/login']);
+  }
 
-isAdmin(): Observable<boolean>{
-  return this._httpClient.get<string[]>('http://localhost:5212/api/auth/getrole').pipe(
-    map((roles: string[]) => {return roles.includes(identityRoleEnum.admin)})
-  )
-}
+  public isLogedUser(): boolean{
+    return localStorage.getItem('authToken') ? true : false;
+  }
+
+  public isAdmin(): Observable<boolean>{
+    return this._httpClient.get<string[]>('http://localhost:5212/api/auth/getrole').pipe(
+      map((roles: string[]) => {return roles.includes(identityRoleEnum.admin)})
+    )
+  }
 }
  
