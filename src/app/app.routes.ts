@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
 import { LoginPageComponent } from './pages/login/login.page';
-import { AuthGuardService } from '../services/authentication/auth-guard.service';
+import { AuthGuardService } from '../services/security/auth-guard.service';
 import { MainLayoutComponent } from './layouts/main/main.layout';
 import { HomePage } from './pages/home/home.page';
+import { RoleGuardService } from '../services/security/role-guard.service';
 
 export const routes: Routes = [
     
