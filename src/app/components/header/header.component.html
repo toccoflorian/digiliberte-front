@@ -40,13 +40,26 @@
 
     <div class="menu">
         <ul>
+            @if(userIsAdmin$ | async){
+                <li (mouseover)="displaySubMenu('admin')" (mouseout)="unDisplaySubMenu('admin')">Admin</li>
+            }
             <li (mouseover)="displaySubMenu('rent')" (mouseout)="unDisplaySubMenu('rent')">Locations</li>
             <li (mouseover)="displaySubMenu('carpool')" (mouseout)="unDisplaySubMenu('carpool')">Covoiturages</li>
             <li (mouseover)="displaySubMenu('infos')" (mouseout)="unDisplaySubMenu('infos')">Compte</li>
         </ul>
     </div>
     
-
+    @if(userIsAdmin$ && visibleSubMenu['admin']){
+        <div class="subMenu adminSubMenu" (mouseover)="displaySubMenu('admin')" (mouseout)="unDisplaySubMenu('admin')">
+            <img src="assets/icons/serviceVehicleIcon.svg">
+            <nav>
+                <ul>
+                    <li><a routerLink="">Véhicules</a></li>
+                    <li><a routerLink="">Utilisateurs</a></li>
+                </ul>
+            </nav>
+        </div>
+    }
     @if(visibleSubMenu['rent']){
         <div class="subMenu rentSubMenu" (mouseover)="displaySubMenu('rent')" (mouseout)="unDisplaySubMenu('rent')">
             <img src="assets/icons/serviceVehicleIcon.svg">

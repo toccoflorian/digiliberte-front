@@ -88,7 +88,7 @@ header{
         @include MQ.small-screen{
             display: none;
         }
-        width: 400px;
+        width: 450px;
         
         ul{
             margin: 0 20px 0 0;
@@ -139,8 +139,11 @@ header{
             }
         }
     }
+    .adminSubMenu{
+
+    }
     .rentSubMenu{
-        left: calc(100% - 410px);
+        left: calc(100% - 375px);
     }
     .carpoolSubMenu{
         right: 85px;

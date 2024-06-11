@@ -4,6 +4,8 @@ import { AuthGuardService } from '../services/security/auth-guard.service';
 import { MainLayoutComponent } from './layouts/main/main.layout';
 import { HomePage } from './pages/home/home.page';
 import { RoleGuardService } from '../services/security/role-guard.service';
+import { AdminHomePageComponent } from './admin-pages/admin-home/admin-home.page';
+import { NotAdminComponent } from './admin-pages/not-admin/not-admin.page';
 
 export const routes: Routes = [
     
@@ -13,12 +15,22 @@ export const routes: Routes = [
         children: [
             {path: '', component: HomePage, canActivate: [AuthGuardService]},  // canActivate: [AuthGuardService] pour rendre la page accessible aux connectés uniquement
             {path: 'login', component: LoginPageComponent },
+            {path: 'notAdmin', component: NotAdminComponent, canActivate: [AuthGuardService]}
+            // {path: 'admin', component: AdminHomePageComponent, canActivate: [AuthGuardService, RoleGuardService]},
             // Nouvelle page (ex: rent.page.ts) ici = {path: 'rent', component: RentPageComponent, canActivate: [AuthGuardService] }
             // Une page est un composant mais on remplace .component.ts par .page.ts et le nom de la class on met namePageComponent
             // ensuite pour naviguer vers elle on fait (depuis le html d'un composant): <a routerLink="/rent" /> (ne pas oublier de l'importer)
             // Attention, c'est '/rent' dans le <a/> mais 'rent' ici dans path:
         ],
         // canActivate: [AuthGuardService]
+    },
+    {
+        path: 'admin',
+        component: MainLayoutComponent,
+        children: [
+            {path: '', component: AdminHomePageComponent}
+        ],
+        canActivate: [AuthGuardService, RoleGuardService]
     }
 ];
 
