@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../../../services/security/authentication.service';
 import { Router, RouterLink } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -12,13 +13,12 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class HeaderComponent {
   public mobilMenuIsVisible: boolean = false;
-  public visibleSubMenu: Record<string, boolean> = {carpool: false, rent: false, infos: false};
+  public visibleSubMenu: Record<string, boolean> = {admin: false, carpool: false, rent: false, infos: false};
   public visibilitySubMenuTimeout: any;
+  public userIsAdmin$!: Observable<boolean>;
 
   constructor(private _authenticationService: AuthenticationService, private _router: Router){
-  }
-  
-  ngOnInit(): void{
+    this.userIsAdmin$ = _authenticationService.userIsAdmin$
   }
 
   public handleClickLogout(): void{
