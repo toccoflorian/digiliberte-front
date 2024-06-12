@@ -74,7 +74,7 @@ export class GeoNavbarComponent {
         }
       });
   }
-
+  // permet de binder le retour du component à autre choses
   onOptionSelected(event: any) {
     const selectedLabel = event.option.value;
     this.geoService.getAddressDetails(selectedLabel).subscribe((details) => {
@@ -84,7 +84,6 @@ export class GeoNavbarComponent {
       };
       console.log("Selected Coordinates:", this.selectedCoordinates);
       this.coordonnesSelectionne.emit(this.selectedCoordinates);
-      // You can now bind these coordinates to something else or use them as needed
     });
   }
 }
