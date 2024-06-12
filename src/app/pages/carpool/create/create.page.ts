@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './create.page.html',
   styleUrl: './create.page.scss'
 })
-export class CreatePageComponent {
+export class CreateCarpoolPageComponent {
 
 }

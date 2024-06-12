@@ -4,9 +4,11 @@ import { Component } from '@angular/core';
   selector: 'app-my-carpools',
   standalone: true,
   imports: [],
-  templateUrl: './my-carpools.component.html',
-  styleUrl: './my-carpools.component.scss'
+  templateUrl: './my-carpools.page.html',
+  styleUrl: './my-carpools.page.scss'
 })
 export class MyCarpoolsPageComponent {
-
+  constructor(){
+    console.log('yeeees')
+  }
 }

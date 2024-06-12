@@ -10,6 +10,8 @@ import { NotAdminComponent } from './admin-pages/not-admin/not-admin.page';
 import { VehiculesListComponent } from './components/vehicules-list/vehicules-list.component';
 import { CarouselCarsComponent } from './components/carouselCars/carouselCars.component';
 import { CarouselRentComponent } from './components/carouselRent/carousel-rent.component';
+import { CreateCarpoolPageComponent } from './pages/carpool/create/create.page';
+import { MyCarpoolsPageComponent } from './pages/carpool/my-carpools/my-carpools.page';
 
 export const routes: Routes = [
   {
@@ -33,6 +35,15 @@ export const routes: Routes = [
       // Attention, c'est '/rent' dans le <a/> mais 'rent' ici dans path:
     ],
     // canActivate: [AuthGuardService]
+  },
+  {
+    path : 'carpool',
+    component : MainLayoutComponent,
+    children: [
+      // { path : '', component} RAJOUTER PAGE RECHERCHE CARPOOL POUR PATH VIDE
+      { path : 'createCarpool', component: CreateCarpoolPageComponent},
+      { path : 'myCarpool', component: MyCarpoolsPageComponent}
+    ]
   },
   {
     path: 'admin',
