@@ -1,21 +1,22 @@
-<swiper-container navigation="true">
-  <swiper-slide *ngFor="let vehicule of vehicules; let i = index">
-    <div class="vehiculeCard">
-      <div class="vehiculeDesc">
-        <ul>
-          <li class="listCardTitle">{{vehicule.brandName}} {{vehicule.modelName}}</li>
-          <li class="cardRentModel">Modèle : {{vehicule.modelName}}</li>
-          <li class="cardRentCtegorie">Catégories : {{vehicule.categoryName}}</li>
-          <li>Nombre de places : 2 {{vehicule.seatsNumber}}</li>
-        </ul>
-      </div>
-      <div class="imageCard">
-        <img [src]="getImageUrl(vehicule)" alt="vehicule_Picture">
-      </div>
-      <div class="btnNavCard">
-        <button title="btnReserver">Reserver</button>
-        <button title="btnAnnuler">Annuler</button>
-      </div>
+<div *ngIf="vehiculeRent">
+  <div class="vehiculeCard">
+    <div class="vehiculeDesc">
+      <ul>
+        <li class="listCardTitle">{{ vehiculeRent.brandName }} {{ vehiculeRent.modelName }}</li>
+        <li>Immatriculation : {{ vehiculeRent.immatriculation }}</li>
+        <li>Marque : {{ vehiculeRent.brandName }}</li>
+        <li>Modèle : {{ vehiculeRent.modelName }}</li>
+        <li>Catégories : {{ vehiculeRent.categoryName }}</li>
+        <li>Motorisation : {{ vehiculeRent.motorizationName }}</li>
+        <li>CO2/Km : {{ vehiculeRent.cO2 }}</li>
+        <li>Nombre de places : {{ vehiculeRent.seatsNumber }}</li>
+      </ul>
     </div>
-  </swiper-slide>
-</swiper-container>
+    <div class="imageCard">
+      <img [src]="getImageUrl(vehiculeRent)" alt="vehicule_Picture">
+    </div>
+  </div>
+</div>
+<div *ngIf="!vehiculeRent">
+  <p>Véhicule introuvable.</p>
+</div>

@@ -3,22 +3,30 @@ import { VehiculesService } from '../../../services/vehicules/vehicules.service'
 import { VehiculeComponent } from '../vehicules-list/vehicule/vehicule.component';
 import { CommonModule } from '@angular/common';
 import IGetOneVehicule from '../../../interfaces/IGetOneVehicule';
+import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.scss',
+  imports: [CommonModule, MatIconModule],
+  templateUrl: './carouselCars.component.html',
+  styleUrl: './carouselCars.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class CarouselComponent {
+export class CarouselCarsComponent {
   public vehicules: IGetOneVehicule[] = [];
 
-  constructor(private VehiculesService: VehiculesService) {}
+  constructor(
+    private VehiculesService: VehiculesService,
+    private router: Router
+  ) {}
 
   getImageUrl(vehicules: { pictureUrl: string }) {
     return `./../../../assets/vehiculesPictures/${vehicules.pictureUrl}`;
+  }
+  navigateToCarouselRent(vehicleId: string): void {
+    this.router.navigate(['/carouselRent', vehicleId]);
   }
 
   ngOnInit(): void {

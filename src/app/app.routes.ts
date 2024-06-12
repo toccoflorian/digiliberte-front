@@ -8,7 +8,8 @@ import { RoleGuardService } from '../services/security/role-guard.service';
 import { AdminHomePageComponent } from './admin-pages/admin-home/admin-home.page';
 import { NotAdminComponent } from './admin-pages/not-admin/not-admin.page';
 import { VehiculesListComponent } from './components/vehicules-list/vehicules-list.component';
-import { CarouselComponent } from './components/carouselCars/carousel.component';
+import { CarouselCarsComponent } from './components/carouselCars/carouselCars.component';
+import { CarouselRentComponent } from './components/carouselRent/carousel-rent.component';
 
 export const routes: Routes = [
   {
@@ -23,7 +24,8 @@ export const routes: Routes = [
         canActivate: [AuthGuardService],
       },
       { path: 'vehicules', component: VehiculesListComponent },
-      { path: 'carousel', component: CarouselComponent },
+      { path: 'carouselCars', component: CarouselCarsComponent },
+      { path: 'carouselRent/:id', component: CarouselRentComponent },
       // {path: 'admin', component: AdminHomePageComponent, canActivate: [AuthGuardService, RoleGuardService]},
       // Nouvelle page (ex: rent.page.ts) ici = {path: 'rent', component: RentPageComponent, canActivate: [AuthGuardService] }
       // Une page est un composant mais on remplace .component.ts par .page.ts et le nom de la class on met namePageComponent

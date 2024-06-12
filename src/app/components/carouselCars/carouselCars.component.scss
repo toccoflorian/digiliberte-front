@@ -28,6 +28,16 @@
   button{
     margin: 0.5rem;
     border-radius: 50%;
+    }
+
+  .btnReserve{
+    background-color: green;
+    color: white;
+  }
+
+  .btnClose{
+    background-color: red;
+    color: white;
   }
 
   img{
@@ -50,3 +60,4 @@
   .carRentModel{
     margin-top: 0.5rem;
   }
+
