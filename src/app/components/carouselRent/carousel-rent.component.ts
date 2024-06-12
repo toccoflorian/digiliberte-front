@@ -1,40 +1,50 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import IGetOneVehicule from '../../../interfaces/IGetOneVehicule';
-import { VehiculesService } from '../../../services/vehicules/vehicules.service';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { VehiculesService } from '../../../services/vehicules/vehicules.service';
+import IGetOneVehicule from '../../../interfaces/IGetOneVehicule';
 
 @Component({
   selector: 'app-carousel-rent',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './carousel-rent.component.html',
-  styleUrl: './carousel-rent.component.scss',
+  styleUrls: ['./carousel-rent.component.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class CarouselRentComponent {
-  public vehicules: IGetOneVehicule[] = [];
+export class CarouselRentComponent implements OnInit {
+  public vehiculeRent!: IGetOneVehicule;
 
-  constructor(private VehiculesService: VehiculesService) {}
-
-  getImageUrl(vehicules: { pictureUrl: string }) {
-    return `./../../../assets/vehiculesPictures/${vehicules.pictureUrl}`;
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private vehiculesService: VehiculesService
+  ) {}
 
   ngOnInit(): void {
-    // Voilà la souscription
-    // Quand il y aura une notification next, alors vehicules sera réassignée
-    this.VehiculesService.loadVehicules().subscribe({
-      next: (vehicules: IGetOneVehicule[]) => {
-        this.vehicules = vehicules;
-        // console.log('vehicules : ', vehicules);
-        return vehicules;
-      },
-      error: (error) => {
-        console.error(
-          `Erreur catchée dans le composant vehicules-list : `,
-          error
-        );
-      },
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('id'); // Récupération de l'ID depuis les paramètres de l'URL
+      if (id !== null) {
+        this.vehiculesService
+          .loadRentVehiculeById(id) // Utiliser la méthode pour charger le véhicule par ID
+          .subscribe({
+            next: (vehiculeRent: IGetOneVehicule) => {
+              this.vehiculeRent = vehiculeRent;
+              console.log('Véhicule trouvé:', this.vehiculeRent);
+            },
+            error: (error) => {
+              console.error(
+                'Erreur lors de la récupération du véhicule:',
+                error
+              );
+            },
+          });
+      } else {
+        console.error('ID est null');
+      }
     });
+  }
+
+  getImageUrl(vehicule: IGetOneVehicule): string {
+    return `./../../../assets/vehiculesPictures/${vehicule.pictureUrl}`;
   }
 }
