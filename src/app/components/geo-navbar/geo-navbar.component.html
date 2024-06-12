@@ -1,0 +1,10 @@
+<form>
+    <mat-form-field>
+        <input type="text" placeholder="Adresse" aria-label="Adresse" matInput [formControl]="monAdresseControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
+            @for (item of adresseObservable | async; track $index) {
+                <mat-option [value]="item.properties.label"> {{item.properties.label}}</mat-option>
+            }
+        </mat-autocomplete>
+    </mat-form-field>
+</form>

@@ -1,3 +1,4 @@
+
 import { Routes } from '@angular/router';
 import { LoginPageComponent } from './pages/login/login.page';
 import { AuthGuardService } from '../services/security/auth-guard.service';
@@ -36,5 +37,4 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [{ path: '', component: AdminHomePageComponent }],
     canActivate: [AuthGuardService, RoleGuardService],
-  },
-];
+  }]
