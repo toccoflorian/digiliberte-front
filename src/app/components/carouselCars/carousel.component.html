@@ -1,0 +1,46 @@
+<swiper-container navigation="true">
+  <swiper-slide *ngFor="let vehicule of vehicules; let i = index">
+    <div class="vehiculeCard">
+      <div class="vehiculeDesc">
+        <ul>
+          <li class="listCardTitle">{{vehicule.brandName}} {{vehicule.modelName}}</li>
+          <li>Immatriculation : {{vehicule.immatriculation}}</li>
+          <li>Merque : {{vehicule.brandName}}</li>
+          <li>Modèle : {{vehicule.modelName}}</li>
+          <li>Catégories : {{vehicule.categoryName}}</li>
+          <li>Motorization : {{vehicule.motorizationName}}</li>
+          <li>CO2/Km : {{vehicule.cO2}}</li>
+          <li>Nombre de places : 2 {{vehicule.seatsNumber}}</li>
+        </ul>
+      </div>
+      <div class="imageCard">
+        <img [src]="getImageUrl(vehicule)" alt="vehicule_Picture">
+      </div>
+      <div class="btnNavCard">
+        <button title="btnReserver">Reserver</button>
+        <button title="btnAnnuler">Annuler</button>
+      </div>
+    </div>
+  </swiper-slide>
+</swiper-container>
+<swiper-container navigation="true">
+  <swiper-slide *ngFor="let vehicule of vehicules; let i = index">
+    <div class="vehiculeCard">
+      <div class="vehiculeDesc">
+        <ul>
+          <li class="listCardTitle">{{vehicule.brandName}} {{vehicule.modelName}}</li>
+          <li class="cardRentModel">Modèle : {{vehicule.modelName}}</li>
+          <li class="cardRentCtegorie">Catégories : {{vehicule.categoryName}}</li>
+          <li>Nombre de places : 2 {{vehicule.seatsNumber}}</li>
+        </ul>
+      </div>
+      <div class="imageCard">
+        <img [src]="getImageUrl(vehicule)" alt="vehicule_Picture">
+      </div>
+      <div class="btnNavCard">
+        <button title="btnReserver">Reserver</button>
+        <button title="btnAnnuler">Annuler</button>
+      </div>
+    </div>
+  </swiper-slide>
+</swiper-container>

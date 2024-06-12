@@ -1,0 +1,51 @@
+.vehiculeCard
+{
+  width: 96%;
+  max-height: 8rem;
+  margin: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  font-size: 8px;
+  gap: 2rem;
+  border-radius: 10px;
+
+  .imageCard{
+    width: 40%;
+  }
+  .vehiculeDesc{
+    margin-top: 1rem;
+  }
+
+}
+
+  .btnNavCard{
+    text-align: center;
+  }
+
+  button{
+    margin: 1rem;
+  }
+
+  img{
+    margin: auto;
+    height: 6rem;
+    margin-top: 1rem;
+    border: solid yellow 2px;
+    border-radius: 10px;
+  }
+  .listCardTitle{
+    font-weight: bolder;
+    font-size: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .cardRentCtegorie{
+    margin: 0.5rem 0;
+  }
+
+  .carRentModel{
+    margin-top: 0.5rem;
+  }

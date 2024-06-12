@@ -1,7 +1,7 @@
 <div>
   @if (vehicules.length){
   <div class="m-0 p-0">
-    <p *ngFor="let vehicule of vehicules" class="list-unstyled">
+    <p *ngFor="let vehicule of vehicules" class=" list-unstyled">
       <!-- Envoi de la donnée vehicule qui sera récupérée via @Input vehicule -->
       <app-vehicule [vehicules]="vehicule"></app-vehicule>
     </p>
