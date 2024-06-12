@@ -9,5 +9,5 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 // import { JwtInterceptorService } from '../services/authentication/jwt-interceptor.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideHttpClient(withInterceptors([JwtInterceptor])), provideAnimationsAsync()]
-};
+  providers: [provideRouter(routes), provideHttpClient(withInterceptors([JwtInterceptor])), provideAnimationsAsync('noop')]
+}
