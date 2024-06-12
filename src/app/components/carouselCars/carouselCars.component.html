@@ -4,7 +4,7 @@
       <div class="vehiculeDesc">
         <ul>
           <li class="listCardTitle">{{vehicule.brandName}} {{vehicule.modelName}}</li>
-          <li>{{vehicule.immatriculation}}</li>
+          <li>{{vehicule.vehiculeId}}</li>
           <li>Immatriculation : {{vehicule.immatriculation}}</li>
           <li>Marque : {{vehicule.brandName}}</li>
           <li>Modèle : {{vehicule.modelName}}</li>
@@ -16,14 +16,14 @@
       </div>
       <div class="imageCard">
         <img [src]="getImageUrl(vehicule)" alt="vehicule_Picture">
-      <div class="btnNavCard">
-        <button title="btnReserve" class="btnReserve" (click)="navigateToCarouselRent(vehicule.immatriculation)">
-          <mat-icon>check</mat-icon>
-        </button>
-        <button title="btnClose" class="btnClose">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </div>
+        <div class="btnNavCard">
+          <button title="btnReserve" class="btnReserve" (click)="navigateToCarouselRent(vehicule.immatriculation)">
+            <mat-icon>check</mat-icon>
+          </button>
+          <button title="btnClose" class="btnClose">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
   </swiper-slide>

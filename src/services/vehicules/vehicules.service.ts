@@ -39,7 +39,7 @@ export class VehiculesService {
     return this.http.get<Array<IGetOneVehicule>>(url, { params });
   }
   // Méthode pour charger un véhicule par ID
-  loadRentVehiculeById(id: string): Observable<IGetOneVehicule> {
+  loadVehiculeByImmat(id: string): Observable<IGetOneVehicule> {
     const url = `https://localhost:7193/api/Vehicle/GetVehicleByImmat?immat=${id}`;
 
     return this.http.get<IGetOneVehicule>(url);
