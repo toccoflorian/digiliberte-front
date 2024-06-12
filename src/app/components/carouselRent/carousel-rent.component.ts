@@ -23,21 +23,17 @@ export class CarouselRentComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id'); // Récupération de l'ID depuis les paramètres de l'URL
+      console.log('params', params.get('id'));
       if (id !== null) {
-        this.vehiculesService
-          .loadRentVehiculeById(id) // Utiliser la méthode pour charger le véhicule par ID
-          .subscribe({
-            next: (vehiculeRent: IGetOneVehicule) => {
-              this.vehiculeRent = vehiculeRent;
-              console.log('Véhicule trouvé:', this.vehiculeRent);
-            },
-            error: (error) => {
-              console.error(
-                'Erreur lors de la récupération du véhicule:',
-                error
-              );
-            },
-          });
+        this.vehiculesService.loadRentVehiculeById(id).subscribe({
+          next: (vehiculeRent: IGetOneVehicule) => {
+            this.vehiculeRent = vehiculeRent;
+            console.log('Véhicule trouvé:', this.vehiculeRent);
+          },
+          error: (error) => {
+            console.error('Erreur lors de la récupération du véhicule:', error);
+          },
+        });
       } else {
         console.error('ID est null');
       }
