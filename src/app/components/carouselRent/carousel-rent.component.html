@@ -4,12 +4,8 @@
       <div class="vehiculeDesc">
         <ul>
           <li class="listCardTitle">{{vehicule.brandName}} {{vehicule.modelName}}</li>
-          <li>Immatriculation : {{vehicule.immatriculation}}</li>
-          <li>Merque : {{vehicule.brandName}}</li>
-          <li>Modèle : {{vehicule.modelName}}</li>
-          <li>Catégories : {{vehicule.categoryName}}</li>
-          <li>Motorization : {{vehicule.motorizationName}}</li>
-          <li>CO2/Km : {{vehicule.cO2}}</li>
+          <li class="cardRentModel">Modèle : {{vehicule.modelName}}</li>
+          <li class="cardRentCtegorie">Catégories : {{vehicule.categoryName}}</li>
           <li>Nombre de places : 2 {{vehicule.seatsNumber}}</li>
         </ul>
       </div>
@@ -17,10 +13,9 @@
         <img [src]="getImageUrl(vehicule)" alt="vehicule_Picture">
       </div>
       <div class="btnNavCard">
-        <button title="btnReserve">Reserver</button>
-        <button title="btnAnnuler">X</button>
+        <button title="btnReserver">Reserver</button>
+        <button title="btnAnnuler">Annuler</button>
       </div>
     </div>
   </swiper-slide>
 </swiper-container>
-
