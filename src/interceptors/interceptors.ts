@@ -5,13 +5,20 @@ export const JwtInterceptor = (req: HttpRequest<any>, next: HttpHandlerFn): Obse
     const token = JSON.parse(localStorage.getItem('authToken') ? localStorage.getItem('authToken')! : 'null');
     if(token){
       if(req.url.includes('http://localhost:5212') || req.url.includes('https://localhost:7193')){
-        req = req.clone({
+    console.log('intercept yes');
+    console.log('body', req);
+        const req2 = req.clone({
           setHeaders: {
-            Authorization: `${token.tokenType} ${token.accessToken}`
-          }
+            Authorization: `${token.tokenType} ${token.accessToken}`,
+            
+          },
+          
+          
         })
+      return next(req2);
       }
     }
+    console.log('intercept no');
     return next(req);
   }
   

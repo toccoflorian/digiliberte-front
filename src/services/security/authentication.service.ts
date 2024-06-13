@@ -20,6 +20,7 @@ export class AuthenticationService {
 
   public login(loginRequestDTO: ILoginRequest): void{
     this._httpClient.post<ILoginResponseDTO>("http://localhost:5212/login", loginRequestDTO)
+    // this._httpClient.post<ILoginResponseDTO>("https://localhost:7193/login", loginRequestDTO)
       .pipe(tap( token => {
         if(token.accessToken){
           localStorage.setItem('authToken', JSON.stringify(token));
@@ -44,6 +45,7 @@ export class AuthenticationService {
   public checkUserIsAdmin(): Observable<boolean> | undefined{
     if (this.isLogedUser()) {
       return this._httpClient.get<string[]>('http://localhost:5212/api/auth/getrole').pipe(
+      // return this._httpClient.get<string[]>('https://localhost:7193/api/auth/getrole').pipe(
         map((roles: string[]) => roles.includes(identityRoleEnum.admin)),
         tap(isAdmin => {
           this._userIsAdminSubject.next(isAdmin);

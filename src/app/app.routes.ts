@@ -10,6 +10,7 @@ import { NotAdminComponent } from './admin-pages/not-admin/not-admin.page';
 import { VehiculesListComponent } from './components/vehicules-list/vehicules-list.component';
 import { CarouselCarsComponent } from './components/carouselCars/carouselCars.component';
 import { CarouselRentComponent } from './components/carouselRent/carousel-rent.component';
+import { CreateModelComponent } from './admin-pages/admin-model/create-model-form/create-model-form.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,9 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: MainLayoutComponent,
-    children: [{ path: '', component: AdminHomePageComponent }],
+    children: [
+      { path: '', component: AdminHomePageComponent },
+      { path: 'createModel', component: CreateModelComponent },
+    ],
     canActivate: [AuthGuardService, RoleGuardService],
   }]
