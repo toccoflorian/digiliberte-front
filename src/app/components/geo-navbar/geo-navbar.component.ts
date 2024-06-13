@@ -69,7 +69,6 @@ export class GeoNavbarComponent {
           this.adresseObservable = of(this.adresseFinal);
           response.features.forEach((element) => {
             this.adresseFinal.push(element);
-            console.log(element.properties); // met en console les resultats
           });
         }
       });
@@ -82,7 +81,6 @@ export class GeoNavbarComponent {
         lat: details.features[0].geometry.coordinates[1],
         long: details.features[0].geometry.coordinates[0],
       };
-      console.log("Selected Coordinates:", this.selectedCoordinates);
       this.coordonnesSelectionne.emit(this.selectedCoordinates);
     });
   }
