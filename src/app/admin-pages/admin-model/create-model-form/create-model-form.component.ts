@@ -9,12 +9,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ModelService } from './../../../../services/model/model.service';
 import { OnInit } from '@angular/core';
-import { CreateModel } from '../../../../interfaces/CreateOnModel';
+import { CreateModel } from '../../../../interfaces/CreateOneModel';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-create-model-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatSlideToggleModule,
+  ],
   templateUrl: './create-model-form.component.html',
   styleUrl: './create-model-form.component.scss',
 })
@@ -34,7 +40,6 @@ export class CreateModelComponent implements OnInit {
 
   onModelSubmit(event: Event): void {
     event.preventDefault();
-    console.log('event : ', event);
     this.modelFormValue = this.modelForm.value;
     this._modelServices.createModel(
       new CreateModel(

@@ -1,0 +1,21 @@
+<div class="container">
+  <form [formGroup]="motorizationForm" class="createMotorizationForm" (ngSubmit)="onMotorizationSubmit($event)"
+    novalidate>
+    <h5 class="createMotorizationPage">Créer une motorization : </h5>
+    <div class="nameBox mb-5">
+      <label for="name" class="formLabel">Motorisation : </label>
+      <input type="text" id="name" class="form-control" placeholder="Motorisation du véhicule" formControlName="name">
+      @if (motorizationForm.get('name')?.hasError('required') && motorizationForm.get('name')?.touched) {
+      <div class="form-error">motorization is required</div>
+      }
+    </div>
+    <div class="btnBox">
+      <button title="btnValider" type="submit" class="btnSubmit">
+        <img src="./../../../../assets/icons/done_outline_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="btnvalider">
+      </button>
+      <button title="btnCancel" type="button" class="btnCancel">
+        <img src="./../../../../assets/icons/close_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+      </button>
+    </div>
+  </form>
+</div>

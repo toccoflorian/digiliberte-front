@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
-import { CreateModel, ICreateModel } from '../../interfaces/CreateOnModel';
+import { Observable } from 'rxjs';
+import { ICreateModel } from '../../interfaces/CreateOneModel';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -10,7 +10,7 @@ export class ModelService {
   private apiUrl = 'http://localhost:5212/api/model'; // Replace with your API endpoint
   constructor(private http: HttpClient) {}
 
-  getAllModel(): Observable<ICreateModel[]>{
+  getAllModel(): Observable<ICreateModel[]> {
     return this.http.get<ICreateModel[]>(`${this.apiUrl}`);
   }
 
@@ -19,13 +19,7 @@ export class ModelService {
   }
 
   createModel(modelData: ICreateModel): void {
-    console.log('modelData : ', modelData);
-    console.log('this.apiUrl : ', this.apiUrl + '/createmodel');
-     this.http.post<any>(
-      this.apiUrl + '/CreateModel',
-      // 'https://localhost:7193/api/Model/CreateModel',
-      modelData
-    ).subscribe();
+    this.http.post<any>(this.apiUrl + '/CreateModel', modelData).subscribe();
   }
 
   updateModel(id: string, model: ICreateModel): Observable<any> {

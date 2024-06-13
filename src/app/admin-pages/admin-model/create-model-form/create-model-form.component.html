@@ -1,29 +1,35 @@
-<form [formGroup]="modelForm" class="createModelForm" (ngSubmit)="onModelSubmit($event)" novalidate>
-  <h5 class="createModelPage">Créer un modele : </h5>
-  <div class="nameBox mb-5">
-    <label for="name" class="fromLabel">Modèle : </label>
-    <input type="text" id="name" class="form-control" placeholder="Modèle du véhicule" formControlName="name">
-    @if (modelForm.get('name')?.hasError('required') && modelForm.get('name')?.touched) {
-    <div class="form-error">Model is required</div>
-    }
-  </div>
-  <div class="co2Box mb-5">
-    <label for="co2" class="fromLabel">Emission de CO2/km : </label>
-    <input type="number" id="co2" class="form-control" placeholder="Emission de CO2/Km" formControlName="co2">
-    @if (modelForm.get('co2')?.hasError('required') && modelForm.get('co2')?.touched) {
-    <div class="form-error">Co2 is required</div>
-    }
-  </div>
-  <div class="yearBox mb-5">
-    <label for="year" class="fromLabel">Date de mise en circulation : </label>
-    <input type="number" id="year" class="form-control" placeholder="Entre la date de mise en circulation"
-      formControlName="year">
-    @if (modelForm.get('year')?.hasError('required') && modelForm.get('year')?.touched) {
-    <div class="form-error">Date de mise ne circulation is required</div>
-    }
-  </div>
-  <div class="btnBox">
-    <button type="submit" class="btnSubmit">Valider</button>
-    <button type="button" class="btnCancel">Annuler</button>
-  </div>
-</form>
+<div class="container">
+  <form [formGroup]="modelForm" class="createModelForm" (ngSubmit)="onModelSubmit($event)" novalidate>
+    <h5 class="createModelPage">Créer un modele : </h5>
+    <div class="nameBox mb-5">
+      <label for="name" class="formLabel">Modèle : </label>
+      <input type="text" id="name" class="form-control" placeholder="Modèle du véhicule" formControlName="name">
+      @if (modelForm.get('name')?.hasError('required') && modelForm.get('name')?.touched) {
+      <div class="form-error">Model is required</div>
+      }
+    </div>
+    <div class="co2Box mb-5">
+      <label for="co2" class="formLabel">Emission de CO2/km : </label>
+      <input type="number" id="co2" class="form-control" placeholder="Emission de CO2/Km" formControlName="co2">
+      @if (modelForm.get('co2')?.hasError('required') && modelForm.get('co2')?.touched) {
+      <div class="form-error">Co2 is required</div>
+      }
+    </div>
+    <div class="yearBox mb-5">
+      <label for="year" class="formLabel">Date de mise en circulation : </label>
+      <input type="number" id="year" class="form-control" placeholder="Entre la date de mise en circulation"
+        formControlName="year">
+      @if (modelForm.get('year')?.hasError('required') && modelForm.get('year')?.touched) {
+      <div class="form-error">Date de mise ne circulation is required</div>
+      }
+    </div>
+    <div class="btnBox">
+      <button title="btnValider" type="submit" class="btnSubmit">
+        <img src="./../../../../assets/icons/done_outline_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="btnvalider">
+      </button>
+      <button title="btnCancel" type="button" class="btnCancel">
+        <img src="./../../../../assets/icons/close_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+      </button>
+    </div>
+  </form>
+</div>

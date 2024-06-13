@@ -6,12 +6,12 @@ import { ReservationsListComponent } from './components/reservations-list/reserv
 import { OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/security/authentication.service';
 import { AuthGuardService } from '../services/security/auth-guard.service';
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  providers: [AuthenticationService, AuthGuardService],
+  providers: [AuthenticationService, AuthGuardService, MatSlideToggleModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   imports: [
@@ -23,11 +23,10 @@ import { AuthGuardService } from '../services/security/auth-guard.service';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'CarShare-front';
 
-  
-  constructor(){}
+  constructor() {}
 
-  ngOnInit(){}
+  ngOnInit() {}
 }

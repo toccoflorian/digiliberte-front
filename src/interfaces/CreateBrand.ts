@@ -4,7 +4,7 @@ export interface ICreateBrand {
 
 export class CreateBrand implements ICreateBrand {
   Name: string;
-  constructor(label: string) {
-    this.Name = label;
+  constructor(name: string) {
+    this.Name = name;
   }
 }
