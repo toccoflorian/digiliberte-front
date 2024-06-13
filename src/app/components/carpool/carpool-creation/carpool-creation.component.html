@@ -1,25 +1,52 @@
 <app-titlebox>Créer un coivoiturage</app-titlebox>
 
-<div class="localization-form-div">
-    <form id="localization-form" class="localization-form">
-        <label> Départ </label>
-        <app-geo-navbar></app-geo-navbar>
-        <br>
-        <label> Prévue </label>
-        <input type="datetime-local">
-        <br>
-        <label> Arrivée </label>
-        <input>
-        <br>
-        <label> Prévue </label>
-        <input type="datetime-local">
-    </form>
-</div>
-<div class="car-form-div">
-    <form  id="car-form" class="car-form">
-        <select form="car-form"></select>
-        <input type="text" placeholder="Marque">
-        <input type="text" placeholder="Modele">
-        <input type="text" placeholder="Marque">
-    </form>
-</div>
+<form [formGroup]="formGroup" class="form-group">
+        <div class="localization-form-div">
+            <div class="localization-form">
+                <div style="display: flex;">
+                    <label> Départ </label>
+                    <app-geo-navbar (coordonnesSelectionne)="onStartCoordinatesSelected($event)"></app-geo-navbar>
+                    <input type="text" formControlName="startLocalization" hidden>
+                </div> 
+                <label> Prévue </label>
+                <input type="datetime-local">
+                <br>
+                <br> <!-- PEUT ETRE ENLEVER CETTE MERDE PLUS TARD-->
+                <div style="display: flex;">
+                    <label> Arrivée </label>
+                    <app-geo-navbar (coordonnesSelectionne)="onEndCoordinatesSelected($event)"></app-geo-navbar>
+                </div>
+                <label> Prévue </label>
+                <input type="datetime-local">
+            </div>
+    </div>
+    <div class="car-form-div">
+        <div class="car-form">
+            <select form="car-form"></select>
+            <input type="text" placeholder="Marque" disabled>
+            <input type="text" placeholder="Modele" disabled>
+            <div class="sub-car-form-div">
+                <input type="number" placeholder="Places Max" disabled>
+                <input type="text" placeholder="Immatriculation" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="seats-form-div">
+        <div class="seats-form">
+            <select form="seats-form" name="free-seats" id="free-seats">
+                <option value="-1"> Places disponibles </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-validation-div">
+        <div class="form-validation">
+            <button mat-icon-button type="submit">
+                <mat-icon >check</mat-icon>
+            </button>
+            <button color="warn"mat-icon-button type="submit">
+                <mat-icon >close</mat-icon>
+            </button>
+        </div>
+    </div>
+</form>
+

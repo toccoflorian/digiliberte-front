@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 app-titlebox {
     display: flex;
     justify-content: center;
@@ -20,6 +22,21 @@ app-titlebox {
     padding-top: 10px;
 }
 .car-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.seats-form-div{
+    display: flex;
+    padding-top: 10px;
+    justify-content: left;
+}
+.form-validation-div{
+    justify-content: center;
+    display: flex;
+}
+
+.form-group{
     display: flex;
     flex-direction: column;
 }
