@@ -6,6 +6,9 @@ import { MatButtonModule } from "@angular/material/button";
 import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import ICreateCarpoolRequest from "../../../../interfaces/carpool/ICreateCarpoolRequest";
 import { CommonModule } from "@angular/common";
+import { CarpoolDataService } from "../../../../services/carpools/data/carpool-data.service";
+import IListGetOneRent from "../../../../interfaces/carpool/IListGetOneRent";
+import IGetOneRentWithCarPool from "../../../../interfaces/carpool/IGetOneRentWithCarPool";
 
 @Component({
   selector: "app-carpool-creation",
@@ -24,6 +27,7 @@ import { CommonModule } from "@angular/common";
 export class CarpoolCreationComponent implements OnInit {
   requestInterface?: ICreateCarpoolRequest;
   formGroup!: FormGroup;
+  myRents!: Array<IGetOneRentWithCarPool>;
 
   // recupération des coordonnées recupérés par le geo-component
   //#region coordonnee
@@ -42,6 +46,8 @@ export class CarpoolCreationComponent implements OnInit {
   }
   //#endregion coordonnee
 
+  constructor(private carPoolService: CarpoolDataService) {}
+
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       rentId: new FormControl(""),
@@ -50,6 +56,18 @@ export class CarpoolCreationComponent implements OnInit {
       endDate: new FormControl(""),
       startLocalization: new FormControl(""),
       endLocalization: new FormControl(""),
+    });
+
+    this.carPoolService.getRentByUser().subscribe((response) => {
+      console.log("before filtre", response);
+      this.myRents = response;
+      console.log("------------------------");
+      console.log(this.myRents);
+      const now = new Date(); // Obtenez la date et l'heure actuelles
+      const filtre = this.myRents.filter(
+        (rent) => new Date(rent.returnDate) > now
+      );
+      console.log(filtre);
     });
   }
 }

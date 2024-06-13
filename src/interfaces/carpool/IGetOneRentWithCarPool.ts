@@ -8,4 +8,5 @@ export default interface IGetOneRentWithCarPool {
   returnDate: Date;
   userFirstName: string;
   userLastName: string;
+  carpools: [];
 }

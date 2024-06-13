@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { dev } from "../../../app/env/env";
 import { Observable } from "rxjs";
 import IListGetOneRent from "../../../interfaces/carpool/IListGetOneRent";
+import IGetOneRentWithCarPool from "../../../interfaces/carpool/IGetOneRentWithCarPool";
 
 @Injectable({
   providedIn: "root",
@@ -15,8 +16,8 @@ export class CarpoolDataService {
 
   private apiUrl = dev.baseApiUrlSwagger;
 
-  getRentByUser(): Observable<IListGetOneRent> {
-    return this.http.get<IListGetOneRent>(
+  getRentByUser(): Observable<Array<IGetOneRentWithCarPool>> {
+    return this.http.get<Array<IGetOneRentWithCarPool>>(
       this.apiUrl + "/Rent/GetRentByUserId"
     );
   }
