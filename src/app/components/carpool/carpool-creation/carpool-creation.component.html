@@ -1,1 +1,25 @@
-<p>carpool-creation works!</p>
+<app-titlebox>Créer un coivoiturage</app-titlebox>
+
+<div class="localization-form-div">
+    <form id="localization-form" class="localization-form">
+        <label> Départ </label>
+        <app-geo-navbar></app-geo-navbar>
+        <br>
+        <label> Prévue </label>
+        <input type="datetime-local">
+        <br>
+        <label> Arrivée </label>
+        <input>
+        <br>
+        <label> Prévue </label>
+        <input type="datetime-local">
+    </form>
+</div>
+<div class="car-form-div">
+    <form  id="car-form" class="car-form">
+        <select form="car-form"></select>
+        <input type="text" placeholder="Marque">
+        <input type="text" placeholder="Modele">
+        <input type="text" placeholder="Marque">
+    </form>
+</div>

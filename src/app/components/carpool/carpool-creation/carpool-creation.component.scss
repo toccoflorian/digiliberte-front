@@ -1,0 +1,25 @@
+app-titlebox {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.localization-form-div{
+    display : flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-right: 10%;
+}
+.localization-form{
+    padding: 0;
+}
+
+.car-form-div{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+.car-form{
+    display: flex;
+    flex-direction: column;
+}
