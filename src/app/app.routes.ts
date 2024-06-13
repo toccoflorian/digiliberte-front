@@ -1,4 +1,3 @@
-
 import { Routes } from '@angular/router';
 import { LoginPageComponent } from './pages/login/login.page';
 import { AuthGuardService } from '../services/security/auth-guard.service';
@@ -8,8 +7,8 @@ import { RoleGuardService } from '../services/security/role-guard.service';
 import { AdminHomePageComponent } from './admin-pages/admin-home/admin-home.page';
 import { NotAdminComponent } from './admin-pages/not-admin/not-admin.page';
 import { VehiculesListComponent } from './components/vehicules-list/vehicules-list.component';
-import { CarouselCarsComponent } from './components/carouselCars/carouselCars.component';
 import { CarouselRentComponent } from './components/carouselRent/carousel-rent.component';
+import { CreateModelComponent } from './admin-pages/admin-model/create-model-form/create-model-form.component';
 
 export const routes: Routes = [
   {
@@ -24,8 +23,8 @@ export const routes: Routes = [
         canActivate: [AuthGuardService],
       },
       { path: 'vehicules', component: VehiculesListComponent },
-      { path: 'carouselCars', component: CarouselCarsComponent },
       { path: 'carouselRent/:id', component: CarouselRentComponent },
+      { path: 'createModel', component: CreateModelComponent },
       // {path: 'admin', component: AdminHomePageComponent, canActivate: [AuthGuardService, RoleGuardService]},
       // Nouvelle page (ex: rent.page.ts) ici = {path: 'rent', component: RentPageComponent, canActivate: [AuthGuardService] }
       // Une page est un composant mais on remplace .component.ts par .page.ts et le nom de la class on met namePageComponent
@@ -39,4 +38,5 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [{ path: '', component: AdminHomePageComponent }],
     canActivate: [AuthGuardService, RoleGuardService],
-  }]
+  },
+];

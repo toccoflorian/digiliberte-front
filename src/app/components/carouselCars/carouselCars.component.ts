@@ -35,7 +35,7 @@ export class CarouselCarsComponent {
     this.VehiculesService.loadVehicules().subscribe({
       next: (vehicules: IGetOneVehicule[]) => {
         this.vehicules = vehicules;
-        // console.log('vehicules : ', vehicules);
+        console.log('vehicules : ', vehicules);
         return vehicules;
       },
       error: (error) => {
