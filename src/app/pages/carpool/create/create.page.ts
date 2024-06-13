@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { CarpoolCreationComponent } from "../../../components/carpool/carpool-creation/carpool-creation.component";
 
 @Component({
-  selector: 'app-create',
+  selector: "app-create",
   standalone: true,
-  imports: [],
-  templateUrl: './create.page.html',
-  styleUrl: './create.page.scss'
+  imports: [CarpoolCreationComponent],
+  templateUrl: "./create.page.html",
+  styleUrl: "./create.page.scss",
 })
-export class CreateCarpoolPageComponent {
-
-}
+export class CreateCarpoolPageComponent {}
