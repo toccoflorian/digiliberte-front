@@ -4,6 +4,7 @@ import { dev } from "../../../app/env/env";
 import { Observable } from "rxjs";
 import IListGetOneRent from "../../../interfaces/carpool/IListGetOneRent";
 import IGetOneRentWithCarPool from "../../../interfaces/carpool/IGetOneRentWithCarPool";
+import ICreateCarpoolRequest from "../../../interfaces/CreateCarpoolRequest";
 
 @Injectable({
   providedIn: "root",
@@ -20,5 +21,10 @@ export class CarpoolDataService {
     return this.http.get<Array<IGetOneRentWithCarPool>>(
       this.apiUrl + "/Rent/GetRentByUserId"
     );
+  }
+
+  createCarPool(requestDTO : ICreateCarpoolRequest): void {
+    console.log(requestDTO);
+    this.http.post(this.apiUrl + "/CarPool/CreateCarpool", requestDTO).subscribe();
   }
 }

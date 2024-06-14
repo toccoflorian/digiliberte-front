@@ -1,11 +1,11 @@
 import ILocalization from "./ILocalisation";
 
 export default interface ICreateCarpoolRequest {
-    rentId: number;
-    carpoolName: string;
-    startLocalization: ILocalization;
-    endLocalization: ILocalization;
-    startDate: Date;
-    endDate: Date;
+    RentId: number;
+    CarpoolName: string;
+    StartLocalization: ILocalization;
+    EndLocalization: ILocalization;
+    StartDate: Date;
+    EndDate: Date;
 }
 

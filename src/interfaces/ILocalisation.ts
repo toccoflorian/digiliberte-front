@@ -1,4 +1,4 @@
 export default interface ILocalization {
-  Logitude: number;
-  Latitude: number;
+  logitude: number;
+  latitude: number;
 }

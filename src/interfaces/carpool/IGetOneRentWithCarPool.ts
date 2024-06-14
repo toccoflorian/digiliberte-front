@@ -1,12 +1,15 @@
+import GetVehicle from "../GetVehicle";
+
 export default interface IGetOneRentWithCarPool {
   id: number;
   userId: string;
-  vehiculeId: number;
-  vehiculeInfo: string;
+  vehicleId: number;
+  vehicleInfo: string;
   immatriculation: string;
   startDate: Date;
   returnDate: Date;
-  userFirstName: string;
-  userLastName: string;
+  userFirstname: string;
+  userLastname: string;
   carpools: [];
+  vehicle: GetVehicle;
 }

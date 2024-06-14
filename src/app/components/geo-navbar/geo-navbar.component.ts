@@ -39,11 +39,11 @@ export class GeoNavbarComponent {
   options: any[] = [];
   adresseFinal: Feature[] = [];
   adresseObservable = of(this.adresseFinal);
-  selectedCoordinates?: { lat: number; long: number };
+  selectedCoordinates?: { latitude: number; logitude: number };
 
   @Output() coordonnesSelectionne = new EventEmitter<{
-    lat: number;
-    long: number;
+    latitude: number;
+    logitude: number;
   }>();
 
   // adresseFilter: Observable<any[]>;
@@ -76,10 +76,11 @@ export class GeoNavbarComponent {
   // permet de binder le retour du component à autre choses
   onOptionSelected(event: any) {
     const selectedLabel = event.option.value;
+    // console.log(event.option)
     this.geoService.getAddressDetails(selectedLabel).subscribe((details) => {
       this.selectedCoordinates = {
-        lat: details.features[0].geometry.coordinates[1],
-        long: details.features[0].geometry.coordinates[0],
+        latitude: details.features[0].geometry.coordinates[1],
+        logitude: details.features[0].geometry.coordinates[0],
       };
       this.coordonnesSelectionne.emit(this.selectedCoordinates);
     });

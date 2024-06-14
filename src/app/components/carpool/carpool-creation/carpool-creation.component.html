@@ -1,48 +1,56 @@
 <app-titlebox>Créer un coivoiturage</app-titlebox>
 
-<form [formGroup]="formGroup" class="form-group">
+<form [formGroup]="formGroup" class="form-group" (ngSubmit)="handleSubmitForm($event)">
         <div class="localization-form-div">
             <div class="localization-form">
                 <div style="display: flex;">
                     <label> Départ </label>
                     <app-geo-navbar (coordonnesSelectionne)="onStartCoordinatesSelected($event)"></app-geo-navbar>
-                    <input type="text" formControlName="startLocalization" hidden>
+                    <input value={{startCoordinates}} type="text" formControlName="StartLocalization" hidden>
                 </div> 
                 <label> Prévue </label>
-                <input type="datetime-local">
+                <input type="datetime-local" formControlName="StartDate">
                 <br>
                 <br> <!-- PEUT ETRE ENLEVER CETTE MERDE PLUS TARD-->
                 <div style="display: flex;">
                     <label> Arrivée </label>
                     <app-geo-navbar (coordonnesSelectionne)="onEndCoordinatesSelected($event)"></app-geo-navbar>
+                    <input value={{endCoordinates}} type="text" formControlName="EndLocalization" hidden>
+
                 </div>
                 <label> Prévue </label>
-                <input type="datetime-local">
+                <input type="datetime-local" formControlName="EndDate">
             </div>
     </div>
     <div class="car-form-div">
         <div class="car-form">
-            <select form="car-form">
-            <!-- @for (item of items; track $index) {} -->
-            </select>
-            <input type="text" placeholder="Marque" disabled>
-            <input type="text" placeholder="Modele" disabled>
+            <select form="form-group" formControlName="RentId" (change)="onCarSelect($event)">
+                @for (item of myRents; track $index) {
+                    <option [ngValue]="item.id" >{{item.vehicleInfo}}</option>
+                    }
+                    </select>
+                <!-- <input formControlName="rentId" formControl="rentId" type="number" [value]="item.vehicleId" hidden> -->
+            <input type="text" placeholder={{selectedVehicleMarque}} disabled>
+            <input type="text" placeholder={{selectedVehicleModel}} disabled>
             <div class="sub-car-form-div">
-                <input type="number" placeholder="Places Max" disabled>
-                <input type="text" placeholder="Immatriculation" disabled>
+                <input type="number" placeholder={{selectedVehicleMaxSeats}} disabled>
+                <input type="text" placeholder={{selectedVehicleImmat}} disabled>
             </div>
         </div>
     </div>
-    <div class="seats-form-div">
+    <!-- <div class="seats-form-div">
         <div class="seats-form">
-            <select form="seats-form" name="free-seats" id="free-seats">
+            <select form="seats-form" name="free-seats" id="free-seats" formControlName="">
                 <option value="-1"> Places disponibles </option>
+                <option *ngFor="let seat of getNumberArray(selectedVehicleMaxSeats)" [value]="seat">
+                    {{ seat }}
+                </option>
             </select>
         </div>
-    </div>
+    </div> -->
     <div class="form-validation-div">
         <div class="form-validation">
-            <button mat-icon-button type="submit">
+            <button mat-icon-button type="submit" (click)="handleSubmitForm($event)">
                 <mat-icon >check</mat-icon>
             </button>
             <button color="warn"mat-icon-button type="submit">
