@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MotorizationService } from '../../../../services/motorization/motorisation.service';
-import { CreateMotorization } from '../../../../interfaces/CreateMotorization';
+import { Motorization } from '../../../../interfaces/Motorization';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { OnInit } from '@angular/core';
@@ -24,7 +24,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   templateUrl: './create-motorisation-form.component.html',
   styleUrl: './create-motorisation-form.component.scss',
 })
-export class CreateMotorizationComponent implements OnInit {
+export class MotorizationComponent implements OnInit {
   public motorizationForm!: FormGroup;
   private motorizationFormValue!: any;
 
@@ -40,7 +40,7 @@ export class CreateMotorizationComponent implements OnInit {
     event.preventDefault();
     this.motorizationFormValue = this.motorizationForm.value;
     this._motorizationServices.createMotorization(
-      new CreateMotorization(this.motorizationFormValue.name)
+      new Motorization(this.motorizationFormValue.name)
     );
   }
 }

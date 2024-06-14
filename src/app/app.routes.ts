@@ -1,4 +1,4 @@
-import { CreateMotorization } from './../interfaces/CreateMotorization';
+import { Motorization } from '../interfaces/Motorization';
 import { Routes } from '@angular/router';
 import { LoginPageComponent } from './pages/login/login.page';
 import { AuthGuardService } from '../services/security/auth-guard.service';
@@ -11,8 +11,9 @@ import { VehiculesListComponent } from './components/vehicules-list/vehicules-li
 import { CarouselCarsComponent } from './components/carouselCars/carouselCars.component';
 import { CarouselRentComponent } from './components/carouselRent/carousel-rent.component';
 import { CreateModelComponent } from './admin-pages/admin-model/create-model-form/create-model-form.component';
-import { CreateMotorizationComponent } from './admin-pages/admin-motorization/create-motorisation-form/create-motorisation-form.component';
+import { MotorizationComponent } from './admin-pages/admin-motorization/create-motorisation-form/create-motorisation-form.component';
 import { CreateBrandComponent } from './admin-pages/admin-brand/create-brand-form/create-brand-form.component';
+import { CreateCategoryComponent } from './admin-pages/admin-category/create-category-form/create-category-form.component';
 export const routes: Routes = [
   {
     path: '',
@@ -42,8 +43,9 @@ export const routes: Routes = [
     children: [
       { path: '', component: AdminHomePageComponent },
       { path: 'createModel', component: CreateModelComponent },
-      { path: 'createMotorization', component: CreateMotorizationComponent },
+      { path: 'Motorization', component: MotorizationComponent },
       { path: 'createBrand', component: CreateBrandComponent },
+      { path: 'createCategory', component: CreateCategoryComponent },
     ],
     canActivate: [AuthGuardService, RoleGuardService],
   },

@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BrandService } from '../../../../services/brand/brand.service';
 import { OnInit } from '@angular/core';
-import { CreateBrand } from '../../../../interfaces/CreateBrand';
+import { CreateBrand } from '../../../../interfaces/CreateOneBrand';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({

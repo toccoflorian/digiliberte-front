@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICreateMotorization } from '../../interfaces/CreateMotorization';
+import { IMotorization } from '../../interfaces/Motorization';
 
 @Injectable({
   providedIn: 'root',
@@ -10,24 +10,21 @@ export class MotorizationService {
   private apiUrl = 'http://localhost:5212/api/Motorization'; // Replace with your API endpoint
   constructor(private http: HttpClient) {}
 
-  getAllmotorization(): Observable<ICreateMotorization[]> {
-    return this.http.get<ICreateMotorization[]>(`${this.apiUrl}`);
+  getAllmotorization(): Observable<IMotorization[]> {
+    return this.http.get<IMotorization[]>(`${this.apiUrl}`);
   }
 
-  getmotorization(id: string): Observable<ICreateMotorization> {
-    return this.http.get<ICreateMotorization>(`${this.apiUrl}/${id}`);
+  getmotorization(id: string): Observable<IMotorization> {
+    return this.http.get<IMotorization>(`${this.apiUrl}/${id}`);
   }
 
-  createMotorization(motorizationData: ICreateMotorization): void {
+  createMotorization(motorizationData: IMotorization): void {
     this.http
       .post<any>(this.apiUrl + '/CreateOneMotorization', motorizationData)
       .subscribe();
   }
 
-  updatemotorization(
-    id: string,
-    motorization: ICreateMotorization
-  ): Observable<any> {
+  updatemotorization(id: string, motorization: IMotorization): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, motorization);
   }
 

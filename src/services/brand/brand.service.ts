@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICreateBrand } from '../../interfaces/CreateBrand';
+import { ICreateBrand } from '../../interfaces/CreateOneBrand';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +19,7 @@ export class BrandService {
   }
 
   createBrand(brandData: ICreateBrand): void {
-    this.http.post<any>(this.apiUrl + '/CreateOneBrand', brandData).subscribe();
+    this.http.post<any>(this.apiUrl + '/CreateBrand', brandData).subscribe();
   }
 
   updateBrand(id: string, brand: ICreateBrand): Observable<any> {

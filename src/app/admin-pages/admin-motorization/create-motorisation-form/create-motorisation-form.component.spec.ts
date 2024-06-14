@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateMotorisationComponent } from './create-motorisation-form.component';
+import { MotorizationComponent } from './create-motorisation-form.component';
 
 describe('CreateMotorisationFormComponent', () => {
-  let component: CreateMotorisationComponent;
-  let fixture: ComponentFixture<CreateMotorisationComponent>;
+  let component: MotorizationComponent;
+  let fixture: ComponentFixture<MotorizationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CreateMotorisationComponent],
+      imports: [MotorizationComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CreateMotorisationComponent);
+    fixture = TestBed.createComponent(MotorizationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
