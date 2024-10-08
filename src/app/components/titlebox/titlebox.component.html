@@ -1,3 +1,7 @@
 <div class="rounded-border" [ngStyle]="{'color' : textColor, 'border-color' : borderColor }" >
-    <div><h3 [ngStyle]="{'color' : textColor}"><ng-content></ng-content></h3></div>
+    <div>
+        <h3 [ngStyle]="{'color' : textColor}">
+            <ng-content></ng-content>
+        </h3>
+    </div>
 </div>
