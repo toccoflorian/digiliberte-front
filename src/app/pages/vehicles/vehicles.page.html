@@ -1,0 +1,68 @@
+
+
+<h1 class="box-with-shadow">Création <br> de véhicule de service</h1>
+
+
+<form (submit)="oncreateVehicleFormSubmit($event)">
+
+    <div class="flex">
+        <select name="brand" id="brandInput" class="box-with-shadow" style="width: 100%;margin-top: 10px;">
+            <option value="null">Marque</option>
+            @for (brand of brands$ | async; track $index) {
+                <option>{{brand.label}}</option>
+            }
+        </select>
+
+        <button (click)="createBrand()">add</button>
+    </div>
+
+    <select name="model" id="modelInput" class="box-with-shadow" style="width: 100%;margin-top: 10px;">
+        <option value="null">Modèle</option>
+        @for (brand of brands$ | async; track $index) {
+            <option>{{brand.label}}</option>
+        }
+    </select>
+
+    <select name="category" id="categoryInput" class="box-with-shadow" style="width: 100%;margin-top: 10px;">
+        <option value="null">Catégorie</option>
+        @for (brand of brands$ | async; track $index) {
+            <option>{{brand.label}}</option>
+        }
+    </select>
+
+    <select name="imageURL" id="imageURLInput" class="box-with-shadow" style="width: 100%;margin-top: 10px;">
+        <option value="null">URL de l'image</option>
+        @for (brand of brands$ | async; track $index) {
+            <option>{{brand.label}}</option>
+        }
+    </select>
+
+    <select name="places" id="placesInput" class="box-with-shadow" style="width: 100%;margin-top: 10px;">
+        <option value="null">Nombre de places</option>
+        @for (brand of brands$ | async; track $index) {
+            <option>{{brand.label}}</option>
+        }
+    </select>
+
+    <select name="motorization" id="motorizationInput" class="box-with-shadow" style="width: 100%;margin-top: 10px;">
+        <option value="null">Motorisation</option>
+        @for (brand of brands$ | async; track $index) {
+            <option>{{brand.label}}</option>
+        }
+    </select>
+
+    <select name="co2Emission" id="co2EmissionInput" class="box-with-shadow" style="width: 100%;margin-top: 10px;">
+        <option value="null">Emission de CO2</option>
+        @for (brand of brands$ | async; track $index) {
+            <option>{{brand.label}}</option>
+        }
+    </select>
+
+    <select name="status" id="statusInput" class="box-with-shadow" style="width: 100%;margin-top: 10px;">
+        <option value="null">Status</option>
+        @for (brand of brands$ | async; track $index) {
+            <option>{{brand.label}}</option>
+        }
+    </select>
+
+</form>

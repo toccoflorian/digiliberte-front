@@ -1,0 +1,12 @@
+
+
+.box-with-shadow{
+    color: var(--blue-primary);
+    text-align: center;
+    background-color: var(--grey-primary);
+    // width: 90%;
+    margin: 0 auto 0 auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: var(--shadow-primary);
+}

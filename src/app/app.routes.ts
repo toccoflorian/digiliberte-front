@@ -1,6 +1,5 @@
 
 import { Routes } from '@angular/router';
-import { LoginPageComponent } from './pages/login/login.page';
 import { AuthGuardService } from '../services/security/auth-guard.service';
 import { MainLayoutComponent } from './layouts/main/main.layout';
 import { HomePage } from './pages/home/home.page';
@@ -10,6 +9,9 @@ import { NotAdminComponent } from './admin-pages/not-admin/not-admin.page';
 import { VehiculesListComponent } from './components/vehicules-list/vehicules-list.component';
 import { CarouselCarsComponent } from './components/carouselCars/carouselCars.component';
 import { CarouselRentComponent } from './components/carouselRent/carousel-rent.component';
+import { LoginPage } from './pages/login/login.page';
+import { RegisterPage } from './pages/register/register.page';
+import { VehiclesPage } from './pages/vehicles/vehicles.page';
 
 export const routes: Routes = [
   {
@@ -17,13 +19,18 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       { path: '', component: HomePage, canActivate: [AuthGuardService] }, // canActivate: [AuthGuardService] pour rendre la page accessible aux connectés uniquement
-      { path: 'login', component: LoginPageComponent },
+      { path: 'login', component: LoginPage },
+      { path: 'register', component: RegisterPage },
       {
         path: 'notAdmin',
         component: NotAdminComponent,
         canActivate: [AuthGuardService],
       },
-      { path: 'vehicules', component: VehiculesListComponent },
+      { path: 'createVehicle', 
+        component: VehiculesListComponent,
+        canActivate: [AuthGuardService, RoleGuardService]
+      },
+      { path: 'vehicles', component: VehiclesPage },
       { path: 'carouselCars', component: CarouselCarsComponent },
       { path: 'carouselRent/:id', component: CarouselRentComponent },
       // {path: 'admin', component: AdminHomePageComponent, canActivate: [AuthGuardService, RoleGuardService]},
