@@ -1,20 +1,52 @@
-
-
-<div *ngFor="let vehicle of vehicles$ | async; let i = index">
-    <h1>Véhicule {{ i + 1 }}</h1>
-    <p><strong>VehicleId:</strong> {{ vehicle.vehicleId }}</p>
-    <p><strong>Brand Name:</strong> {{ vehicle.brandName }}</p>
-    <p><strong>Model Name:</strong> {{ vehicle.modelName }}</p>
-    <p><strong>Category Name:</strong> {{ vehicle.categoryName }}</p>
-    <p><strong>Motorization Name:</strong> {{ vehicle.motorizationName }}</p>
-    <p><strong>State Name:</strong> {{ vehicle.stateName }}</p>
-    <p><strong>Picture URL:</strong> {{ vehicle.pictureUrl }}</p>
-    <p><strong>Localization:</strong> {{ vehicle.localization | json }}</p> <!-- Utilise le pipe `json` pour afficher l'objet Localization -->
-    <p><strong>Color:</strong> {{ vehicle.color }}</p>
-    <p><strong>Seats Number:</strong> {{ vehicle.seatsNumber }}</p>
-    <p><strong>CO2:</strong> {{ vehicle.cO2 }}</p>
-    <p><strong>Model Year:</strong> {{ vehicle.modelYear }}</p>
-    <p><strong>Immatriculation:</strong> {{ vehicle.immatriculation }}</p>
-    <hr>
+<div>
+  <div class="titleVehiculebox">
+    <h1 class="titleVehicule">Véhicules de Service</h1>
   </div>
-  
+  <div class="searchVehiculeBox">
+    <h2 class="searchBoxTitle">Filtres</h2>
+    <div class="marqueInput">
+      <p><strong>Marque </strong></p>
+    </div>
+    <div class="immatInput">
+      <strong>Immatriculation </strong>
+    </div>
+  </div>
+  <div *ngFor="let vehicle of vehicles$ | async; let i = index">
+    <div class="vehiculeCard">
+      <div class="vehiculeCradTop">
+        <div class="vehiculeDesc">
+          <h2 class="listCardTitle">Véhicule {{ i + 1 }}</h2>
+          <ul>
+            <li><strong>VehicleId:</strong> {{ vehicle.vehicleId }}</li>
+            <li><strong>Brand Name:</strong> {{ vehicle.brandName }}</li>
+            <li><strong>Model Name:</strong> {{ vehicle.modelName }}</li>
+            <li><strong>Category Name:</strong> {{ vehicle.categoryName }}</li>
+            <li><strong>Motorization Name:</strong> {{ vehicle.motorizationName }}</li>
+            <li><strong>State Name:</strong> {{ vehicle.stateName }}</li>
+            <li><strong>Picture URL:</strong> {{ vehicle.pictureUrl }}</li>
+            <li><strong>Localization:</strong> {{ vehicle.localization | json }}</li>
+            <li><strong>Color:</strong> {{ vehicle.color }}</li>
+            <li><strong>Seats Number:</strong> {{ vehicle.seatsNumber }}</li>
+            <li><strong>CO2:</strong> {{ vehicle.cO2 }}</li>
+            <li><strong>Model Year:</strong> {{ vehicle.modelYear }}</li>
+            <li><strong>Immatriculation:</strong> {{ vehicle.immatriculation }}</li>
+          </ul>
+        </div>
+        <!-- Ajout de l'élément img pour afficher l'image depuis le dossier assets -->
+        <div class="imageCard">
+          <img alt="vehiculePicture" [src]="'assets/vehiculesPictures/' + vehicle.pictureUrl"
+            alt="Image of {{ vehicle.brandName }} {{ vehicle.modelName }}">
+        </div>
+      </div>
+      <div class="vehiculeButonBox">
+        <button title="btnReserve" class="btnReserve">
+          <mat-icon>check</mat-icon>
+        </button>
+        <button title="btnClose" class="btnClose">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
