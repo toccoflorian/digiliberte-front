@@ -1,0 +1,15 @@
+
+
+
+<div class="selector-container flex">
+    <select name="brand" id="brandInput" class="box-with-shadow" (change)="onCategorySelected()" [(ngModel)]="selectedCategoryId">
+        <option value="null" style="color: black;">Catégorie</option>
+        @for (category of categories$ | async; track $index) {
+            <option value="{{category.id}}">{{category.name}} - {{category.SeatsNumber}} places</option>
+        }
+    </select>
+
+    <button (click)="create($event)" class="box-with-shadow" >add</button>
+    
+   
+</div>

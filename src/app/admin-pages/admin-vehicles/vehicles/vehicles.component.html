@@ -1,0 +1,20 @@
+
+
+<div *ngFor="let vehicle of vehicles$ | async; let i = index">
+    <h1>Véhicule {{ i + 1 }}</h1>
+    <p><strong>VehicleId:</strong> {{ vehicle.vehicleId }}</p>
+    <p><strong>Brand Name:</strong> {{ vehicle.brandName }}</p>
+    <p><strong>Model Name:</strong> {{ vehicle.modelName }}</p>
+    <p><strong>Category Name:</strong> {{ vehicle.categoryName }}</p>
+    <p><strong>Motorization Name:</strong> {{ vehicle.motorizationName }}</p>
+    <p><strong>State Name:</strong> {{ vehicle.stateName }}</p>
+    <p><strong>Picture URL:</strong> {{ vehicle.pictureUrl }}</p>
+    <p><strong>Localization:</strong> {{ vehicle.localization | json }}</p> <!-- Utilise le pipe `json` pour afficher l'objet Localization -->
+    <p><strong>Color:</strong> {{ vehicle.color }}</p>
+    <p><strong>Seats Number:</strong> {{ vehicle.seatsNumber }}</p>
+    <p><strong>CO2:</strong> {{ vehicle.cO2 }}</p>
+    <p><strong>Model Year:</strong> {{ vehicle.modelYear }}</p>
+    <p><strong>Immatriculation:</strong> {{ vehicle.immatriculation }}</p>
+    <hr>
+  </div>
+  

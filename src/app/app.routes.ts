@@ -11,7 +11,8 @@ import { CarouselCarsComponent } from './components/carouselCars/carouselCars.co
 import { CarouselRentComponent } from './components/carouselRent/carousel-rent.component';
 import { LoginPage } from './pages/login/login.page';
 import { RegisterPage } from './pages/register/register.page';
-import { VehiclesPage } from './pages/vehicles/vehicles.page';
+import { CreateVehiclesPage } from './admin-pages/admin-vehicles/create-vehicle/create-vehicles.page';
+import { VehiclesComponent } from './admin-pages/admin-vehicles/vehicles/vehicles.component';
 
 export const routes: Routes = [
   {
@@ -30,7 +31,6 @@ export const routes: Routes = [
         component: VehiculesListComponent,
         canActivate: [AuthGuardService, RoleGuardService]
       },
-      { path: 'vehicles', component: VehiclesPage },
       { path: 'carouselCars', component: CarouselCarsComponent },
       { path: 'carouselRent/:id', component: CarouselRentComponent },
       // {path: 'admin', component: AdminHomePageComponent, canActivate: [AuthGuardService, RoleGuardService]},
@@ -44,6 +44,10 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: MainLayoutComponent,
-    children: [{ path: '', component: AdminHomePageComponent }],
+    children: [
+      { path: '', component: AdminHomePageComponent },
+      { path: 'create-vehicle', component: CreateVehiclesPage },
+      { path: 'vehicles', component: VehiclesComponent },
+    ],
     canActivate: [AuthGuardService, RoleGuardService],
   }]

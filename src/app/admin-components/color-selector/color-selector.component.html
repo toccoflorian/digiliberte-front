@@ -1,0 +1,25 @@
+<!-- <div class="selector-container flex">
+    <select name="brand" id="brandInput" class="box-with-shadow" (change)="onColorSelected()" [(ngModel)]="selectedColorId">
+        <option selected value="null" style="color: black;">Couleur</option>
+        @for (color of color$ | async; track $index) {
+            <option value="{{color.id}}">{{color.name}}</option>
+        }
+    </select>
+
+    <button (click)="onClick()" class="box-with-shadow" >add</button>
+    
+   
+</div>
+@if(formIsActive){
+    
+    <form [formGroup]="modelForm" (submit)="create($event)">
+        <p>Ajouter une couleur</p>
+        <input type="text" placeholder="Motorisation" formControlName="name">
+
+        <div class="flex">
+            <button type="button" (click)="onClick()">Annuler</button>
+            <button type="submit">Valider</button>
+        </div>
+
+    </form>
+} -->

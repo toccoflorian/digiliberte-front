@@ -1,0 +1,25 @@
+<div class="selector-container flex">
+    <select name="brand" id="brandInput" class="box-with-shadow" (change)="onModelSelected()" [(ngModel)]="selectedModelId">
+        <option value="null" style="color: black;">Motorisation</option>
+        @for (model of motorization$ | async; track $index) {
+            <option value="{{model.id}}">{{model.name}}</option>
+        }
+    </select>
+
+    <button (click)="onClick()" class="box-with-shadow" >add</button>
+    
+   
+</div>
+@if(formIsActive){
+    
+    <form [formGroup]="modelForm" (submit)="create($event)">
+        <p>Ajouter une motorisation</p>
+        <input type="text" placeholder="Motorisation" formControlName="name">
+
+        <div class="flex">
+            <button type="button" (click)="onClick()">Annuler</button>
+            <button type="submit">Valider</button>
+        </div>
+
+    </form>
+}

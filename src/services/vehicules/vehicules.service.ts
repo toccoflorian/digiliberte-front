@@ -1,12 +1,26 @@
 import { Injectable } from '@angular/core';
 import IGetOneVehicule from '../../interfaces/IGetOneVehicule';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
+import { Vehicle } from '../../models/Vehicle';
+import { environment } from '../../environments/environment';
+import { CreateVehicleVM } from '../../viewModel/vehicle/CreateVehicleVM';
 
 @Injectable({
   providedIn: 'root',
 })
 export class VehiculesService {
+
+
+  public create$ = (vehicle: CreateVehicleVM): Observable<Vehicle> => this.http.post<Vehicle>(`${environment.apiUrl}/vehicle/create`, vehicle);
+
+  public loadAll$ = (): Observable<Vehicle[]> => this.http.get<Vehicle[]>(`${environment.apiUrl}/vehicle/GetAllVehicles`).pipe(
+    tap((v) => {console.log('vehicle', v);
+    })
+  );
+
+
+
   private newVehicule$;
   private apiUrl = 'https://localhost:7193/api/Vehicle';
   constructor(private http: HttpClient) {
