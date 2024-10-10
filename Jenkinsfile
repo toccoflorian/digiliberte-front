@@ -1,6 +1,12 @@
 pipeline {
-    agent any
+    // agent any
 
+    agent {
+        docker {
+            image 'circleci/node:14-browsers' // Une image Docker avec Node et les navigateurs préinstallés
+            args '-u root'
+        }
+    }
     stages {
         // stage('Checkout Code') {
         //     steps {
