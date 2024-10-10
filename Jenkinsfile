@@ -10,6 +10,20 @@ pipeline {
     }
     
     stages {
+
+        stage('Install SonarQube Scanner') {
+            steps {
+                sh '''
+                apt-get update
+                apt-get install -y wget unzip
+                wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
+                unzip sonar-scanner-cli-4.6.2.2472-linux.zip
+                mv sonar-scanner-4.6.2.2472-linux /opt/sonar-scanner
+                export PATH=$PATH:/opt/sonar-scanner/bin
+                '''
+            }
+        }
+
         // stage('Install Chrome') {
         //     steps {
         //         sh '''
@@ -39,6 +53,8 @@ pipeline {
                 sh 'npm run build --prod'
             }
         }
+
+
 
         stage('SonarQube Analysis') {
             environment {
