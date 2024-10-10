@@ -9,6 +9,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { VehiculesService } from '../../../services/vehicules/vehicules.service';
 import { Observable } from 'rxjs';
 import { Vehicle } from '../../../models/Vehicle';
+import { DatePickerComponent } from "../date-picker/date-picker.component";
 
 @Component({
   selector: 'app-filtre-location',
@@ -20,8 +21,9 @@ import { Vehicle } from '../../../models/Vehicle';
     MotorizationSelectorComponent,
     ColorSelectorComponent,
     CommonModule,
-    ReactiveFormsModule
-    ],
+    ReactiveFormsModule,
+    DatePickerComponent
+],
   templateUrl: './filtre-location.component.html',
   styleUrl: './filtre-location.component.scss'
 })

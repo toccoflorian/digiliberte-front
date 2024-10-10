@@ -42,7 +42,7 @@ export class DatePickerComponent {
   public onClick(){
     this.formIsActive = !this.formIsActive;
   }
-  
+
   // Fonction appelée lorsque la date est sélectionnée
   onDateDaySelected() {
     console.log('Date sélectionnée : ', this.selectedDateDay);
@@ -66,7 +66,7 @@ export class DatePickerComponent {
 
       // Convertir en timestamp (nombre de millisecondes depuis le 1er janvier 1970)
       this.selectedDate = date.getTime();
-
+      
       // Émettre le timestamp via le Subject
       this.dateTimeOutput.next(this.selectedDate);
 
