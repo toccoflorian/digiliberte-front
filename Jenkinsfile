@@ -40,23 +40,29 @@ pipeline {
             }
         }
 
-        stage('Copy to Volume') {
+        stage('SonarQube Analysis') {
+            environment {
+                SONAR_SCANNER_HOME = tool 'SonarQubeScanner' // Utilise l'outil configuré dans Jenkins
+            }
             steps {
-                sh 'cp -r dist/ /var/www/html/'  // Copie les fichiers dans le volume monté
+                withSonarQubeEnv('SonarQube') {  // Le nom 'SonarQube' est celui que tu as configuré dans Jenkins
+                    sh '''
+                    ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
+                      -Dsonar.projectKey=mon-projet-angular \
+                      -Dsonar.sources=src \
+                      -Dsonar.host.url=http://your-sonarqube-server:9000 \
+                      -Dsonar.login=your-sonarqube-token
+                    '''
+                }
             }
         }
 
         stage('Deploy') {
             steps {
-                // Cette étape peut varier selon l'endroit où tu veux déployer
-                // Par exemple, si tu déploies sur un serveur distant via rsync/ssh
-                // Adapte cette étape selon tes besoins de déploiement
-                sh '''
-                echo "Déploiement des fichiers..."
-                
-                '''
+                sh 'cp -r dist/ /var/www/html/'  // Copie les fichiers dans le volume monté
             }
         }
+
     }
 
     post {
