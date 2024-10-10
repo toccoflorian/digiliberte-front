@@ -19,7 +19,6 @@ pipeline{
         }
     }
     post{
-        
         success{
             echo "========pipeline executed successfully ========"
         }
