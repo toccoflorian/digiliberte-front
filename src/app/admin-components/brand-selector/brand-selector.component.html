@@ -1,0 +1,25 @@
+<div class="selector-container flex">
+    <select name="brand" id="brandInput" class="box-with-shadow" (change)="onSelect($event)" [(ngModel)]="selectedBrandId">
+        <option value="null" style="color: black;">Marque</option>
+        @for (brand of brands$ | async; track $index) {
+            <option value="{{brand.id}}">{{brand.name}}</option>
+        }
+    </select>
+
+    <button (click)="onClick()" class="box-with-shadow" >add</button>
+    
+   
+</div>
+@if(brandFormIsActive){
+    
+    <form [formGroup]="brandForm" (submit)="createBrand($event)">
+        <p>Ajouter une marque</p>
+        <input type="text" placeholder="Nom de la marque" formControlName="name">
+
+        <div class="flex">
+            <button type="button" (click)="onClick()">Annuler</button>
+            <button type="submit">Valider</button>
+        </div>
+
+    </form>
+}

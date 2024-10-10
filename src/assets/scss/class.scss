@@ -1,12 +1,31 @@
+.box-with-shadow {
+  color: var(--blue-primary);
+//   text-align: center;
+  background-color: var(--grey-primary);
+  // width: 100%;
+  // margin: 0 auto 0 auto;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 0;
+  box-shadow: var(--shadow-primary);
+}
 
+.selector-container {
+  width: 100%;
 
-.box-with-shadow{
-    color: var(--blue-primary);
-    text-align: center;
-    background-color: var(--grey-primary);
-    // width: 90%;
-    margin: 0 auto 0 auto;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: var(--shadow-primary);
+  select {
+    cursor: pointer;
+    width: 100%;
+    margin-right: 10px;
+
+    option {
+      cursor: pointer;
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
 }

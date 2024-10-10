@@ -3,7 +3,7 @@
 export interface Model{
 
     id: number
-    label: string
+    name: string
     co2: number
     year: number
 }

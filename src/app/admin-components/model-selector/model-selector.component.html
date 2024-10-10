@@ -1,0 +1,27 @@
+<div class="selector-container flex">
+    <select name="brand" id="brandInput" class="box-with-shadow" (change)="onModelSelected()" [(ngModel)]="selectedModelId">
+        <option value="null" style="color: black;">Modèle</option>
+        @for (model of models$ | async; track $index) {
+            <option value="{{model.id}}">{{model.name}}</option>
+        }
+    </select>
+
+    <button (click)="onClick()" class="box-with-shadow" >add</button>
+    
+   
+</div>
+@if(formIsActive){
+    
+    <form [formGroup]="modelForm" (submit)="create($event)">
+        <p>Ajouter un modèle</p>
+        <input type="text" placeholder="Nom du modèle" formControlName="Name">
+        <input type="number" placeholder="taux de CO2/100km en grammes" formControlName="Co2">
+        <input type="text" placeholder="Année du modèle" formControlName="Year">
+
+        <div class="flex">
+            <button type="button" (click)="onClick()">Annuler</button>
+            <button type="submit">Valider</button>
+        </div>
+
+    </form>
+}

@@ -14,6 +14,8 @@ export class BrandService {
 
   // public create$ = () => this._httpClient
 
-  public loadAll$: ()=>Observable<Brand[]> = (): Observable<Brand[]> => this._httpClient.get<Brand[]>(`${environment.apiUrl}/brand/all`);
+  public loadAll$: ()=>Observable<Brand[]> = (): Observable<Brand[]> => this._httpClient.get<Brand[]>(`${environment.apiUrl}/brand/getAll`);
+
+  public create$: (brand: Brand)=>Observable<Brand> = (brand: Brand): Observable<Brand> => this._httpClient.post<Brand>(`${environment.apiUrl}/brand/create`, brand);
 }
 
