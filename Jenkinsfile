@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout Code') {
-            steps {
-                // Récupère le code du dépôt Git
-                git branch: 'main', url: 'git@github.com:ton-repo/angular-project.git'
-            }
-        }
+        // stage('Checkout Code') {
+        //     steps {
+        //         // Récupère le code du dépôt Git
+        //         git branch: 'main', url: 'git@github.com:ton-repo/angular-project.git'
+        //     }
+        // }
 
         stage('Install Dependencies') {
             steps {
