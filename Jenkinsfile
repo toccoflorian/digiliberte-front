@@ -3,7 +3,7 @@ pipeline {
 
     agent {
         docker {
-            image 'circleci/node:18-browsers' // Une image Docker avec Node et les navigateurs préinstallés
+            image 'circleci/node:latest-browser' // Une image Docker avec Node et les navigateurs préinstallés
             args '-u root'
         }
     }
