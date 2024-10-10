@@ -5,9 +5,9 @@
   <div class="searchVehiculeBox">
     <h2 class="searchBoxTitle">Filtres</h2>
     <div class="marqueInput">
-      <p><strong>Marque </strong></p>
+      <strong class="marqueInputBox">Marque </strong>
       <mat-form-field>
-        <select title="select" matNativeControl id="mySelectId">
+        <select title="select" matNativeControl id="mySelectMarqueId" class="selectBox">
           <option *ngFor="let vehicle of vehicles$ | async; let i = index" [value]="vehicle.brandName">
             {{ vehicle.brandName }}
           </option>
@@ -15,12 +15,11 @@
       </mat-form-field>
     </div>
     <div class="immatInput">
-      <strong>Immatriculation </strong>
+      <strong class="immatInputBox">Immatriculation </strong>
       <mat-form-field>
-        <mat-label>Choisissez un véhicule</mat-label>
-        <select title="select" matNativeControl id="mySelectId">
-          <option *ngFor="let vehicle of vehicles$ | async; let i = index" [value]="vehicle.brandName">
-            {{ vehicle.brandName }}
+        <select title="select" matNativeControl id="mySelectImmatId" class="selectBox">
+          <option *ngFor="let vehicle of vehicles$ | async; let i = index" [value]="vehicle.immatriculation">
+            {{ vehicle.immatriculation}}
           </option>
         </select>
       </mat-form-field>

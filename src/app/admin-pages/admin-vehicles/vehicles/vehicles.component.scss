@@ -66,13 +66,23 @@
     border-radius:12px 12px 0 0;
   }
   .marqueInput{
-    padding-left: .5rem;
+    padding-left: 1rem;
     padding-bottom: 1rem;
+    .marqueInputBox{
+      margin-right: 8rem;
+    }
   }
   .immatInput{
     padding-left: .5rem;
     padding-bottom: 1rem;
+    .immatInputBox{
+      margin-right: 5rem;
+    }
   }
+}
+
+.selectBox{
+  border-radius: 2rem;
 }
 
 .titleVehicule{
