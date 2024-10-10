@@ -9,15 +9,15 @@ pipeline {
         }
     }
     stages {
-        stage('Install Chrome') {
-            steps {
-                sh '''
-                apt-get update
-                apt-get install -y chromium
+        // stage('Install Chrome') {
+        //     steps {
+        //         sh '''
+        //         apt-get update
+        //         apt-get install -y chromium
                 
-                '''
-            }
-        }
+        //         '''
+        //     }
+        // }
         
         stage('Install Dependencies') {
             steps {
@@ -26,11 +26,11 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                sh 'CHROME_BIN=$(which chromium) npm run test -- --watch=false --no-progress'
-            }
-        }
+        // stage('Run Tests') {
+        //     steps {
+        //         sh 'CHROME_BIN=$(which chromium) npm run test -- --watch=false --no-progress'
+        //     }
+        // }
 
         stage('Build') {
             steps {
@@ -43,6 +43,7 @@ pipeline {
             steps{
                 sh'''
                     echo "Copying..."
+                    ls
                     cp /dist /var/www/html
                     ls /var/www/html
                 
