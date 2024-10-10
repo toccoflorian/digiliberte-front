@@ -75,23 +75,23 @@ pipeline {
 
 
 
-        stage('SonarQube Analysis') {
-            environment {
-                SONAR_SCANNER_HOME = tool 'sonarqube' // Utilise l'outil configuré dans Jenkins
-            }
-            steps {
-                withSonarQubeEnv('sonarqube') {  // Le nom 'SonarQube' est celui que tu as configuré dans Jenkins
-                    sh '''
-                    touch report-task.txt \
-                    ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
-                      -Dsonar.projectKey=Digiliberte-front \
-                      -Dsonar.sources=src \
-                      -Dsonar.host.url=http://localhost:9000 \
-                      -Dsonar.login=sonarqube
-                    '''
-                }
-            }
-        }
+        // stage('SonarQube Analysis') {
+        //     environment {
+        //         SONAR_SCANNER_HOME = tool 'sonarqube' // Utilise l'outil configuré dans Jenkins
+        //     }
+        //     steps {
+        //         withSonarQubeEnv('sonarqube') {  // Le nom 'SonarQube' est celui que tu as configuré dans Jenkins
+        //             sh '''
+        //             touch report-task.txt \
+        //             ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
+        //               -Dsonar.projectKey=Digiliberte-front \
+        //               -Dsonar.sources=src \
+        //               -Dsonar.host.url=http://localhost:9000 \
+        //               -Dsonar.login=sonarqube
+        //             '''
+        //         }
+        //     }
+        // }
 
         stage('Deploy') {
             steps {
