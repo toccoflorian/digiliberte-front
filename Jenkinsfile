@@ -34,7 +34,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'CHROME_BIN=$(which chromium-browser) npm run test -- --watch=false --no-progress'
+                sh 'CHROME_BIN=$(which chromium) npm run test -- --watch=false --no-progress'
             }
         }
 
