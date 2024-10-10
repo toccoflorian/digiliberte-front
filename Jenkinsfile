@@ -9,39 +9,41 @@ pipeline {
         }
     }
     stages {
-        // stage('Checkout Code') {
-        //     steps {
-        //         // Récupère le code du dépôt Git
-        //         git branch: 'main', url: 'git@github.com:ton-repo/angular-project.git'
-        //     }
-        // }
-        // stage('Install Chrome') {
-        //     steps {
-        //         sh '''
-        //         apt-get update
-        //         apt-get install -y chromium
+        stage('Install Chrome') {
+            steps {
+                sh '''
+                apt-get update
+                apt-get install -y chromium
                 
-        //         '''
-        //     }
-        // }
+                '''
+            }
+        }
         
-        // stage('Install Dependencies') {
-        //     steps {
-        //         // Installe les dépendances Angular via npm
-        //         sh 'npm install'
-        //     }
-        // }
+        stage('Install Dependencies') {
+            steps {
+                // Installe les dépendances Angular via npm
+                sh 'npm install'
+            }
+        }
 
-        // stage('Run Tests') {
-        //     steps {
-        //         sh 'CHROME_BIN=$(which chromium) npm run test -- --watch=false --no-progress'
-        //     }
-        // }
+        stage('Run Tests') {
+            steps {
+                sh 'CHROME_BIN=$(which chromium) npm run test -- --watch=false --no-progress'
+            }
+        }
 
         stage('Build') {
             steps {
                 // Génère la version optimisée pour la production
                 sh 'npm run build --prod'
+            }
+        }
+
+        stage('Copie des fichiers statiques'){
+            steps{
+                echo "Copying..."
+                cp /dist /var/www/html
+                ls /var/www/html
             }
         }
 
