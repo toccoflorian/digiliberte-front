@@ -4,10 +4,11 @@ pipeline {
     agent {
         docker {
             image 'node:18' // Une image Docker avec Node et les navigateurs préinstallés
-            args '-u root'
-            
+            args '-u root -v /var/www/html:/var/www/html'  // Monte un volume du système hôte
         }
+            
     }
+    
     stages {
         // stage('Install Chrome') {
         //     steps {
@@ -39,15 +40,9 @@ pipeline {
             }
         }
 
-        stage('Copie des fichiers statiques'){
-            steps{
-                sh'''
-                    echo "Copying..."
-                    ls
-                    cp -r dist/ /var/www/html
-                    ls /var/www/html
-                
-                '''
+        stage('Copy to Volume') {
+            steps {
+                sh 'cp -r dist/ /var/www/html/'  // Copie les fichiers dans le volume monté
             }
         }
 
