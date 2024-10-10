@@ -42,7 +42,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             environment {
-                SONAR_SCANNER_HOME = tool 'sonarqube' // Utilise l'outil configuré dans Jenkins
+                SONAR_SCANNER_HOME = tool 'sonarqubeScanner' // Utilise l'outil configuré dans Jenkins
             }
             steps {
                 withSonarQubeEnv('sonarqube') {  // Le nom 'SonarQube' est celui que tu as configuré dans Jenkins
