@@ -46,6 +46,7 @@ pipeline {
                     steps {
                         echo '=== Installation des dépendances via npm ==='
                         sh 'npm install --omit=dev'
+                        sh 'npm install -g @angular/cli'
                         echo '=== Dépendances installées ==='
                     }
                 }
