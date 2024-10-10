@@ -25,16 +25,16 @@ pipeline {
             }
         }
         
-        stage('Install Dependencies') {
-            steps {
-                // Installe les dépendances Angular via npm
-                sh 'npm install'
-            }
-        }
+        // stage('Install Dependencies') {
+        //     steps {
+        //         // Installe les dépendances Angular via npm
+        //         sh 'npm install'
+        //     }
+        // }
 
         stage('Run Tests') {
             steps {
-                sh 'CHROME_BIN=$(which chromium) npm run test -- --watch=false --no-progress  --browsers=ChromeHeadless --no-sandbox'
+                sh 'CHROME_BIN=$(which chromium) npm run test -- --watch=false --no-progress  --browsers=ChromeHeadless'
             }
         }
 
