@@ -13,6 +13,7 @@ import { LoginPage } from './pages/login/login.page';
 import { RegisterPage } from './pages/register/register.page';
 import { CreateVehiclesPage } from './admin-pages/admin-vehicles/create-vehicle/create-vehicles.page';
 import { VehiclesComponent } from './admin-pages/admin-vehicles/vehicles/vehicles.component';
+import { LocationPage } from './pages/location/location.page';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,7 @@ export const routes: Routes = [
       },
       { path: 'carouselCars', component: CarouselCarsComponent },
       { path: 'carouselRent/:id', component: CarouselRentComponent },
+      { path : 'location', component: LocationPage}
       // {path: 'admin', component: AdminHomePageComponent, canActivate: [AuthGuardService, RoleGuardService]},
       // Nouvelle page (ex: rent.page.ts) ici = {path: 'rent', component: RentPageComponent, canActivate: [AuthGuardService] }
       // Une page est un composant mais on remplace .component.ts par .page.ts et le nom de la class on met namePageComponent

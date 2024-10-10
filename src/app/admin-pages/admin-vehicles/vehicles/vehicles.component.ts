@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 import { Vehicle } from '../../../../models/Vehicle';
 import { VehiculesService } from '../../../../services/vehicules/vehicules.service';
 import { CommonModule } from '@angular/common';
-import { ItemModel } from '@syncfusion/ej2-angular-splitbuttons';
 import { CdkListboxModule } from '@angular/cdk/listbox';
 
 @Component({
