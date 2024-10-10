@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage("install"){
             steps{
-                echo "========Installing...========"
+                echo "========Installing...========   "
                 npm i
             }
             post{
