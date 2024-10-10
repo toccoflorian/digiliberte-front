@@ -1,5 +1,5 @@
 <header>
-  <a routerLink="">
+  <a routerLink="/">
     <img class="carshareLogo" src="assets/icons/LogoCarShareMiniFusion.svg" alt="logo CarShare" width="60px"
       height="60px">
   </a>
@@ -15,15 +15,15 @@
           <img src="assets/icons/serviceVehicleIcon.svg" alt="" height="25px">
           <ul>
             <li><a routerLink="/vehicles">Véhicules de service</a></li>
-            <li><a routerLink="">Mes véhicules de service</a></li>
+            <li><a routerLink="/">Mes véhicules de service</a></li>
           </ul>
         </div>
         <div>
           <img src="assets/icons/carpoolIcon.svg" alt="" height="25px">
           <ul>
-            <li><a routerLink="">Covoiturages</a></li>
-            <li><a routerLink="">Mes covoiturages</a></li>
-            <li><a routerLink="">Proposer un covoiturage</a></li>
+            <li><a routerLink="/">Covoiturages</a></li>
+            <li><a routerLink="/">Mes covoiturages</a></li>
+            <li><a routerLink="/">Proposer un covoiturage</a></li>
           </ul>
         </div>
         <div>
@@ -37,15 +37,15 @@
             }@else{
             <li><a routerLink="login">Connexion</a></li>
             }
-            <li><a routerLink="">Service après vente</a></li>
+            <li><a routerLink="/">Service après vente</a></li>
           </ul>
         </div>
         @if(userIsAdmin$ | async){
         <div>
-          <img src="assets/icons/infosIcon.svg" alt="" height="25px">
+          <img src="assets/icons/infosIcon.svg" alt="iconInfos" height="25px">
           <ul>
-            <li><a routerLink="">Véhicules</a></li>
-            <li><a routerLink="">Utilisateurs</a></li>
+            <li><a routerLink="/vehicules">Véhicules</a></li>
+            <li><a routerLink="/utilisateurs">Utilisateurs</a></li>
           </ul>
         </div>
         }

@@ -37,13 +37,21 @@ p{
   justify-content: center;
 }
 
+.btn{
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
 .btnConfirmRegister{
   background-color: #52DB2C ;
-
-  color: white;
 }
 
 .btnClose{
   background-color: red;
-  color: white;
+}
+
+.passwordRequirement, .emailRequirement{
+  font-size: 10px;
 }

@@ -16,16 +16,20 @@
       <input type="familyname" formControlName="firstname" placeholder="nom" class="inputRegister registerName"><br>
       <input type="givenname" formControlName="lastname" placeholder="prénom" class="inputRegister registerSurname">
       <div>
+        <label for="email" class="emailRequirement">Veuillez renseigner uen adress email valide :</label><br>
         <input type="email" formControlName="emailLogin" placeholder="email" class="inputRegister">
       </div>
+      <p class="passwordRequirement">Votre mot de passe doit comporter : <br>
+        Au moins un caractère majuscule (A-Z), Au moins une minuscule (a-z), Au moins un chiffre (0-9) et au moins un
+        caractères spéciaux (!#$ %^()_-=+~`|;:'"?/,.)
+      </p>
       <input type="password" formControlName="password" placeholder="mot de passe" class="inputRegister"><br>
       <input type="password" formControlName="confirmPassword" placeholder="confirmation mot de passe"
         class="inputRegister">
       <br>
-
       <div class="registerFormButonBox">
-        <button type="button" class="btnClose">Annuler</button>
-        <button type="submit" class="btnConfirmRegister">Valider</button>
+        <button type="button" class="btn btnClose">Annuler</button>
+        <button type="submit" class="btn btnConfirmRegister">Valider</button>
       </div>
     </form>
   </div>
