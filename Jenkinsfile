@@ -18,7 +18,7 @@ pipeline {
                       -Dsonar.login=sonarqubeIDPWD
                     '''
                 }
-                echo '=== Fin de l\'analyse SonarQube ==='
+                echo '=== Fin de l\'analyse SonarQube   ==='
             }
         }
 
