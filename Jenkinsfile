@@ -7,8 +7,10 @@ pipeline {
                 SONAR_SCANNER_HOME = tool 'sonarqube'  // Utilise l'outil configuré dans Jenkins
             }
             steps {
-                withSonarQubeEnv('sonarqube') {  // Le nom 'SonarQube' est celui que tu as configuré dans Jenkins
+                echo '=== Début de l\'analyse SonarQube ==='
+                withSonarQubeEnv('sonarqube') {  // Le nom 'sonarqube' est celui que tu as configuré dans Jenkins
                     sh '''
+                    echo "Lancement de SonarQube Scanner"
                     ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
                       -Dsonar.projectKey=Digiliberte-front \
                       -Dsonar.sources=src \
@@ -16,6 +18,7 @@ pipeline {
                       -Dsonar.login=sonarqube
                     '''
                 }
+                echo '=== Fin de l\'analyse SonarQube ==='
             }
         }
 
@@ -30,34 +33,44 @@ pipeline {
             stages {
                 stage('Install Chromium') {
                     steps {
+                        echo '=== Installation de Chromium dans Docker ==='
                         sh '''
                         apt-get update
                         apt-get install -y chromium
                         '''
+                        echo '=== Chromium installé avec succès ==='
                     }
                 }
 
                 stage('Install Dependencies') {
                     steps {
+                        echo '=== Installation des dépendances via npm ==='
                         sh 'npm install --omit=dev'
+                        echo '=== Dépendances installées ==='
                     }
                 }
 
                 stage('Run Tests') {
                     steps {
+                        echo '=== Lancement des tests avec ChromiumHeadless ==='
                         sh 'CHROME_BIN=$(which chromium) npm run test -- --watch=false --no-progress'
+                        echo '=== Tests terminés ==='
                     }
                 }
 
                 stage('Build') {
                     steps {
+                        echo '=== Génération du build de production Angular ==='
                         sh 'npm run build --prod'
+                        echo '=== Build de production généré avec succès ==='
                     }
                 }
 
                 stage('Deploy') {
                     steps {
-                        sh 'cp -r dist/ /var/www/html/'  // Copie les fichiers dans le volume monté
+                        echo '=== Déploiement du build dans /var/www/html/ ==='
+                        sh 'cp -r dist/ /var/www/html/'
+                        echo '=== Déploiement terminé ==='
                     }
                 }
             }
@@ -66,13 +79,14 @@ pipeline {
 
     post {
         always {
-            cleanWs()  // Nettoie l'espace de travail après chaque exécution
+            echo '=== Nettoyage de l\'espace de travail ==='
+            // cleanWs()  // Nettoie l'espace de travail après chaque exécution
         }
         success {
-            echo 'Le pipeline Angular a été exécuté avec succès.'
+            echo '=== Le pipeline Angular a été exécuté avec succès ==='
         }
         failure {
-            echo 'Le pipeline Angular a échoué.'
+            echo '=== Le pipeline Angular a échoué ==='
         }
     }
 }
