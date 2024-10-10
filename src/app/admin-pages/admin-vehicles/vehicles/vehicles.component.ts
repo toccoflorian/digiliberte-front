@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { Vehicle } from '../../../../models/Vehicle';
 import { VehiculesService } from '../../../../services/vehicules/vehicules.service';
 import { CommonModule } from '@angular/common';
+import { ItemModel } from '@syncfusion/ej2-angular-splitbuttons';
 
 interface Car {
   value: string;
@@ -26,7 +27,7 @@ interface Car {
     MatIconModule,
   ],
   templateUrl: './vehicles.component.html',
-  styleUrl: './vehicles.component.scss',
+  styleUrls: ['./vehicles.component.scss', 'dropdown-button.css'],
 })
 export class VehiclesComponent {
   public vehicles$!: Observable<Vehicle[]>;
@@ -39,4 +40,23 @@ export class VehiclesComponent {
       console.log('sub', v);
     });
   }
+  //DropDownButton items definition
+  public items: ItemModel[] = [
+    {
+      text: 'Dashboard',
+      iconCss: 'e-ddb-icons e-dashboard',
+    },
+    {
+      text: 'Notifications',
+      iconCss: 'e-ddb-icons e-notifications',
+    },
+    {
+      text: 'User Settings',
+      iconCss: 'e-ddb-icons e-settings',
+    },
+    {
+      text: 'Log Out',
+      iconCss: 'e-ddb-icons e-logout',
+    },
+  ];
 }
