@@ -6,9 +6,24 @@
     <h2 class="searchBoxTitle">Filtres</h2>
     <div class="marqueInput">
       <p><strong>Marque </strong></p>
+      <mat-form-field>
+        <select title="select" matNativeControl id="mySelectId">
+          <option *ngFor="let vehicle of vehicles$ | async; let i = index" [value]="vehicle.brandName">
+            {{ vehicle.brandName }}
+          </option>
+        </select>
+      </mat-form-field>
     </div>
     <div class="immatInput">
       <strong>Immatriculation </strong>
+      <mat-form-field>
+        <mat-label>Choisissez un véhicule</mat-label>
+        <select title="select" matNativeControl id="mySelectId">
+          <option *ngFor="let vehicle of vehicles$ | async; let i = index" [value]="vehicle.brandName">
+            {{ vehicle.brandName }}
+          </option>
+        </select>
+      </mat-form-field>
     </div>
   </div>
   <div *ngFor="let vehicle of vehicles$ | async; let i = index">

@@ -10,11 +10,8 @@ import { Vehicle } from '../../../../models/Vehicle';
 import { VehiculesService } from '../../../../services/vehicules/vehicules.service';
 import { CommonModule } from '@angular/common';
 import { ItemModel } from '@syncfusion/ej2-angular-splitbuttons';
+import { CdkListboxModule } from '@angular/cdk/listbox';
 
-interface Car {
-  value: string;
-  viewValue: string;
-}
 @Component({
   selector: 'app-vehicles',
   standalone: true,
@@ -25,6 +22,7 @@ interface Car {
     MatInputModule,
     FormsModule,
     MatIconModule,
+    CdkListboxModule,
   ],
   templateUrl: './vehicles.component.html',
   styleUrls: ['./vehicles.component.scss', 'dropdown-button.css'],
@@ -40,23 +38,4 @@ export class VehiclesComponent {
       console.log('sub', v);
     });
   }
-  //DropDownButton items definition
-  public items: ItemModel[] = [
-    {
-      text: 'Dashboard',
-      iconCss: 'e-ddb-icons e-dashboard',
-    },
-    {
-      text: 'Notifications',
-      iconCss: 'e-ddb-icons e-notifications',
-    },
-    {
-      text: 'User Settings',
-      iconCss: 'e-ddb-icons e-settings',
-    },
-    {
-      text: 'Log Out',
-      iconCss: 'e-ddb-icons e-logout',
-    },
-  ];
 }
