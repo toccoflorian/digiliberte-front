@@ -3,8 +3,8 @@ pipeline {
 
     agent {
         docker {
-            image 'circleci/node:latest' // Une image Docker avec Node et les navigateurs préinstallés
-            args '-u root'
+            image 'node:18' // Une image Docker avec Node et les navigateurs préinstallés
+            // args '-u root'
         }
     }
     stages {
