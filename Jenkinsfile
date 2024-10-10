@@ -15,7 +15,24 @@ pipeline {
         //         git branch: 'main', url: 'git@github.com:ton-repo/angular-project.git'
         //     }
         // }
-
+        stage('Install Chrome') {
+            steps {
+                sh '''
+                apt-get update
+                apt-get install -y wget gnupg
+                wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+                sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+                apt-get update
+                apt-get install -y google-chrome-stable
+                '''
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
         stage('Install Dependencies') {
             steps {
                 // Installe les dépendances Angular via npm
