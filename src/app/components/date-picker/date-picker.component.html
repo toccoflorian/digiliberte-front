@@ -1,0 +1,6 @@
+<div class="input-container">
+    <form [formGroup]="dateForm">
+      <input type="date" id="dateDay" (change)="onDateDaySelected()" [(ngModel)]="selectedDateDay" formControlName="dateDay">
+      <input type="time" id="dateTime" (change)="onDateTimeSelected()" [(ngModel)]="selectedDateTime" formControlName="dateHour">
+    </form>
+  </div>

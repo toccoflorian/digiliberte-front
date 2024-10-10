@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BurggermenuComponent } from './burggermenu.component';
+import { DatePickerComponent } from './date-picker.component';
 
-describe('BurggermenuComponent', () => {
-  let component: BurggermenuComponent;
-  let fixture: ComponentFixture<BurggermenuComponent>;
+describe('DatePickerComponent', () => {
+  let component: DatePickerComponent;
+  let fixture: ComponentFixture<DatePickerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BurggermenuComponent]
+      imports: [DatePickerComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(BurggermenuComponent);
+
+    fixture = TestBed.createComponent(DatePickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
