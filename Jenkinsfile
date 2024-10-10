@@ -4,7 +4,7 @@ pipeline {
     agent {
         docker {
             image 'node:18' // Une image Docker avec Node et les navigateurs préinstallés
-            // args '-u root'
+            args '-u root'
             
         }
     }
@@ -19,7 +19,6 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Installe les dépendances Angular via npm
-                sudo chown -R 111:114 "/.npm"
                 sh 'npm install'
             }
         }
