@@ -42,16 +42,16 @@ pipeline {
 
         stage('SonarQube Analysis') {
             environment {
-                SONAR_SCANNER_HOME = tool 'sonarqubeScanner' // Utilise l'outil configuré dans Jenkins
+                SONAR_SCANNER_HOME = tool 'sonarqube' // Utilise l'outil configuré dans Jenkins
             }
             steps {
                 withSonarQubeEnv('sonarqube') {  // Le nom 'SonarQube' est celui que tu as configuré dans Jenkins
                     sh '''
                     ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
-                      -Dsonar.projectKey=mon-projet-angular \
+                      -Dsonar.projectKey=Digiliberte-front \
                       -Dsonar.sources=src \
-                      -Dsonar.host.url=http://your-sonarqube-server:9000 \
-                      -Dsonar.login=your-sonarqube-token
+                      -Dsonar.host.url=http://localhost:9000 \
+                      -Dsonar.login=sonarqube
                     '''
                 }
             }
