@@ -27,25 +27,31 @@ h1{
   font-weight: bold;
 }
 .homePageTextPresentation{
-  color: white;
+  color: #2984D8;
   font-size: 2rem;
   line-height: 3rem;
 }
 
 .homePageYouCan{
   margin-left: 10rem;
-  color: white;
+  color: #2984D8;
   font-size: 2rem;
   line-height: 3rem;
 }
 
 /* Media Query pour les appareils iPhone (ou écrans plus petits) */
 @media (max-width: 768px) { /* 768px est une valeur courante pour les iPhones */
+  .homePage{
+    width: 100%;
+  }
+
   .homePageTextPresentation{
+    width: 375px;
     font-size: 1%;
   }
 
   .homePageLogoBox{
+    width: 90%;
     margin-top: 5rem;
     text-align: center;
     .titleUnderLogo{
@@ -60,13 +66,16 @@ h1{
     font-weight: bold;
   }
   .homePageTextPresentation{
+    width:90%;
     font-size: 1rem;
     line-height: 1.5rem;
+    margin: 0 2rem 1rem 2rem;
   }
 
   .homePageYouCan{
-    font-size: 1rem;
-    line-height: 1.5rem;
-    margin-left: 0;
+    max-width: 90%;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    margin: 0 2rem 0 0;
   }
 }
