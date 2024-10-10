@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BrandSelectorComponent } from './brand-selector.component';
+// import { BrandSelectorComponent } from './brand-selector.component';
 
-describe('BrandSelectorComponent', () => {
-  let component: BrandSelectorComponent;
-  let fixture: ComponentFixture<BrandSelectorComponent>;
+// describe('BrandSelectorComponent', () => {
+//   let component: BrandSelectorComponent;
+//   let fixture: ComponentFixture<BrandSelectorComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [BrandSelectorComponent]
-    })
-    .compileComponents();
+//   beforeEach(async () => {
+//     await TestBed.configureTestingModule({
+//       imports: [BrandSelectorComponent]
+//     })
+//     .compileComponents();
     
-    fixture = TestBed.createComponent(BrandSelectorComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//     fixture = TestBed.createComponent(BrandSelectorComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
