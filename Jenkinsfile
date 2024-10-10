@@ -37,8 +37,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                // Exécute les tests unitaires Angular
-                sh 'npm run test -- --watch=false --no-progress '
+                sh 'CHROME_BIN=$(which google-chrome) npm run test -- --watch=false --no-progress'
             }
         }
 
