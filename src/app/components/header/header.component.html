@@ -1,110 +1,122 @@
 <header>
-    <a routerLink="">
-        <img class="carshareLogo" src="assets/icons/LogoCarShareMiniFusion.svg" alt="logo CarShare" width="60px" height="60px">
-    </a>
-    <img (click)="mobilMenuIsVisible = !mobilMenuIsVisible" class="mobilMenuIcon" src="assets/icons/mobilMenu.svg" alt="mobil menu icon" width="40px" height="60px">
+  <a routerLink="/">
+    <img class="carshareLogo" src="assets/icons/LogoCarShareMiniFusion.svg" alt="logo CarShare" width="60px"
+      height="60px">
+  </a>
+  <img (click)="mobilMenuIsVisible = !mobilMenuIsVisible" class="mobilMenuIcon" src="assets/icons/mobilMenu.svg"
+    alt="mobil menu icon" width="40px" height="60px">
 
-    @if(mobilMenuIsVisible){
-        <div (click)="mobilMenuIsVisible = false" class="mobilMenuContainer">
-            <div (click)="$event.stopPropagation()" class="mobilMenuModal">
-                <h2>CarShare</h2>
-                <nav>
-                    <ul>
-                        <div>
-                            <img src="assets/icons/serviceVehicleIcon.svg" alt="" height="25px">
-                            <li><a routerLink="/vehicles">Véhicules de service</a></li>
-                            <li><a routerLink="">Mes véhicules de service</a></li>
-                        </div>
-                        <div>
-                            <img src="assets/icons/carpoolIcon.svg" alt="" height="25px">
-                            <li><a routerLink="">Covoiturages</a></li>
-                            <li><a routerLink="">Mes covoiturages</a></li>
-                            <li><a routerLink="">Proposer un covoiturage</a></li>
-                        </div>
-                        <div>
-                            <img src="assets/icons/infosIcon.svg" alt="" height="25px">
-                            <li><a routerLink="">Mon compte</a></li>
-                            @if(userIsLoged()){
-                                <li><p (click)="handleClickLogout()">Déconnexion</p></li>
-                            }@else{
-                                <li><a routerLink="login">Connexion</a></li>
-                            }
-                            <li><a routerLink="">Service après vente</a></li>
-                        </div>
-                        @if(userIsAdmin$ | async){
-                            <div>
-                                <img src="assets/icons/infosIcon.svg" alt="" height="25px">
-                                <li><a routerLink="">Véhicules</a></li>
-                                <li><a routerLink="">Utilisateurs</a></li>
-                            </div>
-                        }
-                    </ul>
-                </nav>
-            </div>
+  @if(mobilMenuIsVisible){
+  <div (click)="mobilMenuIsVisible = false" class="mobilMenuContainer">
+    <div (click)="$event.stopPropagation()" class="mobilMenuModal">
+      <h2>CarShare</h2>
+      <nav>
+        <div>
+          <img src="assets/icons/serviceVehicleIcon.svg" alt="" height="25px">
+          <ul>
+            <li><a routerLink="/vehicles">Véhicules de service</a></li>
+            <li><a routerLink="/">Mes véhicules de service</a></li>
+          </ul>
         </div>
-    }
-
-
-    <div class="menu">
-        <ul>
-            @if(userIsAdmin$ | async){
-                <li (mouseover)="displaySubMenu('admin')" (mouseout)="unDisplaySubMenu('admin')">Admin</li>
+        <div>
+          <img src="assets/icons/carpoolIcon.svg" alt="" height="25px">
+          <ul>
+            <li><a routerLink="/">Covoiturages</a></li>
+            <li><a routerLink="/">Mes covoiturages</a></li>
+            <li><a routerLink="/">Proposer un covoiturage</a></li>
+          </ul>
+        </div>
+        <div>
+          <img src="assets/icons/infosIcon.svg" alt="" height="25px">
+          <ul>
+            <li><a routerLink="">Mon compte</a></li>
+            @if(userIsLoged()){
+            <li>
+              <p (click)="handleClickLogout()">Déconnexion</p>
+            </li>
+            }@else{
+            <li><a routerLink="login">Connexion</a></li>
             }
-            <li (mouseover)="displaySubMenu('rent')" (mouseout)="unDisplaySubMenu('rent')">Locations</li>
-            <li (mouseover)="displaySubMenu('carpool')" (mouseout)="unDisplaySubMenu('carpool')">Covoiturages</li>
-            <li (mouseover)="displaySubMenu('infos')" (mouseout)="unDisplaySubMenu('infos')">Compte</li>
-        </ul>
+            <li><a routerLink="/">Service après vente</a></li>
+          </ul>
+        </div>
+        @if(userIsAdmin$ | async){
+        <div>
+          <img src="assets/icons/infosIcon.svg" alt="iconInfos" height="25px">
+          <ul>
+            <li><a routerLink="/vehicules">Véhicules</a></li>
+            <li><a routerLink="/utilisateurs">Utilisateurs</a></li>
+          </ul>
+        </div>
+        }
+      </nav>
     </div>
-    
-    @if(userIsAdmin$ && visibleSubMenu['admin']){
-        <div class="subMenu adminSubMenu" (mouseover)="displaySubMenu('admin')" (mouseout)="unDisplaySubMenu('admin')">
-            <img src="assets/icons/serviceVehicleIcon.svg">
-            <nav>
-                <ul>
-                    <li><a routerLink="/admin/create-vehicle">Créer un véhicules</a></li>
-                    <li><a routerLink="/admin/vehicles">Voir les véhicules</a></li>
-                    <li><a routerLink="">Utilisateurs</a></li>
-                </ul>
-            </nav>
-        </div>
-    }
-    @if(visibleSubMenu['rent']){
-        <div class="subMenu rentSubMenu" (mouseover)="displaySubMenu('rent')" (mouseout)="unDisplaySubMenu('rent')">
-            <img src="assets/icons/serviceVehicleIcon.svg">
-            <nav>
-                <ul>
-                    <li><a routerLink="">Louer un véhicule</a></li>
-                    <li><a routerLink="">Mes locations</a></li>
-                </ul>
-            </nav>
-        </div>
-    }
-    @if(visibleSubMenu['carpool']){
-        <div class="subMenu carpoolSubMenu" (mouseover)="displaySubMenu('carpool')" (mouseout)="unDisplaySubMenu('carpool')">
-            <img src="assets/icons/carpoolIcon.svg">
-            <nav>
-                <ul>
-                    <li><a routerLink="">Covoiturages</a></li>
-                    <li><a routerLink="">Mes covoiturages</a></li>
-                    <li><a routerLink="">Proposer un covoiturage</a></li>
-                </ul>
-            </nav>
-        </div>
-    }
-    @if(visibleSubMenu['infos']){
-        <div class="subMenu infosSubMenu" (mouseover)="displaySubMenu('infos')" (mouseout)="unDisplaySubMenu('infos')">
-            <img src="assets/icons/infosIcon.svg">
-            <nav>
-                <ul>
-                    <li><a routerLink="">Mon compte</a></li>
-                        @if(userIsLoged()){
-                            <li><p (click)="handleClickLogout()">Déconnexion</p></li>
-                        }@else{
-                            <li><a routerLink="/login">Connexion</a></li>
-                        }
-                    <li><a routerLink="">Service après vente</a></li>
-                </ul>
-            </nav>
-        </div>
-    }
+  </div>
+  }
+
+
+  <div class="menu">
+    <ul>
+      @if(userIsAdmin$ | async){
+      <li (mouseover)="displaySubMenu('admin')" (mouseout)="unDisplaySubMenu('admin')">Admin</li>
+      }
+      <li (mouseover)="displaySubMenu('rent')" (mouseout)="unDisplaySubMenu('rent')">Locations</li>
+      <li (mouseover)="displaySubMenu('carpool')" (mouseout)="unDisplaySubMenu('carpool')">Covoiturages</li>
+      <li (mouseover)="displaySubMenu('infos')" (mouseout)="unDisplaySubMenu('infos')">Compte</li>
+    </ul>
+  </div>
+
+  @if(userIsAdmin$ && visibleSubMenu['admin']){
+  <div class="subMenu adminSubMenu" (mouseover)="displaySubMenu('admin')" (mouseout)="unDisplaySubMenu('admin')">
+    <img alt="icon" src="assets/icons/serviceVehicleIcon.svg">
+    <nav>
+      <ul>
+        <li><a routerLink="/admin/create-vehicle">Créer un véhicules</a></li>
+        <li><a routerLink="/admin/vehicles">Voir les véhicules</a></li>
+        <li><a routerLink="">Utilisateurs</a></li>
+      </ul>
+    </nav>
+  </div>
+  }
+  @if(visibleSubMenu['rent']){
+  <div class="subMenu rentSubMenu" (mouseover)="displaySubMenu('rent')" (mouseout)="unDisplaySubMenu('rent')">
+    <img alt="icon" src="assets/icons/serviceVehicleIcon.svg">
+    <nav>
+      <ul>
+        <li><a routerLink="">Louer un véhicule</a></li>
+        <li><a routerLink="">Mes locations</a></li>
+      </ul>
+    </nav>
+  </div>
+  }
+  @if(visibleSubMenu['carpool']){
+  <div class="subMenu carpoolSubMenu" (mouseover)="displaySubMenu('carpool')" (mouseout)="unDisplaySubMenu('carpool')">
+    <img alt="icon" src="assets/icons/carpoolIcon.svg">
+    <nav>
+      <ul>
+        <li><a routerLink="">Covoiturages</a></li>
+        <li><a routerLink="">Mes covoiturages</a></li>
+        <li><a routerLink="">Proposer un covoiturage</a></li>
+      </ul>
+    </nav>
+  </div>
+  }
+  @if(visibleSubMenu['infos']){
+  <div class="subMenu infosSubMenu" (mouseover)="displaySubMenu('infos')" (mouseout)="unDisplaySubMenu('infos')">
+    <img alt="icon" src="assets/icons/infosIcon.svg">
+    <nav>
+      <ul>
+        <li><a routerLink="">Mon compte</a></li>
+        @if(userIsLoged()){
+        <li>
+          <p (click)="handleClickLogout()">Déconnexion</p>
+        </li>
+        }@else{
+        <li><a routerLink="/login">Connexion</a></li>
+        }
+        <li><a routerLink="">Service après vente</a></li>
+      </ul>
+    </nav>
+  </div>
+  }
 </header>

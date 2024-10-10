@@ -1,5 +1,57 @@
+.registerForm{
+  background: #2984D8;
+  display: flex;
+  gap: 10rem;
+}
 
-h1{
-    text-align: center;
-    margin-top: 50px;
+.registerLeft
+{
+margin: 2rem;
+width: 50%;
+text-align: center;
+.titleUnderLogo, h2{
+  color:#52DB2C ;
+}
+p{
+  color: white;
+}
+}
+
+
+.registerRight
+{
+  text-align: center;
+  background:#D0E4F6;
+  border-radius: 0px 10px 10px 0px;
+  margin: 2rem;
+  width: 50%;
+  padding: 1rem;
+  .inputRegister{
+  margin-bottom: 1rem;
+  }
+}
+
+.registerFormButonBox{
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}
+
+.btn{
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.btnConfirmRegister{
+  background-color: #52DB2C ;
+}
+
+.btnClose{
+  background-color: red;
+}
+
+.passwordRequirement, .emailRequirement{
+  font-size: 10px;
 }

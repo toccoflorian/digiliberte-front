@@ -1,23 +1,35 @@
-<div>
+<div class="connexionForm">
+  <div class="connexionLeft">
+    <div>
+      <img class="carshareLogo" src="assets/icons/LogoCarShareMiniFusion.svg" alt="logo CarShare" width="60px"
+        height="60px">
+      <p class="titleUnderLogo">CarShare</p>
+    </div>
+    <h2>Bienvenue sur Carshare</h2>
+    <p>We choose to go to the moon. We choose to go to the moon in this decade and do the other things, not because they
+      are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies
+      and skills.</p>
+  </div>
+  <div class="connexionRight">
     <h1>Bienvenue sur CarShare</h1>
     <p>Veuillez vous connectez afin d’utiliser l’application </p>
 
     <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit($event)">
-        <input type="email" id="emailLoginForm"  formControlName="email" placeholder="Identifiant" >
-        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-            Merci de renseigner un email valide.
-        </div>
+      <input type="email" id="emailLoginForm" formControlName="email" placeholder="Identifiant" class="inputConnexion">
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        Merci de renseigner un email valide.
+      </div>
+      <br>
+      <input type="text" id="passwordLoginForm" formControlName="password" placeholder="Mot de passe">
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        Valid email is required.
+      </div>
 
-        <br>
-        <input type="text" id="passwordLoginForm"  formControlName="password" placeholder="Mot de passe">
-        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-            Valid email is required.
-        </div>
-
-        <br>
-        <button type="submit">Login</button>
+      <br>
+      <button type="submit" class="btnConfirmConnexion">Login</button>
     </form>
 
-    <button (click)="onRegisterClick()">Créer un compte</button>
+    <button (click)="onRegisterClick()" class="btnCreateAcount">Créer un compte</button>
 
+  </div>
 </div>

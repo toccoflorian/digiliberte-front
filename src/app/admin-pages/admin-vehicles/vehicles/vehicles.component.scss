@@ -1,0 +1,154 @@
+.vehiculeCard {
+  width: auto;
+  max-height: 30rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 14px;
+  gap: 2rem;
+  border-radius: 2rem;
+  border: 2px solid black;
+  margin-bottom: 2rem;
+  padding: 5% 10% ;
+
+  .imageCard {
+    // margin: 0 0 10% 10%;
+    width: 40%; /* Largeur de 30% par défaut */
+    margin: 2%;
+  }
+
+  .vehiculeDesc {
+    margin-top: 1rem;
+  }
+}
+
+/* Media Query pour les appareils iPhone (ou écrans plus petits) */
+@media (max-width: 768px) { /* 768px est une valeur courante pour les iPhones */
+  .vehiculeCard{
+    width: 80%; /* Largeur de 100% pour les écrans plus petits */
+    flex-direction: row;
+
+  }
+  .imageCard {
+    width: auto;
+  }
+  .vehiculeCard{
+    padding-bottom: 60%;
+  }
+  .vehiculeCradTop{
+    flex-direction: column;
+  }
+}
+
+.vehiculeCradTop{
+  width: 100%;
+  display: flex;
+  gap: 20%;
+}
+
+.titleVehiculebox{
+  margin: auto;
+  text-align: center;
+  color: #2984D8;
+  border-radius: 10px;
+  box-shadow: 3px 3px darkgray, -.2em 0 .4em darkgray;
+  padding: 2rem;
+}
+
+.searchVehiculeBox{
+  margin: 1rem auto;
+  border-radius: 12px;
+  box-shadow: 3px 3px darkgray, -.2em 0 .4em darkgray;
+  .searchBoxTitle{
+    background-color:#2984D8;
+    color: white  ;
+    padding: .5rem;
+    border-radius:12px 12px 0 0;
+  }
+  .marqueInput{
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    .marqueInputBox{
+      margin-right: 8rem;
+    }
+  }
+  .immatInput{
+    padding-left: .5rem;
+    padding-bottom: 1rem;
+    .immatInputBox{
+      margin-right: 5rem;
+    }
+  }
+}
+
+.selectBox{
+  border-radius: 2rem;
+}
+
+.titleVehicule{
+  margin: auto;
+  width: 60%;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+  .btnNavCard{
+    text-align: center;
+  }
+
+  button{
+    margin: 0.5rem;
+    border-radius: 50%;
+    }
+
+  .btnReserve{
+    background-color: green;
+    color: white;
+  }
+
+  .btnModifier{
+    background-color: #2984D8;
+    color: white;
+  }
+
+  .btnClose{
+    background-color: red;
+    color: white;
+  }
+
+  img{
+    width: 100%;
+    height: auto;
+    min-height: 5rem;
+    border: solid black 2px;
+    border-radius: 10px;
+  }
+  .listCardTitle{
+    padding: 2rem;
+    font-weight: bolder;
+    font-size: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .cardRentCtegorie{
+    margin: 0.5rem 0;
+  }
+
+  .carRentModel{
+    margin-top: 0.5rem;
+  }
+
+  .vehiculeDesc{
+
+    h2{
+      font-size: 22px;
+    }
+  }
+
+  .vehiculeButonBox{
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-bottom: 2rem;
+  }
+

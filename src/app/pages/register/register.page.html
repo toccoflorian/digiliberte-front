@@ -1,23 +1,36 @@
-
-
-<h1>Créer un compte</h1>
-
-
-
-<form [formGroup]="registerForm" (submit)="onSubmit($event)" style="width: fit-content; margin-left: auto;margin-right: auto;">
-    <input type="familyname" formControlName="firstname" placeholder="nom">
-    <input type="givenname" formControlName="lastname" placeholder="prénom">
-    <div style="display: flex; justify-content: center; width: 100%; margin: 10px 0 10px;">
-        <input type="email" formControlName="emailLogin" placeholder="email">
+<div class="registerForm">
+  <div class="registerLeft">
+    <div>
+      <img class="carshareLogo" src="assets/icons/LogoCarShareMiniFusion.svg" alt="logo CarShare" width="60px"
+        height="60px">
+      <p class="titleUnderLogo">CarShare</p>
     </div>
-    <input type="password" formControlName="password" placeholder="mot de passe">
-    <input type="password" formControlName="confirmPassword" placeholder="confirmation mot de passe">
-
-    <br>
-
-    <div style="display: flex; justify-content: center; width: 100%; margin: 10px 0 10px; gap: 10px;">
-        <button>Annuler</button>
-        <button>Valider</button>
-    </div>
-
-</form>
+    <h2>Bienvenue sur Carshare</h2>
+    <p>We choose to go to the moon. We choose to go to the moon in this decade and do the other things, not because they
+      are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies
+      and skills.</p>
+  </div>
+  <div class="registerRight">
+    <h2>Créer un compte</h2>
+    <form [formGroup]="registerForm" (submit)="onSubmit($event)">
+      <input type="familyname" formControlName="firstname" placeholder="nom" class="inputRegister registerName"><br>
+      <input type="givenname" formControlName="lastname" placeholder="prénom" class="inputRegister registerSurname">
+      <div>
+        <label for="email" class="emailRequirement">Veuillez renseigner uen adress email valide :</label><br>
+        <input type="email" formControlName="emailLogin" placeholder="email" class="inputRegister">
+      </div>
+      <p class="passwordRequirement">Votre mot de passe doit comporter : <br>
+        Au moins un caractère majuscule (A-Z), Au moins une minuscule (a-z), Au moins un chiffre (0-9) et au moins un
+        caractères spéciaux (!#$ %^()_-=+~`|;:'"?/,.)
+      </p>
+      <input type="password" formControlName="password" placeholder="mot de passe" class="inputRegister"><br>
+      <input type="password" formControlName="confirmPassword" placeholder="confirmation mot de passe"
+        class="inputRegister">
+      <br>
+      <div class="registerFormButonBox">
+        <button type="button" class="btn btnClose">Annuler</button>
+        <button type="submit" class="btn btnConfirmRegister">Valider</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -32,9 +32,9 @@ header{
         cursor: pointer;
         min-width: 100%;
         height: 100%;
-        backdrop-filter: blur(3px);
+        // backdrop-filter: blur(3px);
         font-size: 12px;
-        
+
         .mobilMenuModal{
             cursor: default;
             top: 45px;
@@ -46,7 +46,7 @@ header{
             position: relative;
             margin-left: auto;
             border-radius: 3px;
-            
+
             h2{
                 margin: 0;
                 text-align: center;
@@ -77,9 +77,9 @@ header{
                                 cursor: pointer;
                             }
                         }
-                    } 
+                    }
                 }
-                
+
             }
         }
     }
@@ -90,9 +90,12 @@ header{
             display: none;
         }
         width: 450px;
-        
+        color: #569C44;
+        font-weight: bold;
+        font-size: 22px;
+
         ul{
-            margin: 0 20px 0 0;
+            margin: 0 30px 0 0;
             padding: 0;
             display: flex;
             justify-content: space-between;
@@ -100,7 +103,7 @@ header{
             height: 100%;
 
             li{
-                cursor: default; 
+                cursor: default;
                 height: 100%;
                 width: 100%;
                 text-align: center;
@@ -131,7 +134,7 @@ header{
                     margin-bottom: 20px;
 
                     // a{
-                        
+
                     // }
                     p{
                         cursor: pointer;

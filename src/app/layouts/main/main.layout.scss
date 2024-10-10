@@ -1,7 +1,8 @@
 .layout{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 1200px;
+    background-color: #2984D8;
 
     app-header{
         flex: 0 0 auto;
@@ -15,4 +16,11 @@
     app-footer{
         flex: 0 0 auto;
     }
+}
+
+/* Media Query pour les appareils iPhone (ou écrans plus petits) */
+@media (max-width: 768px) { /* 768px est une valeur courante pour les iPhones */
+  .layout{
+    height: 960px;
+  }
 }

@@ -1,7 +1,6 @@
-
 import { Routes } from '@angular/router';
 import { AuthGuardService } from '../services/security/auth-guard.service';
-import { MainLayoutComponent } from './layouts/main/main.layout';
+import { MainComponent } from './layouts/main/main.layout';
 import { HomePage } from './pages/home/home.page';
 import { RoleGuardService } from '../services/security/role-guard.service';
 import { AdminHomePageComponent } from './admin-pages/admin-home/admin-home.page';
@@ -17,7 +16,7 @@ import { VehiclesComponent } from './admin-pages/admin-vehicles/vehicles/vehicle
 export const routes: Routes = [
   {
     path: '',
-    component: MainLayoutComponent,
+    component: MainComponent,
     children: [
       { path: '', component: HomePage, canActivate: [AuthGuardService] }, // canActivate: [AuthGuardService] pour rendre la page accessible aux connectés uniquement
       { path: 'login', component: LoginPage },
@@ -27,9 +26,10 @@ export const routes: Routes = [
         component: NotAdminComponent,
         canActivate: [AuthGuardService],
       },
-      { path: 'createVehicle', 
+      {
+        path: 'createVehicle',
         component: VehiculesListComponent,
-        canActivate: [AuthGuardService, RoleGuardService]
+        canActivate: [AuthGuardService, RoleGuardService],
       },
       { path: 'carouselCars', component: CarouselCarsComponent },
       { path: 'carouselRent/:id', component: CarouselRentComponent },
@@ -43,11 +43,12 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    component: MainLayoutComponent,
+    component: MainComponent,
     children: [
       { path: '', component: AdminHomePageComponent },
       { path: 'create-vehicle', component: CreateVehiclesPage },
       { path: 'vehicles', component: VehiclesComponent },
     ],
     canActivate: [AuthGuardService, RoleGuardService],
-  }]
+  },
+];
