@@ -19,7 +19,6 @@
       <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
         Merci de renseigner un email valide.
       </div>
-
       <br>
       <input type="text" id="passwordLoginForm" formControlName="password" placeholder="Mot de passe">
       <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">

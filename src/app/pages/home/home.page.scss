@@ -1,0 +1,72 @@
+.homePage{display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homePageTextPresentation{
+  width: 50%;
+  font-size: 22px;
+}
+
+.homePageLogoBox{
+  margin-top: 5rem;
+  text-align: center;
+  .titleUnderLogo{
+    margin-top: 0;
+    margin-bottom: 10rem;
+    color:#52DB2C ;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+h1{
+  color:#52DB2C ;
+  font-size: 5rem;
+  margin-bottom: 5rem;
+  font-weight: bold;
+}
+.homePageTextPresentation{
+  color: white;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.homePageYouCan{
+  margin-left: 10rem;
+  color: white;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+/* Media Query pour les appareils iPhone (ou écrans plus petits) */
+@media (max-width: 768px) { /* 768px est une valeur courante pour les iPhones */
+  .homePageTextPresentation{
+    font-size: 1%;
+  }
+
+  .homePageLogoBox{
+    margin-top: 5rem;
+    text-align: center;
+    .titleUnderLogo{
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+  }
+
+  h1{
+    font-size: 1rem;
+    margin-bottom:1rem;
+    font-weight: bold;
+  }
+  .homePageTextPresentation{
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .homePageYouCan{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-left: 0;
+  }
+}

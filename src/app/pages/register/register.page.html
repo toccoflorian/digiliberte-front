@@ -13,15 +13,14 @@
   <div class="registerRight">
     <h2>Créer un compte</h2>
     <form [formGroup]="registerForm" (submit)="onSubmit($event)">
-      <input type="familyname" formControlName="firstname" placeholder="nom" class="inputRegister registerName">
+      <input type="familyname" formControlName="firstname" placeholder="nom" class="inputRegister registerName"><br>
       <input type="givenname" formControlName="lastname" placeholder="prénom" class="inputRegister registerSurname">
       <div>
         <input type="email" formControlName="emailLogin" placeholder="email" class="inputRegister">
       </div>
-      <input type="password" formControlName="password" placeholder="mot de passe" class="inputRegister">
+      <input type="password" formControlName="password" placeholder="mot de passe" class="inputRegister"><br>
       <input type="password" formControlName="confirmPassword" placeholder="confirmation mot de passe"
         class="inputRegister">
-
       <br>
 
       <div class="registerFormButonBox">

@@ -11,20 +11,24 @@
     <div (click)="$event.stopPropagation()" class="mobilMenuModal">
       <h2>CarShare</h2>
       <nav>
-        <ul>
-          <div>
-            <img src="assets/icons/serviceVehicleIcon.svg" alt="" height="25px">
+        <div>
+          <img src="assets/icons/serviceVehicleIcon.svg" alt="" height="25px">
+          <ul>
             <li><a routerLink="/vehicles">Véhicules de service</a></li>
             <li><a routerLink="">Mes véhicules de service</a></li>
-          </div>
-          <div>
-            <img src="assets/icons/carpoolIcon.svg" alt="" height="25px">
+          </ul>
+        </div>
+        <div>
+          <img src="assets/icons/carpoolIcon.svg" alt="" height="25px">
+          <ul>
             <li><a routerLink="">Covoiturages</a></li>
             <li><a routerLink="">Mes covoiturages</a></li>
             <li><a routerLink="">Proposer un covoiturage</a></li>
-          </div>
-          <div>
-            <img src="assets/icons/infosIcon.svg" alt="" height="25px">
+          </ul>
+        </div>
+        <div>
+          <img src="assets/icons/infosIcon.svg" alt="" height="25px">
+          <ul>
             <li><a routerLink="">Mon compte</a></li>
             @if(userIsLoged()){
             <li>
@@ -34,15 +38,17 @@
             <li><a routerLink="login">Connexion</a></li>
             }
             <li><a routerLink="">Service après vente</a></li>
-          </div>
-          @if(userIsAdmin$ | async){
-          <div>
-            <img src="assets/icons/infosIcon.svg" alt="" height="25px">
+          </ul>
+        </div>
+        @if(userIsAdmin$ | async){
+        <div>
+          <img src="assets/icons/infosIcon.svg" alt="" height="25px">
+          <ul>
             <li><a routerLink="">Véhicules</a></li>
             <li><a routerLink="">Utilisateurs</a></li>
-          </div>
-          }
-        </ul>
+          </ul>
+        </div>
+        }
       </nav>
     </div>
   </div>
