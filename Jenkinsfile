@@ -41,9 +41,12 @@ pipeline {
 
         stage('Copie des fichiers statiques'){
             steps{
-                echo "Copying..."
-                cp /dist /var/www/html
-                ls /var/www/html
+                sh'''
+                    echo "Copying..."
+                    cp /dist /var/www/html
+                    ls /var/www/html
+                
+                '''
             }
         }
 
