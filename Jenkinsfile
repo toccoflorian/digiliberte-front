@@ -19,7 +19,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Exécute les tests unitaires Angular
-                sh 'npm run test -- --watch=false --no-progress --browsers=ChromeHeadless'
+                sh 'npm run test -- --watch=false --no-progress '
             }
         }
 
