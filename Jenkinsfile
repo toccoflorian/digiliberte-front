@@ -44,7 +44,7 @@ pipeline {
                 sh'''
                     echo "Copying..."
                     ls
-                    cp /dist /var/www/html
+                    cp -r dist/ /var/www/html
                     ls /var/www/html
                 
                 '''
