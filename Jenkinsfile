@@ -42,10 +42,10 @@ pipeline {
 
         stage('SonarQube Analysis') {
             environment {
-                SONAR_SCANNER_HOME = tool 'SonarQubeScanner' // Utilise l'outil configuré dans Jenkins
+                SONAR_SCANNER_HOME = tool 'sonarqube' // Utilise l'outil configuré dans Jenkins
             }
             steps {
-                withSonarQubeEnv('SonarQube') {  // Le nom 'SonarQube' est celui que tu as configuré dans Jenkins
+                withSonarQubeEnv('sonarqube') {  // Le nom 'SonarQube' est celui que tu as configuré dans Jenkins
                     sh '''
                     ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
                       -Dsonar.projectKey=mon-projet-angular \
