@@ -23,6 +23,7 @@ export class HeaderComponent {
 
   public handleClickLogout(): void{
     this._authenticationService.logout();
+    // modification
   }
 
   displaySubMenu(name: string): void{
