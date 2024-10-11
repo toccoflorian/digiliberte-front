@@ -1,7 +1,7 @@
 .layout{
     display: flex;
     flex-direction: column;
-    height: 1200px;
+    height: 100vh;
     app-header{
         flex: 0 0 auto;
     }
@@ -19,6 +19,6 @@
 /* Media Query pour les appareils iPhone (ou écrans plus petits) */
 @media (max-width: 375px) { /* 768px est une valeur courante pour les iPhones */
   .layout{
-    height: 960px;
+    height: 100vh;
   }
 }
