@@ -17,7 +17,6 @@ p{
 }
 }
 
-
 .connexionRight
 {
   text-align: center;
@@ -57,4 +56,43 @@ p{
   border: none;
   color: white;
   box-shadow: 1px 1px darkgray, -.1em 0 .2em darkgray;
+}
+
+/* Media Query pour les appareils iPhone (ou écrans plus petits) */
+@media (max-width: 768px) { /* 768px est une valeur courante pour les iPhones */
+  .connexionForm{
+    background: #2984D8;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+.connexionLeft
+{
+margin:auto;
+width: 100%;
+text-align: center;
+}
+
+.btnCreateAcount{
+  width: 12rem;
+  margin-bottom: 1rem;
+}
+
+.btnConfirmConnexion{
+  margin: 0.5rem;
+  margin-top: 1rem;
+  width: 12rem;
+}
+.connexionRight
+{
+  margin: auto;
+  width: 80%;
+  font-size: 1rem;
+  padding: 0.2rem;
+  margin-bottom: 5rem;
+  .inputConnexion{
+  margin-bottom: 2rem;
+  }
+}
 }
