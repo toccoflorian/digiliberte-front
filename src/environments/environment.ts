@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:5212/api'
+    apiUrl: 'https://api.ppstudio.fr/api'
   };
   
