@@ -22,7 +22,7 @@ export class AuthenticationService {
 
 
   public login$(loginRequestDTO: ILoginRequest): Observable<ILoginResponse> {
-    const result = this._httpClient.post<ILoginResponseDTO>("https://app.ppstudio.fr/login", loginRequestDTO)
+    const result = this._httpClient.post<ILoginResponseDTO>("https://api.ppstudio.fr/login", loginRequestDTO)
       .pipe(tap(token => {
         if (token.accessToken) {
           localStorage.setItem('authToken', JSON.stringify(token));
