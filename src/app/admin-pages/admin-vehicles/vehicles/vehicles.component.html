@@ -54,10 +54,10 @@
       </div>
       <div class="vehiculeButonBox">
         <button title="btnModifier" class="btnModifier">
-          <mat-icon>settings</mat-icon>
+          <mat-icon (click)="update(vehicle.vehicleId)">settings</mat-icon>
         </button>
         <button title="btnClose" class="btnClose">
-          <mat-icon>delete</mat-icon>
+          <mat-icon (click)="delete(vehicle.vehicleId)">delete</mat-icon>
         </button>
       </div>
     </div>

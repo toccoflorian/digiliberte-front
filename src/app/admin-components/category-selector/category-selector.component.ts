@@ -35,14 +35,24 @@ export class CategorySelectorComponent {
 
       this.modelForm = new FormGroup({
         Name: new FormControl(null, Validators.required),
-        Co2: new FormControl(null, Validators.required),
-        Year: new FormControl(null, Validators.required),
+        SeatsNumber: new FormControl(null, Validators.required),
       })
-  } // tes
+  } 
 
   public create(e: Event){
     e.preventDefault();
-    this._router.navigate(['/admin/category']);
+    console.log('form',this.modelForm.valid);
+    console.log('from',this.modelForm.value);
+    
+    if(this.modelForm.valid){
+      this._categoryService.create$(this.modelForm.value).subscribe((r)=>{
+        console.log('result', r);
+        
+      });
+    }
+    // this._router.navigate(['/admin/category']);
+    this.categories$ = this._categoryService.loadAll$();
+    this.onClick();
   }
 
   public onClick(){

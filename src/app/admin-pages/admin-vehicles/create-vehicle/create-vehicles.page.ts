@@ -15,6 +15,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ColorSelectorComponent } from "../../../admin-components/color-selector/color-selector.component";
 import { VehiculesService } from '../../../../services/vehicules/vehicules.service';
 import { Vehicle } from '../../../../models/Vehicle';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicles',
@@ -37,7 +38,7 @@ export class CreateVehiclesPage implements OnInit{
 
   public createVehicleForm!: FormGroup;
 
-  constructor(private _vehicleService: VehiculesService){}
+  constructor(private _vehicleService: VehiculesService, private _router: Router){}
 
   public brandId!: Observable<number>;
 
@@ -70,7 +71,7 @@ export class CreateVehiclesPage implements OnInit{
     else{
       console.log('NOT VALID');
     }
-    console.log(this.createVehicleForm.value);
+    this._router.navigate(['/admin/vehicles'])
   }
 
   public onBrandIdChange(selectedBrandId: number){

@@ -12,6 +12,8 @@ import { LoginPage } from './pages/login/login.page';
 import { RegisterPage } from './pages/register/register.page';
 import { CreateVehiclesPage } from './admin-pages/admin-vehicles/create-vehicle/create-vehicles.page';
 import { VehiclesComponent } from './admin-pages/admin-vehicles/vehicles/vehicles.component';
+import { CarpoolComponent } from './pages/carpool/carpool.component';
+import { UpdateVehicleComponent } from './admin-pages/admin-vehicles/update-vehicle/update-vehicle.component';
 
 export const routes: Routes = [
   {
@@ -31,6 +33,7 @@ export const routes: Routes = [
         component: VehiculesListComponent,
         canActivate: [AuthGuardService, RoleGuardService],
       },
+      { path: 'carpool', component: CarpoolComponent },
       { path: 'carouselCars', component: CarouselCarsComponent },
       { path: 'carouselRent/:id', component: CarouselRentComponent },
       // {path: 'admin', component: AdminHomePageComponent, canActivate: [AuthGuardService, RoleGuardService]},
@@ -48,6 +51,7 @@ export const routes: Routes = [
       { path: '', component: AdminHomePageComponent },
       { path: 'create-vehicle', component: CreateVehiclesPage },
       { path: 'vehicles', component: VehiclesComponent },
+      {path: 'update-vehicle', component: UpdateVehicleComponent}
     ],
     canActivate: [AuthGuardService, RoleGuardService],
   },

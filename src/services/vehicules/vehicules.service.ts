@@ -14,12 +14,11 @@ export class VehiculesService {
 
   public create$ = (vehicle: CreateVehicleVM): Observable<Vehicle> => this.http.post<Vehicle>(`${environment.apiUrl}/vehicle/create`, vehicle);
 
-  public loadAll$ = (): Observable<Vehicle[]> => this.http.get<Vehicle[]>(`${environment.apiUrl}/vehicle/GetAllVehicles`).pipe(
-    tap((v) => {console.log('vehicle', v);
-    })
-  );
+  public loadAll$ = (): Observable<Vehicle[]> => this.http.get<Vehicle[]>(`${environment.apiUrl}/vehicle/GetAllVehicles`);
 
+  public delete$ = (vehicleId: number): Observable<void> => this.http.delete<void>(`${environment.apiUrl}/vehicle/delete?vehicleId=${vehicleId}`);
 
+  public getById$ = (vehicleId: number): Observable<Vehicle> => this.http.get<Vehicle>(`${environment.apiUrl}/Vehicle/GetVehicleById?id=${vehicleId}`);
 
   private newVehicule$;
   private apiUrl = 'https://localhost:7193/api/Vehicle';

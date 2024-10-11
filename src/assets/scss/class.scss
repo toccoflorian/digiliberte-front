@@ -26,3 +26,36 @@
     cursor: pointer;
   }
 }
+
+.titlebox{
+  padding: 0;
+  border-radius: 5px;
+
+  .en-tete{
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+    background-color: var(--green-primary);
+    margin-bottom: 20px;
+    color: white;
+  }
+
+  .select-container{
+    padding: 5px;
+    p{
+      margin-right: 10px;
+    }
+
+    select{
+      width: 100%;
+    }
+  }
+
+  .footer{
+    background-color: var(--green-primary-trans);
+    height: 25px;
+  }
+}
+
+.select-shadow{
+  box-shadow: var(--shadow-primary);
+}

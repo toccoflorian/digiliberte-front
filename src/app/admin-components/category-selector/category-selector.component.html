@@ -9,7 +9,21 @@
         }
     </select>
 
-    <button (click)="create($event)" class="box-with-shadow" >add</button>
+    <button (click)="onClick()" class="box-with-shadow" >add</button>
     
    
 </div>
+@if(formIsActive){
+     
+    <form [formGroup]="modelForm" (submit)="create($event)">
+        <p>Ajouterd une categorie</p>
+        <input type="text" placeholder="Nom de la categories formControl" formControlName="Name">
+        <input type="number" placeholder="Nombre de place" formControlName="SeatsNumber">
+
+        <div class="flex">
+            <button type="button" (click)="onClick()">Annuler</button>
+            <button type="submit" >Valider</button>
+        </div>
+
+    </form>
+}

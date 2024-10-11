@@ -10,6 +10,7 @@ import { Vehicle } from '../../../../models/Vehicle';
 import { VehiculesService } from '../../../../services/vehicules/vehicules.service';
 import { CommonModule } from '@angular/common';
 import { CdkListboxModule } from '@angular/cdk/listbox';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicles',
@@ -24,17 +25,28 @@ import { CdkListboxModule } from '@angular/cdk/listbox';
     CdkListboxModule,
   ],
   templateUrl: './vehicles.component.html',
-  styleUrls: ['./vehicles.component.scss', 'dropdown-button.css'],
+  styleUrls: ['./vehicles.component.scss'],
 })
 export class VehiclesComponent {
   public vehicles$!: Observable<Vehicle[]>;
 
-  constructor(private _vehicleService: VehiculesService) {}
+  constructor(private _vehicleService: VehiculesService, private _router: Router) {}
 
   ngOnInit() {
     this.vehicles$ = this._vehicleService.loadAll$();
     this.vehicles$.subscribe((v) => {
       console.log('sub', v);
     });
+  }
+
+  delete(vehicleId: number){
+    this._vehicleService.delete$(vehicleId).subscribe((r) => {
+      console.log('result delete', r);
+      document.location.reload();
+    })
+  }
+
+  update(vehicleId: number){
+    this._router.navigate(['/admin/update-vehicle'], {queryParams: {vehicleId: vehicleId}})
   }
 }

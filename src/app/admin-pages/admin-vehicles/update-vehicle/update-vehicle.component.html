@@ -1,0 +1,24 @@
+
+
+<form [formGroup]="form" (submit)="onSubmit($event)">
+    <!-- <app-brand-selector (brandId)="onBrandIdChange($event)"/>
+
+    <app-model-selector (modelId)="onModelIdChange($event)"/>
+
+    <app-category-selector (categoryId)="onCategoryIdChange($event)"/>
+
+    <app-motorization-selector (modelId)="onMotorizationIdChange($event)"/>
+
+    <app-color-selector (modelId)="onColorIdChange($event)"/> -->
+    
+    <div class="box-with-shadow" >
+        <input type="text" placeholder="{{vehicle.stateName}}" formControlName="immatriculation">
+    </div>
+
+    <div class="box-with-shadow" >
+        <input type="text" placeholder="{{vehicle.pictureUrl}}" formControlName="pictureUrl">
+    </div>
+
+    <button type="button">Annuler</button>
+    <button type="submit">Valider</button>
+</form>
