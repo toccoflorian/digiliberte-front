@@ -18,6 +18,7 @@
       <div *ngIf="registerForm.get('firstname')?.invalid && registerForm.get('firstname')?.touched">
         Merci de renseigner votre nom.
       </div>
+      <br>
 
       <!-- Champ Prénom -->
       <input type="text" formControlName="lastname" placeholder="Prénom" class="inputRegister registerSurname" required>
@@ -49,7 +50,7 @@
       <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
         Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère
         spécial.
-      </div>
+      </div><br>
 
       <!-- Champ Confirmation du mot de passe -->
       <input [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword"
