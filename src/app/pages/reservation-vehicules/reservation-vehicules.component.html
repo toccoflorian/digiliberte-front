@@ -1,0 +1,21 @@
+<div class="reservation-container">
+  <h2>Réservation de Véhicules</h2>
+  <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+    <label for="vehicleType">Type de véhicule:</label>
+    <input id="vehicleType" formControlName="vehicleType" type="text" />
+
+    <label for="pickupDate">Date de prise en charge:</label>
+    <input id="pickupDate" formControlName="pickupDate" type="date" />
+
+    <label for="returnDate">Date de retour:</label>
+    <input id="returnDate" formControlName="returnDate" type="date" />
+
+    <label for="customerName">Nom du client:</label>
+    <input id="customerName" formControlName="customerName" type="text" />
+
+    <label for="customerEmail">Email du client:</label>
+    <input id="customerEmail" formControlName="customerEmail" type="email" />
+
+    <button type="submit">Réserver</button>
+  </form>
+</div>

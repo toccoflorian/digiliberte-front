@@ -25,7 +25,7 @@ export class LoginPage implements OnInit{
       password: new FormControl('', [Validators.required])
     });
   }
- 
+
   onLoginSubmit(event: Event): void{
     event.preventDefault();
     this.loginFormValue = this.loginForm.value;
@@ -34,5 +34,5 @@ export class LoginPage implements OnInit{
 
   public onRegisterClick = () => {
     this._router.navigate(['/register']);
-  } 
+  }
 }

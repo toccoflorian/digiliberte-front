@@ -12,24 +12,31 @@
   </div>
   <div class="connexionRight">
     <h1>Bienvenue sur CarShare</h1>
-    <p>Veuillez vous connectez afin d’utiliser l’application </p>
+    <p>Veuillez vous connecter afin d’utiliser l’application</p>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit($event)">
-      <input type="email" id="emailLoginForm" formControlName="email" placeholder="Identifiant" class="inputConnexion">
+    <!-- Formulaire sécurisé -->
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit($event)" autocomplete="off" novalidate>
+      <!-- Champ Email -->
+      <input type="email" id="emailLoginForm" formControlName="email" placeholder="Identifiant" class="inputConnexion"
+        required>
       <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
         Merci de renseigner un email valide.
       </div>
       <br>
-      <input type="text" id="passwordLoginForm" formControlName="password" placeholder="Mot de passe">
-      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-        Valid email is required.
-      </div>
 
+      <!-- Champ Mot de passe -->
+      <input type="password" id="passwordLoginForm" formControlName="password" placeholder="Mot de passe" required
+        minlength="8">
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        Le mot de passe est requis (minimum 8 caractères).
+      </div>
       <br>
-      <button type="submit" class="btnConfirmConnexion">Login</button>
+
+      <!-- Bouton Soumettre -->
+      <button type="submit" class="btnConfirmConnexion" [disabled]="loginForm.invalid">Login</button>
     </form>
 
+    <!-- Bouton Créer un compte -->
     <button (click)="onRegisterClick()" class="btnCreateAcount">Créer un compte</button>
-
   </div>
 </div>

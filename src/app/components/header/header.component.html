@@ -57,7 +57,7 @@
 
 
   <div class="menu">
-    <ul>
+    <ul class="navMenu">
       @if(userIsAdmin$ | async){
       <li (mouseover)="displaySubMenu('admin')" (mouseout)="unDisplaySubMenu('admin')">Admin</li>
       }
@@ -84,7 +84,7 @@
     <img alt="icon" src="assets/icons/serviceVehicleIcon.svg">
     <nav>
       <ul>
-        <li><a routerLink="">Louer un véhicule</a></li>
+        <li><a routerLink="/reservation-vehicules">Louer un véhicule</a></li>
         <li><a routerLink="">Mes locations</a></li>
       </ul>
     </nav>
