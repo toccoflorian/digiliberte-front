@@ -12,15 +12,21 @@ import { LoginPage } from './pages/login/login.page';
 import { RegisterPage } from './pages/register/register.page';
 import { CreateVehiclesPage } from './admin-pages/admin-vehicles/create-vehicle/create-vehicles.page';
 import { VehiclesComponent } from './admin-pages/admin-vehicles/vehicles/vehicles.component';
+import { ReservationVehiculesComponent } from './pages/reservation-vehicules/reservation-vehicules.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: MainComponent,
     children: [
-      { path: '', component: HomePage, canActivate: [AuthGuardService] }, // canActivate: [AuthGuardService] pour rendre la page accessible aux connectés uniquement
-      { path: 'login', component: LoginPage },
-      { path: 'register', component: RegisterPage },
+      { path: '', component: HomePage, canActivate: [AuthGuardService] }, // Page d'accueil, accessible uniquement aux utilisateurs connectés
+      { path: 'login', component: LoginPage }, // Page de connexion à l'appli
+      { path: 'register', component: RegisterPage }, // Page d'inscription, accessible uniquement aux utilisateurs connectés
+      {
+        path: 'reservation-vehicules',
+        component: ReservationVehiculesComponent,
+        canActivate: [AuthGuardService],
+      },
       {
         path: 'notAdmin',
         component: NotAdminComponent,
@@ -33,13 +39,8 @@ export const routes: Routes = [
       },
       { path: 'carouselCars', component: CarouselCarsComponent },
       { path: 'carouselRent/:id', component: CarouselRentComponent },
-      // {path: 'admin', component: AdminHomePageComponent, canActivate: [AuthGuardService, RoleGuardService]},
-      // Nouvelle page (ex: rent.page.ts) ici = {path: 'rent', component: RentPageComponent, canActivate: [AuthGuardService] }
-      // Une page est un composant mais on remplace .component.ts par .page.ts et le nom de la class on met namePageComponent
-      // ensuite pour naviguer vers elle on fait (depuis le html d'un composant): <a routerLink="/rent" /> (ne pas oublier de l'importer)
-      // Attention, c'est '/rent' dans le <a/> mais 'rent' ici dans path:
+      // Autres routes...
     ],
-    // canActivate: [AuthGuardService]
   },
   {
     path: 'admin',
