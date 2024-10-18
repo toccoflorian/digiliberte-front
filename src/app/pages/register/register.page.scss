@@ -55,3 +55,12 @@ p{
 .passwordRequirement, .emailRequirement{
   font-size: 10px;
 }
+
+.inputRegister {
+  &.valid {
+    background-color: #d4edda; // Vert clair pour les champs valides
+  }
+  &.invalid {
+    background-color: #f8d7da; // Rouge clair pour les champs invalides
+  }
+}

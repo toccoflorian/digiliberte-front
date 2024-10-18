@@ -12,24 +12,63 @@
   </div>
   <div class="registerRight">
     <h2>Créer un compte</h2>
-    <form [formGroup]="registerForm" (submit)="onSubmit($event)">
-      <input type="familyname" formControlName="firstname" placeholder="nom" class="inputRegister registerName"><br>
-      <input type="givenname" formControlName="lastname" placeholder="prénom" class="inputRegister registerSurname">
-      <div>
-        <label for="email" class="emailRequirement">Veuillez renseigner uen adress email valide :</label><br>
-        <input type="email" formControlName="emailLogin" placeholder="email" class="inputRegister">
+    <form [formGroup]="registerForm" (submit)="onSubmit($event)" autocomplete="off" novalidate>
+      <!-- Champ Nom -->
+      <input type="text" formControlName="firstname" placeholder="Nom" class="inputRegister registerName" required>
+      <div *ngIf="registerForm.get('firstname')?.invalid && registerForm.get('firstname')?.touched">
+        Merci de renseigner votre nom.
       </div>
-      <p class="passwordRequirement">Votre mot de passe doit comporter : <br>
-        Au moins un caractère majuscule (A-Z), Au moins une minuscule (a-z), Au moins un chiffre (0-9) et au moins un
-        caractères spéciaux (!#$ %^()_-=+~`|;:'"?/,.)
+
+      <!-- Champ Prénom -->
+      <input type="text" formControlName="lastname" placeholder="Prénom" class="inputRegister registerSurname" required>
+      <div *ngIf="registerForm.get('lastname')?.invalid && registerForm.get('lastname')?.touched">
+        Merci de renseigner votre prénom.
+      </div>
+
+      <!-- Champ Email -->
+      <div>
+        <label for="email" class="emailRequirement">Veuillez renseigner une adresse email valide :</label><br>
+        <input type="email" formControlName="emailLogin" placeholder="email" class="inputRegister" required>
+        <div *ngIf="registerForm.get('emailLogin')?.invalid && registerForm.get('emailLogin')?.touched">
+          Merci de renseigner un email valide.
+        </div>
+      </div>
+
+      <!-- Exigences du mot de passe -->
+      <p class="passwordRequirement">
+        Votre mot de passe doit comporter : <br>
+        Au moins une majuscule (A-Z), une minuscule (a-z), un chiffre (0-9), et un caractère spécial (!#$%^&*()_+-=).
       </p>
-      <input type="password" formControlName="password" placeholder="mot de passe" class="inputRegister"><br>
-      <input type="password" formControlName="confirmPassword" placeholder="confirmation mot de passe"
-        class="inputRegister">
+
+      <!-- Champ Mot de passe -->
+      <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Mot de passe"
+        class="inputRegister"
+        [ngClass]="{'valid': registerForm.get('password')?.valid && registerForm.get('password')?.touched, 'invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched}"
+        required minlength="8">
+      <button type="button" (click)="togglePasswordVisibility()">{{ showPassword ? 'Masquer' : 'Afficher' }}</button>
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère
+        spécial.
+      </div>
+
+      <!-- Champ Confirmation du mot de passe -->
+      <input [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword"
+        placeholder="Confirmation mot de passe" class="inputRegister"
+        [ngClass]="{'valid': passwordsMatch && registerForm.get('confirmPassword')?.touched, 'invalid': !passwordsMatch && registerForm.get('confirmPassword')?.touched}"
+        required>
+      <button type="button" (click)="toggleConfirmPasswordVisibility()">{{ showConfirmPassword ? 'Masquer' : 'Afficher'
+        }}</button>
+      <div *ngIf="!passwordsMatch && registerForm.get('confirmPassword')?.touched">
+        Les mots de passe doivent correspondre.
+      </div>
+
       <br>
+
+      <!-- Boutons d'action -->
       <div class="registerFormButonBox">
-        <button type="button" class="btn btnClose">Annuler</button>
-        <button type="submit" class="btn btnConfirmRegister">Valider</button>
+        <button type="button" class="btn btnClose" (click)="onCancel()">Annuler</button>
+        <button type="submit" class="btn btnConfirmRegister"
+          [disabled]="registerForm.invalid || !passwordsMatch">Valider</button>
       </div>
     </form>
   </div>

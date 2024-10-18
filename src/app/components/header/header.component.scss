@@ -90,7 +90,7 @@ header{
         @include MQ.small-screen{
             display: none;
         }
-        width: 30%;
+        width: 50%;
         color: #569C44;
         font-weight: bold;
         font-size: 22px;
@@ -99,7 +99,7 @@ header{
             margin: 0 30px 0 0;
             padding: 0;
             display: flex;
-            justify-content: space-between;
+
             align-items: center;
             height: 100%;
 
@@ -157,6 +157,11 @@ header{
     .infosSubMenu{
         right: 0;
     }
+}
+
+.navMenu{
+  display: grid;
+  gap: 20px;
 }
 
 
