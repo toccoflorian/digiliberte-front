@@ -26,7 +26,7 @@ import { Vehicle } from '../../../models/Vehicle';
 })
 export class ReservationVehiculesComponent implements OnInit {
   public reservationForm!: FormGroup;
-  public selectedVehicle!: Vehicle; // Store selected vehicle details
+  public selectedVehicle: boolean = true; // Store selected vehicle details
   public userId!: string | null;
 
   constructor(
@@ -39,27 +39,33 @@ export class ReservationVehiculesComponent implements OnInit {
     // this.userId = this.authService.getUserId();
     // Initialize the form with default values or empty fields
     this.reservationForm = new FormGroup({
-      vehicleId: new FormControl(null, [Validators.required]), // Vehicle ID will be updated when a vehicle is selected
-      userFirstname: new FormControl('', [Validators.required]),
-      userLastname: new FormControl('', [Validators.required]),
+      vehiceId: new FormControl(undefined, [Validators.required]), // Vehicle ID will be updated when a vehicle is selected
+      // userFirstname: new FormControl('', [Validators.required]),
+      // userLastname: new FormControl('', [Validators.required]),
       startDate: new FormControl('', [Validators.required]),
       returnDate: new FormControl('', [Validators.required]),
-      userId: new FormControl(this.userId, [Validators.required]),
+      // userId: new FormControl(this.userId, [Validators.required]),
     });
   }
 
   // Method to handle the selected vehicle from the carrousel
   onVehiculeSelected(vehicle: Vehicle): void {
-    this.selectedVehicle = vehicle;
-    // Update form control with the selected vehicle's ID
-    this.reservationForm.patchValue({
-      vehicleId: vehicle.vehicleId, // Update the vehicleId field with the selected vehicle's ID
-    });
     console.log('Vehicle selected:', vehicle);
+
+    this.reservationForm.get('vehiceId')?.setValue(vehicle.vehicleId);
+    // this.selectedVehicle = vehicle;
+    // // Update form control with the selected vehicle's ID
+    // this.reservationForm.patchValue({
+    //   vehicleId: vehicle.vehicleId, // Update the vehicleId field with the selected vehicle's ID
+    // });
   }
 
   // Method triggered when the form is submitted
   onSubmit(): void {
+    console.log('onSubmit: ', this.reservationForm.value);
+    console.log('valid: ', this.selectedVehicle );
+    
+    
     if (this.reservationForm.valid && this.selectedVehicle) {
       const formData = this.reservationForm.value;
       console.log('Form submitted:', formData);
