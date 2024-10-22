@@ -13,6 +13,7 @@ import { RegisterPage } from './pages/register/register.page';
 import { CreateVehiclesPage } from './admin-pages/admin-vehicles/create-vehicle/create-vehicles.page';
 import { VehiclesComponent } from './admin-pages/admin-vehicles/vehicles/vehicles.component';
 import { ReservationVehiculesComponent } from './pages/reservation-vehicules/reservation-vehicules.component';
+import { ReservationsListComponent } from './components/reservations-list/reservations-list.component';
 
 export const routes: Routes = [
   {
@@ -39,6 +40,21 @@ export const routes: Routes = [
       },
       { path: 'carouselCars', component: CarouselCarsComponent },
       { path: 'carouselRent/:id', component: CarouselRentComponent },
+      {
+        path: 'corouselCars',
+        component: CarouselCarsComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: 'ReservationList',
+        component: ReservationsListComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: 'carouselVehicles',
+        component: VehiclesComponent,
+        canActivate: [AuthGuardService],
+      },
       // Autres routes...
     ],
   },

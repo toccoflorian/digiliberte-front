@@ -1,0 +1,63 @@
+.vehicleCard{
+  max-width: 25em;
+  margin: 2em;
+  display: flex;
+  border: solid black 0.1em;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.vehicleCardTop{
+  justify-content: center;
+  align-items: center;
+}
+
+.imageCarousel{
+  max-width: 10em;
+  min-width: 10em;
+}
+
+.btn{
+  background-color: #2984D8;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2em;
+}
+
+.carouselControls {
+  position: relative; /* Pour positionner les boutons par rapport à leur conteneur */
+  display: flex;
+  justify-content: center; /* Centre le contenu dans le conteneur */
+  margin-top: -5em; /* Ajuste pour remonter les boutons vers le centre de la carte */
+  z-index: 1; /* Pour s'assurer que les boutons apparaissent au-dessus de la carte */
+}
+
+.btnPrev,
+.btnNext {
+  position: absolute; /* Pour permettre aux boutons de se positionner l'un à côté de l'autre */
+  top: 45%; /* Positionne au centre verticalement */
+  transform: translateY(-180%); /* Ajuste pour centrer parfaitement */
+  background: #2984D8;/* Optionnel : ajout d'un fond blanc légèrement transparent */
+  border-radius: 50%; /* Optionnel : arrondir les coins des boutons */
+  padding: 0.5em; /* Optionnel : ajout d'un padding pour agrandir la zone cliquable */
+  cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+}
+
+.btnPrev {
+  left: -1px; /* Positionnement à gauche */
+}
+
+.btnNext {
+  right: 1px; /* Positionnement à droite */
+}
+
+@media (max-width: 375px) {
+  .vehicleCard{
+    flex-direction: column;
+  }
+  .vehicleCardTop{
+    margin: auto;
+  }
+
+}

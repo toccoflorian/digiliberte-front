@@ -1,21 +1,37 @@
-<div class="reservation-container">
-  <h2>Réservation de Véhicules</h2>
-  <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-    <label for="vehicleType">Type de véhicule:</label>
-    <input id="vehicleType" formControlName="vehicleType" type="text" />
+<div class="page">
+  <div class="titleVehiculebox">
+    <h1 class="titleVehicule">Réserver un véhicule de service</h1>
+  </div>
 
-    <label for="pickupDate">Date de prise en charge:</label>
-    <input id="pickupDate" formControlName="pickupDate" type="date" />
+  <div class="reservation-container">
+    <h2>Détail de réservation</h2>
 
-    <label for="returnDate">Date de retour:</label>
-    <input id="returnDate" formControlName="returnDate" type="date" />
+    <!-- Formulaire de réservation -->
+    <form [formGroup]="reservationForm" (submit)="onSubmit()">
+      <!-- Champ pour la date de départ -->
+      <div class="pickupRowBox">
+        <label for="pickupLabelDate">Départ :</label>
+        <input title="startDate" class="startDate" id="startDate" formControlName="startDate" type="datetime-local" />
+      </div>
 
-    <label for="customerName">Nom du client:</label>
-    <input id="customerName" formControlName="customerName" type="text" />
+      <!-- Champ pour la date de retour -->
+      <div class="returnRowBox">
+        <label for="returnLabelDate">Retour estimé :</label>
+        <input title="returnDate" class="returnDate" id="returnDate" formControlName="returnDate"
+          type="datetime-local" />
+      </div>
 
-    <label for="customerEmail">Email du client:</label>
-    <input id="customerEmail" formControlName="customerEmail" type="email" />
+      <!-- Carrousel de véhicules avec écoute de l'événement vehiculeSelected -->
+      <div>
+        <app-carousel-vehicule (vehiculeSelected)="onVehiculeSelected($event)"></app-carousel-vehicule>
+      </div>
 
-    <button type="submit">Réserver</button>
-  </form>
+      <!-- Bouton de validation -->
+      <div class="buttonBox">
+        <button type="submit" title="btnValidate" class="btnValidate">
+          <mat-icon>check</mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
