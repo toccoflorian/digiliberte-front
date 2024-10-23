@@ -1,14 +1,14 @@
 export interface Rent {
-  UserID: number;
-  UserFirstName: string;
-  UserLastName: string;
-  VehiceId: number;
-  VehicleInfos: string;
-  Immatriculation: string;
-  StartDate: Date;
+  userID: string;
+  userFirstName: string;
+  userLastName: string;
+  vehiceId: number;
+  vehicleInfos: string;
+  immatriculation: string;
+  startDate: Date;
   startTime: Date;
-  StartDateId: number;
-  ReturnDate: Date;
+  startDateId: number;
+  returnDate: Date;
   returnTime: Date;
-  ReturnDateId: number;
+  returnDateId: number;
 }

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject, tap } from 'rxjs';
 import { Rent } from './../../models/Rent';
-import IGetOneVehicule from '../../interfaces/IGetOneVehicule';
 import { CreateRentVM } from '../../viewModel/rent/CreateRentVM';
 import { environment } from '../../environments/environment';
+import GetRentsByUserAsync from '../../interfaces/GetRentsByUserAsync';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +32,17 @@ export class RentService {
         console.log('Rents:', rents);
       })
     );
+
+  /**
+   * Charger toutes les réservations d'un utilisateur (rents)
+   * @param userId L'ID de l'utilisateur
+   * @returns Observable<Rent[]>
+   */
+  public loadRentByUser$(): Observable<GetRentsByUserAsync[]> {
+    return this.http
+      .get<GetRentsByUserAsync[]>(`${environment.apiUrl}/Rent/GetRentByUserId`)
+      .pipe(tap((rents) => {}));
+  }
 
   /**
    * Charger une réservation (rent) spécifique par ID

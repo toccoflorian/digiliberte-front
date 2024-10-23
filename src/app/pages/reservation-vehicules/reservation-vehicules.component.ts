@@ -35,16 +35,10 @@ export class ReservationVehiculesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Récupérer l'ID de l'utilisateur connecté
-    // this.userId = this.authService.getUserId();
-    // Initialize the form with default values or empty fields
     this.reservationForm = new FormGroup({
       vehiceId: new FormControl(undefined, [Validators.required]), // Vehicle ID will be updated when a vehicle is selected
-      // userFirstname: new FormControl('', [Validators.required]),
-      // userLastname: new FormControl('', [Validators.required]),
       startDate: new FormControl('', [Validators.required]),
       returnDate: new FormControl('', [Validators.required]),
-      // userId: new FormControl(this.userId, [Validators.required]),
     });
   }
 
@@ -53,19 +47,10 @@ export class ReservationVehiculesComponent implements OnInit {
     console.log('Vehicle selected:', vehicle);
 
     this.reservationForm.get('vehiceId')?.setValue(vehicle.vehicleId);
-    // this.selectedVehicle = vehicle;
-    // // Update form control with the selected vehicle's ID
-    // this.reservationForm.patchValue({
-    //   vehicleId: vehicle.vehicleId, // Update the vehicleId field with the selected vehicle's ID
-    // });
   }
 
   // Method triggered when the form is submitted
   onSubmit(): void {
-    console.log('onSubmit: ', this.reservationForm.value);
-    console.log('valid: ', this.selectedVehicle );
-    
-    
     if (this.reservationForm.valid && this.selectedVehicle) {
       const formData = this.reservationForm.value;
       console.log('Form submitted:', formData);

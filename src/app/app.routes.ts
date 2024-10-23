@@ -14,6 +14,7 @@ import { CreateVehiclesPage } from './admin-pages/admin-vehicles/create-vehicle/
 import { VehiclesComponent } from './admin-pages/admin-vehicles/vehicles/vehicles.component';
 import { ReservationVehiculesComponent } from './pages/reservation-vehicules/reservation-vehicules.component';
 import { ReservationsListComponent } from './components/reservations-list/reservations-list.component';
+import { RecapLocationComponent } from './pages/recap-location/recap-location.component';
 
 export const routes: Routes = [
   {
@@ -26,6 +27,11 @@ export const routes: Routes = [
       {
         path: 'reservation-vehicules',
         component: ReservationVehiculesComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: 'recap-location',
+        component: RecapLocationComponent,
         canActivate: [AuthGuardService],
       },
       {
