@@ -36,11 +36,7 @@ export class RegisterPage implements OnInit {
         Validators.email,
       ]),
       password: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.pattern(
-          /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/
-        ),
+        Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!?@#$%^&*+-]).{8,}$'),
       ]),
       confirmPassword: new FormControl(null, Validators.required),
     });
