@@ -21,7 +21,7 @@
   box-shadow: 1px 5px lightgray, -.4em 0 .4em lightgray;
 
   h2 {
-    text-align: center;
+    // text-align: center;
     background-color: #2984D8;
     padding: 1em;
     text-align: left;
@@ -73,7 +73,6 @@
 }
 
 .returnRowBox{
-  display: flex;
   label{
     min-width: 7em;
   }
