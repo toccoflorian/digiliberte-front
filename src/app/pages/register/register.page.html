@@ -44,7 +44,8 @@
       <!-- Champ Mot de passe -->
       <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Mot de passe"
         class="inputRegister"
-        [ngClass]="{'valid': registerForm.get('password')?.valid && registerForm.get('password')?.touched, 'invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched}"
+        [ngClass]="{'valid': registerForm.get('password')?.valid && registerForm.get('password')?.touched,
+         'invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched}"
         required minlength="8">
       <button type="button" (click)="togglePasswordVisibility()">{{ showPassword ? 'Masquer' : 'Afficher' }}</button>
       <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">

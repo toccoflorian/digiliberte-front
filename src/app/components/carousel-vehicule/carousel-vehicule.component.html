@@ -1,0 +1,48 @@
+<div *ngIf="vehicles$ | async as vehicles; else loading">
+  <c-carousel [interval]="0">
+    <c-carousel-inner>
+      <c-carousel-item *ngFor="let vehicle of vehicles; let i = index" [active]="i === selectedVehicleIndex">
+        <div class="vehicleCard">
+          <div class="vehicleCardBody">
+            <h5>{{ vehicle.brandName }} {{ vehicle.modelName }}</h5>
+            <p>
+              <strong>Modèle :</strong> {{ vehicle.modelName }}<br>
+              <strong>Catégorie :</strong> {{ vehicle.categoryName }}<br>
+              <strong>Nombre de places :</strong> {{ vehicle.seatsNumber }}<br>
+              <strong>Immatriculation :</strong> {{ vehicle.immatriculation }}<br>
+              <strong>CO2 :</strong> {{ vehicle.cO2 }} g/km <br>
+            </p>
+          </div>
+          <div class="vehicleCardTop">
+            <img [src]="getImageUrl(vehicle)" class="d-block w-100 imageCarousel"
+              alt="Image of {{ vehicle.brandName }} {{ vehicle.modelName }}">
+          </div>
+        </div>
+      </c-carousel-item>
+    </c-carousel-inner>
+
+    <!-- Controls that call onCarouselMove when clicked -->
+    <div class="carouselControls">
+      <c-carousel-control direction="prev" class="btn btnPrev"
+        (click)="onCarouselMove(selectedVehicleIndex - 1, vehicles)">
+        <mat-icon>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+          </svg>
+        </mat-icon>
+      </c-carousel-control>
+      <c-carousel-control direction="next" class="btn btnNext"
+        (click)="onCarouselMove(selectedVehicleIndex + 1, vehicles)">
+        <mat-icon>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+          </svg>
+        </mat-icon>
+      </c-carousel-control>
+    </div>
+  </c-carousel>
+</div>
+
+<ng-template #loading>
+  <p>Loading vehicles...</p>
+</ng-template>

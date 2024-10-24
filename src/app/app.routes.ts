@@ -15,6 +15,8 @@ import { VehiclesComponent } from './admin-pages/admin-vehicles/vehicles/vehicle
 import { CarpoolComponent } from './pages/carpool/carpool.component';
 import { UpdateVehicleComponent } from './admin-pages/admin-vehicles/update-vehicle/update-vehicle.component';
 import { ReservationVehiculesComponent } from './pages/reservation-vehicules/reservation-vehicules.component';
+import { ReservationsListComponent } from './components/reservations-list/reservations-list.component';
+import { RecapLocationComponent } from './pages/recap-location/recap-location.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +32,11 @@ export const routes: Routes = [
         canActivate: [AuthGuardService],
       },
       {
+        path: 'recap-location',
+        component: RecapLocationComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
         path: 'notAdmin',
         component: NotAdminComponent,
         canActivate: [AuthGuardService],
@@ -42,6 +49,21 @@ export const routes: Routes = [
       { path: 'carpool', component: CarpoolComponent },
       { path: 'carouselCars', component: CarouselCarsComponent },
       { path: 'carouselRent/:id', component: CarouselRentComponent },
+      {
+        path: 'corouselCars',
+        component: CarouselCarsComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: 'ReservationList',
+        component: ReservationsListComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: 'carouselVehicles',
+        component: VehiclesComponent,
+        canActivate: [AuthGuardService],
+      },
       // Autres routes...
     ],
   },

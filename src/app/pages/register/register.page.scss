@@ -64,3 +64,22 @@ p{
     background-color: #f8d7da; // Rouge clair pour les champs invalides
   }
 }
+
+/* Media Query pour les appareils iPhone (ou écrans plus petits) */
+@media (max-width: 380px) {
+  .registerForm{
+    width: 100%;
+    gap: none;
+    display: block;
+    flex-direction: column;
+    padding: 2em 0px;
+  }
+  .registerRight{
+    width: 80%;
+    margin: 1em auto;
+    border-radius: 10px;
+  }
+  .registerLeft{
+    width: 80%;
+  }
+}

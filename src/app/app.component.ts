@@ -7,7 +7,6 @@ import { OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/security/authentication.service';
 import { AuthGuardService } from '../services/security/auth-guard.service';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,11 +22,10 @@ import { AuthGuardService } from '../services/security/auth-guard.service';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'CarShare-front';
 
-  
-  constructor(){}
+  constructor() {}
 
-  ngOnInit(){}
+  ngOnInit() {}
 }

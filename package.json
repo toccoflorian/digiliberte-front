@@ -20,10 +20,11 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "@auth0/angular-jwt": "^5.2.0",
     "@coreui/angular": "^5.1.2",
     "json-server": "^1.0.0-beta.3",
     "rxjs": "~7.8.0",
-    "swiper": "^11.1.4",
+    "swiper": "^11.1.14",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },

@@ -5,3 +5,25 @@ input{
     border: 0;
     color: var(--blue-primary);
 }
+
+.butonBox{
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin: auto;
+}
+
+.btn{
+  border: none;
+  border-radius: 50%;
+  color: white;
+  padding: 0.5em;
+}
+
+.btnSubmit{
+  background-color: green;
+}
+
+.btnCancel{
+  background-color: red;
+}

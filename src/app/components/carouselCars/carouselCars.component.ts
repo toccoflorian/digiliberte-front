@@ -7,11 +7,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-carousel',
+  selector: 'app-carouselCars',
   standalone: true,
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, VehiculeComponent],
   templateUrl: './carouselCars.component.html',
-  styleUrl: './carouselCars.component.scss',
+  styleUrls: ['./carouselCars.component.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CarouselCarsComponent {

@@ -1,0 +1,67 @@
+<div class="page">
+  <div class="titleVehiculebox">
+    <h1 class="titleVehicule">Vos Réservations de véhicule de service</h1>
+  </div>
+
+  <div class="reservation-container" *ngIf="userRents.length > 0; else noReservations">
+    <h2 class="cardTitle">Détails de réservation
+      <mat-icon><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+          fill="#e8eaed">
+          <path
+            d="M240-200v40q0 17-11.5 28.5T200-120h-40q-17 0-28.5-11.5T120-160v-320l84-240q6-18 21.5-29t34.5-11h440q19 0 34.5 11t21.5 29l84 240v320q0 17-11.5 28.5T800-120h-40q-17 0-28.5-11.5T720-160v-40H240Zm-8-360h496l-42-120H274l-42 120Zm-32 80v200-200Zm100 160q25 0 42.5-17.5T360-380q0-25-17.5-42.5T300-440q-25 0-42.5 17.5T240-380q0 25 17.5 42.5T300-320Zm360 0q25 0 42.5-17.5T720-380q0-25-17.5-42.5T660-440q-25 0-42.5 17.5T600-380q0 25 17.5 42.5T660-320Zm-460 40h560v-200H200v200Z" />
+        </svg></mat-icon>
+    </h2>
+
+    <div *ngFor="let rent of userRents" class="reservation-details">
+      <div class="pickupRowBox">
+        <label for="pickupLabelDate">Départ :</label>
+        <div class="travelBox">
+          <p class="pickupDate">{{ rent.startDate | date:'dd/MM/yyyy HH:mm' }} </p>
+          <mat-icon>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2984D8">
+              <path
+                d="M200-120v-680h360l16 80h224v400H520l-16-80H280v280h-80Zm300-440Zm86 160h134v-240H510l-16-80H280v240h290l16 80Z" />
+            </svg>
+          </mat-icon>
+        </div>
+      </div>
+      <div class="returnRowBox">
+        <label for="returnLabelDate">Retour estimé :</label>
+        <div class="travelBox">
+          <span class="returnDate">{{ rent.returnDate | date:'dd/MM/yyyy HH:mm' }}</span>
+          <mat-icon>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2984D8">
+              <path
+                d="M500-560ZM200-120v-680h250q-5 20-8 40t-2 40H280v240h290l16 80h134v-46q20 0 40-3t40-9v138H520l-16-80H280v280h-80Zm491-516 139-138-42-42-97 95-39-39-42 43 81 81Zm29-290q83 0 141.5 58.5T920-726q0 83-58.5 141.5T720-526q-83 0-141.5-58.5T520-726q0-83 58.5-141.5T720-926Z" />
+            </svg>
+          </mat-icon>
+        </div>
+      </div>
+      <!-- Autres informations sur la réservation -->
+      <div class="vehicleDetails">
+        <div class="labelVehicle">
+          <label>Véhicule : </label>
+          <p>{{ rent.vehicleInfo }}</p>
+        </div><br>
+        <div>
+          <label class="labelImmat">Immatriculation :</label>
+          <span> {{ rent.immatriculation }}</span>
+        </div>
+      </div>
+
+      <!-- Boutons de validation -->
+      <div class="buttonBox">
+        <button type="button" title="btnDelete" class="btn btnDelete">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button type="button" title="btnUpdate" class="btn btnUpdate">
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noReservations>
+    <h2>Aucune réservation trouvée.</h2>
+  </ng-template>
+</div>
