@@ -20,11 +20,8 @@ import {
 import { ColorSelectorComponent } from '../../../admin-components/color-selector/color-selector.component';
 import { VehiculesService } from '../../../../services/vehicules/vehicules.service';
 import { Vehicle } from '../../../../models/Vehicle';
-<<<<<<< HEAD
 import { Router } from '@angular/router';
-=======
 import { MatIconModule } from '@angular/material/icon';
->>>>>>> olivier-Front
 
 @Component({
   selector: 'app-vehicles',
@@ -47,11 +44,8 @@ import { MatIconModule } from '@angular/material/icon';
 export class CreateVehiclesPage implements OnInit {
   public createVehicleForm!: FormGroup;
 
-<<<<<<< HEAD
+
   constructor(private _vehicleService: VehiculesService, private _router: Router){}
-=======
-  constructor(private _vehicleService: VehiculesService) {}
->>>>>>> olivier-Front
 
   public brandId!: Observable<number>;
 
