@@ -15,7 +15,8 @@ pipeline {
                       -Dsonar.projectKey=Digiliberte-front \
                       -Dsonar.sources=src \
                       -Dsonar.host.url=http://localhost:9000 \
-                      -Dsonar.login=sqp_45714e06fe45d1c580ab40b47c6ca7fcaf79f984
+                      -Dsonar.login=sqp_45714e06fe45d1c580ab40b47c6ca7fcaf79f984\
+			-Dsonar.branch.name=prod
                     '''
                 }
                 echo '=== Fin de l\'analyse SonarQube   ==='
